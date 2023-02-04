@@ -2,9 +2,16 @@
     Property: value;
 }*/
 
+body {
+    background-image: url(backgroundimage.jpg);
+    background-size: cover;
+}
+
 h2 {
-    color: red;
-    background-color: black;
+    color: #AA4139;
+    text-align: center;
+    border: 5px solid rgba(255, 176, 170, 0.5);
+    cursor: pointer;
 }
 
 p {
@@ -13,4 +20,60 @@ p {
 
 p {
     color: green;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+*/* {
+    color: blue;
+}
+
+footer p {
+    background-color:red;
+}
+
+
+h1+h4 {
+    background-color:blue;
+}
+
+ul > li {
+    background-color:blue;
+}
+
+a[href="#"] {
+    background-color:blue;
+}
+
+selector:pseudo-class {
+    property: value;
+  }
+
+  li:first-child {
+    background-color:blue;
+}
+
+
+li:nth-child(2) {
+    background-color: teal;
+}
+
+
+button {
+    background-color: red;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+p {
+    font-size: 16px;
+}
+
+p {
+    font-size: 100px;
 }
