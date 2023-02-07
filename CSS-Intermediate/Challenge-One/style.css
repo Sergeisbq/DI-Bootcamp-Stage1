@@ -1,0 +1,31 @@
+body {
+    margin: 0px;
+    background-color: #336;
+}
+
+#nav, #content {
+    text-align: center;
+    display: inline-block;
+    height: 415px;
+    float: left;
+}
+
+#nav {
+    background-color: #b0cfff;
+    margin-left: 57px;
+    width: 176px;
+}
+
+#content {
+    background-color: #5b7fbd;
+    width: 524px;
+  }
+
+#content > ul {
+    list-style: none;
+    text-align: center;
+}
+
+h2 + ul {
+    text-align: left;    
+}
