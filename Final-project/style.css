@@ -1,13 +1,12 @@
 body {
     margin: 0px;
-    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-project/2_2.jpg);
+    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-project/2-2-2.jpg);
     background-size: cover;
     -webkit-background-size: cover;
+    height: 100%; /*dddd*/
 }
 
-img {
-    margin-left: px;
-}
+
 
 .button-container {
     margin: 0px;
@@ -44,18 +43,23 @@ img {
 
 }
 
-.titel1 {
-    display: inline-table;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: fixed;
+/*
+.title1 {
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 21%;
+    left: 30%;
+    display: flex;
+    align-self: center;
     left: 520px;
     top: 200px;
     width: 330px;
-    height: auto;
     text-align: center;
     color: rgb(66,81,87);
-    font-size: 35px;
+    font-size: 4vw;
     font-family: 'Cinzel Decorative', cursive;
     font-family: 'Cormorant Garamond', serif;
 }
+*/
+
