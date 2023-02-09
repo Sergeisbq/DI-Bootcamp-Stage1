@@ -161,7 +161,8 @@ body {
        }
 
 .endofpage {
-    display: inline-block;
+    display: flex;
+    
     color: #ddd;
     font-family: 'Cinzel Decorative', cursive;
     font-family: 'Cormorant Garamond', serif;
@@ -173,10 +174,8 @@ body {
 }
 
 .bottle {
-    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-Project-Share/141414.jpg);
-    max-width: 45%;
-}
-
-.elements {
-    display: inline-block;
+    float: right;
+    max-width: 50%;
+    
+    left: 100%;
 }
