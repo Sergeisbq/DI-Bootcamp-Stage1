@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-color: aliceblue;
+    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-project/3-3-3-3.jpeg);
     background-size: cover;
     -webkit-background-size: cover;
     height: 100%; /*dddd*/
@@ -51,24 +51,14 @@ a:visited {
 
 }
 
-.right {
-    margin-top: 7px;
-    float: right;
-    border-radius: 15px;
-}
 
-.left {
-    margin-top: 7px;
-    float: left;
-    border-radius: 15px;
-}
 
 
 
 
 
 .history {
-  width: 600px;
+  width: 300px;
   margin: auto;
   background-color: rgba(66, 81, 87, 0.55);
   
@@ -108,4 +98,51 @@ p:first-child {
 p:last-child {
   border-bottom-right-radius:0;
   border-bottom-left-radius:0;
+}
+
+.first {
+    position: absolute;
+    border: 3px solid rgb(66,81,87);
+    top: 65px;
+    left: 150px;;
+    border-radius: 15px;
+}
+
+.second {
+    position: absolute;
+    border: 3px solid rgb(66,81,87);
+    top: 340px;
+    left: 950px;;
+    border-radius: 15px;
+}
+
+.third {
+    position: absolute;
+    border: 3px solid rgb(66,81,87);
+    top: 610px;
+    left: 150px;;
+    border-radius: 15px;
+}
+
+.forth {
+    position: absolute;
+    border: 3px solid rgb(66,81,87);
+    top: 860px;
+    left: 950px;;
+    border-radius: 15px;
+}
+
+.fith {
+    position: absolute;
+    border: 3px solid rgb(66,81,87);
+    top: 1125px;
+    left: 150px;;
+    border-radius: 15px;
+}
+
+.sixth {
+    position: absolute;
+    top: 1020px;
+    left: 550px;;
+    border-radius: 15px;
 }
