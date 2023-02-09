@@ -8,7 +8,7 @@ body {
     div {
         width : 30%;
         display: inline-block;
-        background-color: aqua;
+        /*background-color: aqua;*/
     }
 }
 
@@ -16,7 +16,7 @@ body {
     div {
         width : 45%;
         display: inline-block;
-        background-color: pink;
+        /*background-color: pink;*/
     }
 }
 
@@ -24,14 +24,15 @@ body {
     div {
         width : 75%;
         display: inline-block;
-        background-color: lightgreen;
+        /*background-color: lightgreen;*/
     }
 }
 
 @media all and (max-width: 480px) { 
     div {
+        
         width : 100%;
-        background-color: yellow;
+        /*background-color: yellow;*/
     }
 }
 
@@ -67,7 +68,7 @@ body {
 .dropup-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: rgb(84, 93, 103);
     width: 100%;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -80,10 +81,16 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-size: 35px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 1s;
 }
 
 /* Change color of dropup links on hover */
-.dropup-content a:hover {background-color: #ddd}
+.dropup-content a:hover {
+    scale: 1.1;
+    background-color: rgb(64,72,79)}
 
 /* Show the dropup menu on hover */
 .dropup:hover .dropup-content {
@@ -98,17 +105,26 @@ body {
 
 
 .block {
-    background-color: rgba(65, 77, 84, 0.309);
-    max-width: 40%;
-    max-height: 450px;
-    text-align: center;
+    /*background-color: rgba(65, 77, 84, 0.309);*/
+    color: black;
+    margin-left: 350px;
+    max-width: 55%;
+    max-height: 100%;
+    position: absolute;
+    right: 0;
+    text-align: right;
     font-size: 35px;
     font-family: 'Cinzel Decorative', cursive;
     font-family: 'Cormorant Garamond', serif;
     padding: 10px;
     margin: 20px;
-    margin-top: 100px;
+    margin-top: 180px;
+    
+    
+    
 }
+
+
 
 /*.title {
     font-size: 55px;
@@ -121,7 +137,7 @@ body {
     /*display: flex;
     justify-content: center;
     align-items: center;*/
-    margin-top: 110px;
+    margin-top: 80px;
     height: 100vh;
     font-size: clamp(2rem, 2.8vw, 5rem);
     font-family: 'Cinzel Decorative', cursive;
@@ -135,9 +151,14 @@ body {
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
+      margin-left: 10%;
       border-right: 4px solid #212121;
       animation: cursor 1s step-start infinite, text 5s steps(27, end), blink-caret .65s step-end infinite;
       /*animation: text 5s steps(27, end), step-end infinite;*/
+  }
+
+  .typewriter.hide {
+    opacity: 5s;
   }
   
   @keyframes cursor {
@@ -162,20 +183,35 @@ body {
 
 .endofpage {
     display: flex;
-    
     color: #ddd;
     font-family: 'Cinzel Decorative', cursive;
     font-family: 'Cormorant Garamond', serif;
-    background-color: rgba(150, 116, 98, 0.687);
-    max-width: 50%;
-    max-height: 50%;
-    margin-left: 15px;
+    /*background-color: rgba(150, 116, 98, 0.687);*/
+    /*max-width: 100%;
+    max-height: 100%;*/
+    margin-left: 25%;
+    margin-right: 25%;
     font-size: 25px;
+    text-align: right;
+    
+    margin-bottom: 5%;
 }
+
+
 
 .bottle {
     float: right;
-    max-width: 50%;
+    max-height: 100%;
+    transition: all 1s;
     
-    left: 100%;
+    
+}
+
+.endofpage1 {
+    margin-top: 25%;
+    
+}
+
+.bottle:hover {
+    scale: 1.1;
 }
