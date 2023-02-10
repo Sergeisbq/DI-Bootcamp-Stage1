@@ -62,4 +62,34 @@ img {
   border: 3px solid black;
 }
 
+footer {
+  display: grid;
+  grid-template-columns: auto 0px; 
+}
+
+.top {
+  --offset: 50px; 
+
+  position: sticky;
+  bottom: 20px;      
+  margin-right: 10px; 
+  place-self: end;
+  margin-top: calc(0vh + var(--offset));
+
+  /* visual styling */
+  width: 45px;
+  aspect-ratio: 1;
+  background: #ff8b24;
+  border-radius: 10px;
+}
+
+.top:before {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  transform: translateY(20%) rotate(-45deg);
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
+}
+
 
