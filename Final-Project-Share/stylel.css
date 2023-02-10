@@ -104,7 +104,33 @@ body {
     scale: 1.2;
 }
 
+.content {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    /*background-color: rgba(150, 116, 98, 0.687);*/
+    /*max-width: 100%;
+    max-height: 100%;*/
+    height: 550px;
+    width: 700px;
+    font-size: 25px;
+    text-align: left;
+    border: 3px solid white;
+    
+}
 
+.content2 {
+    display: inline-block;
+    
+}
+
+.ship {
+    
+      
+    border: 3px dashed rgb(64,72,79);
+}
   
   
   
