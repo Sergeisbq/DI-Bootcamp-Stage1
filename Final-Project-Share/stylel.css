@@ -105,7 +105,7 @@ body {
 }
 
 .content {
-    display: inline-block;
+    
     background-color: #000000;
     color: #ffffff;
     font-family: 'Cinzel Decorative', cursive;
@@ -113,24 +113,31 @@ body {
     /*background-color: rgba(150, 116, 98, 0.687);*/
     /*max-width: 100%;
     max-height: 100%;*/
-    height: 550px;
-    width: 700px;
+    height: 350px;
+    width: 500px;
     font-size: 25px;
-    text-align: left;
+    text-align: center;
     border: 3px solid white;
+    margin-top: 115px;
+    margin-left: 85px;
     
 }
 
 .content2 {
-    display: inline-block;
+    margin-top: 100px;
+    
+    
     
 }
 
 .ship {
-    
-      
     border: 3px dashed rgb(64,72,79);
 }
   
-  
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+    
+  }
   
