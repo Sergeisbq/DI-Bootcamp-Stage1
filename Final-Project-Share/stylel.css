@@ -187,17 +187,13 @@ body {
     color: white;
 }
   
-.fa-youtube:hover {
-    
-}
-  
 
 .social2 {
-    font-size: 55px;
+    font-size: 40px;
     margin-top: 300px;
     margin-left: 50px;
     text-align: center;
-    color: white;
+    color: rgb(252, 245, 245);
 }
 
 .social3 {

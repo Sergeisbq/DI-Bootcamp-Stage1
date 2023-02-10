@@ -6,24 +6,32 @@ body {
 
 @media all and (min-width: 1024px) and (max-width: 1280px) {
     div {
-        width : 30%;
-        display: inline-block;
+        width : 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /*display: inline-block;*/
         /*background-color: aqua;*/
     }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) { 
     div {
-        width : 45%;
-        display: inline-block;
-        /*background-color: pink;*/
+        width : 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /*display: inline-block;
+        background-color: pink;*/
     }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
     div {
-        width : 75%;
-        display: inline-block;
+        width : 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         /*background-color: lightgreen;*/
     }
 }
@@ -32,6 +40,9 @@ body {
     div {
         
         width : 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         /*background-color: yellow;*/
     }
 }
