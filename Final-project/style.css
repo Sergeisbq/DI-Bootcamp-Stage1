@@ -1,120 +1,180 @@
 body {
     margin: 0px;
-    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-project/2-2-2.jpg);
+    background-image: url(media/img/2.gif);
     background-size: cover;
-    -webkit-background-size: cover;
-    height: 100%; /*dddd*/
 }
 
-
-
-.button-container {
-    margin: 0px;
-    padding-top: 2px;
-    width: auto;
-    height: 50px;
-    background-color: rgba(79, 95, 92, 0.642);
-    border: 2px solid rgb(66,75,59);
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    div {
+        width : 30%;
+        display: inline-block;
+    }
 }
 
-.bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: -1px;
-    
+@media all and (min-width: 768px) and (max-width: 1024px) { 
+    div {
+        width : 45%;
+        display: inline-block;
+    }
 }
 
-a {
-    text-align: center;
-    text-decoration: none;
-    margin-left: 15px;
-    margin-right: 45px;
-    line-height: 50px;
-    color: rgb(23, 24, 23);
-    width: 100px;
-    height: 50px;
-    font-size: 25px;
-    font-family: 'Cinzel Decorative', cursive;
-    font-family: 'Cormorant Garamond', serif;
-    border: 0;
-    border-radius: 25px;
-    background-color: rgba(66, 75, 59, 0.244);
-    transition: all 1s;
+@media all and (min-width: 480px) and (max-width: 768px) {
+    div {
+        width : 75%;
+        display: inline-block;
+    }
 }
 
-a:visited {
-    color: rgb(103, 79, 142);
+@media all and (max-width: 480px) { 
+    div {
+        width : 100%;
+    }
 }
-
-.button:hover {
-    transform: scale(1.15);
-
-}
-
-/*
-.title1 {
-    max-height: 100%;
-    max-width: 100%;
-    position: absolute;
-    top: 21%;
-    left: 30%;
-    display: flex;
-    align-self: center;
-    left: 520px;
-    top: 200px;
-    width: 330px;
-    text-align: center;
-    color: rgb(66,81,87);
-    font-size: 4vw;
-    font-family: 'Cinzel Decorative', cursive;
-    font-family: 'Cormorant Garamond', serif;
-}
-*/
 
 .dropbtn {
-    background-color: rgba(79, 95, 92, 0.642);
+    background-color: rgba(79, 95, 92, 0.225);
     border: 2px solid rgb(66,75,59);
     color: white;
     padding: 16px;
     font-size: 22px;
     border-radius: 7px;
     width: 100%;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 1s;
 }
 
-/* The container <div> - needed to position the dropup content */
 .dropup {
     position: relative;
     display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-/* Dropup content (Hidden by Default) */
 .dropup-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: rgb(84, 93, 103);
+    width: 100%;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
-/* Links inside the dropup */
 .dropup-content a {
-    color: black;
+    color: rgba(0, 0, 0, 0.903);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-radius: 15px;
+    font-size: 35px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 1s;
 }
 
-/* Change color of dropup links on hover */
-.dropup-content a:hover {background-color: #ddd}
+.dropup-content a:hover {
+    scale: 1.1;
+    background-color: rgb(64,72,79)}
 
-/* Show the dropup menu on hover */
 .dropup:hover .dropup-content {
     display: block;
 }
 
-/* Change the background color of the dropup button when the dropup content is shown */
 .dropup:hover .dropbtn {
-    background-color: #2b442c;
+    background-color: rgb(64,72,79);
+    scale: 1.2;
 }
+
+.block {
+    color: black;
+    margin-left: 350px;
+    max-width: 55%;
+    max-height: 100%;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    font-size: 35px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 180px;
+}
+
+.container {
+    margin-top: 80px;
+    height: 100vh;
+    font-size: clamp(2rem, 2.8vw, 5rem);
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif; 
+}
+  
+.typewriter {
+    width: 32ch;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 10%;
+    border-right: 4px solid #212121;
+    animation: cursor 1s step-start infinite, text 5s steps(27, end), blink-caret .65s step-end infinite;
+}
+
+.typewriter.hide {
+    opacity: 5s;
+}
+  
+@keyframes cursor {
+    0%, 100% { 
+    border-color: #212121; 
+    }
+}
+  
+@keyframes text {
+    0% { 
+    width: 0; 
+    }
+    100% { 
+    width: 32ch; 
+    }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: rgb(66,75,59) }
+    50% { border-color: transparent; }
+}
+
+.endofpage {
+    display: flex;
+    color: #ddd;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 25px;
+    text-align: right;
+    margin-bottom: 5%;
+}
+
+.endofpage1 {
+    margin-top: 25%;
+}
+
+.bottle {
+    float: right;
+    max-height: 100%;
+    transition: all 1s;  
+}
+
+.bottle:hover {
+    scale: 1.1;
+}
+
+
+
+
+
+
+
