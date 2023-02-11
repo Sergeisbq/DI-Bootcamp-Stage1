@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-image: url(/Users/sergeiboiko/Study/DI-Bootcamp-Stage1/Final-Project-Share/876987.jpg);
+    background-image: url(media/img/3.jpg);
     background-size: cover;
 }
 
@@ -8,7 +8,6 @@ body {
     div {
         width : 30%;
         display: inline-block;
-        /*background-color: aqua;*/
     }
 }
 
@@ -16,7 +15,6 @@ body {
     div {
         width : 45%;
         display: inline-block;
-        /*background-color: pink;*/
     }
 }
 
@@ -24,21 +22,16 @@ body {
     div {
         width : 75%;
         display: inline-block;
-        /*background-color: lightgreen;*/
     }
 }
 
 @media all and (max-width: 480px) { 
     div {
-        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         width : 100%;
-        /*background-color: yellow;*/
     }
-}
-
-.top-panel {
-    width: 100%;
-    
 }
 
 .dropbtn {
@@ -54,7 +47,6 @@ body {
     transition: all 1s;
 }
 
-/* The container <div> - needed to position the dropup content */
 .dropup {
     position: relative;
     display: inline-block;
@@ -64,7 +56,6 @@ body {
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* Dropup content (Hidden by Default) */
 .dropup-content {
     display: none;
     position: absolute;
@@ -75,7 +66,6 @@ body {
     z-index: 1;
 }
 
-/* Links inside the dropup */
 .dropup-content a {
     color: rgba(0, 0, 0, 0.903);
     padding: 12px 16px;
@@ -88,63 +78,25 @@ body {
     transition: all 1s;
 }
 
-/* Change color of dropup links on hover */
 .dropup-content a:hover {
     scale: 1.1;
-    background-color: rgb(64,72,79)}
+    background-color: rgb(64,72,79)
+}
 
-/* Show the dropup menu on hover */
 .dropup:hover .dropup-content {
     display: block;
 }
 
-/* Change the background color of the dropup button when the dropup content is shown */
 .dropup:hover .dropbtn {
     background-color: rgb(64,72,79);
     scale: 1.2;
 }
-
-
-/*.content {
-    
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Cinzel Decorative', cursive;
-    font-family: 'Cormorant Garamond', serif;
-    /*background-color: rgba(150, 116, 98, 0.687);*/
-    /*max-width: 100%;
-    max-height: 100%;
-    height: 350px;
-    width: 500px;
-    font-size: 25px;
-    text-align: center;
-    border: 3px solid white;
-    margin-top: 115px;
-    margin-left: 85px;
-    
-}
-
-.content2 {
-    margin-top: 100px;
-    
-    
-    
-}*/
-
-/*.ship {
-    border: 3px dashed rgb(64,72,79);
-}*/
   
 .container {
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: center;*/
-    
-  }
+}
 
-
-
-  /* Style all font awesome icons */
 .fa {
     padding: 20px;
     font-size: 30px;
@@ -152,29 +104,16 @@ body {
     text-align: center;
     text-decoration: none;
 }
-  
-  /* Add a hover effect if you want */
-  /*.fa:hover {
-    color: pink;
-    opacity: 0.7;
-  }*/
-  
-  /* Set a specific color for each brand */
-  
-  /* Facebook */
+
 .fa-facebook {
-    /*background: #000000;*/
     color: white;
 }
   
 .fa-facebook:hover {
     color: white;
 }
-  
-  
-  /* Twitter */
+
 .fa-instagram {
-    /*background: #000000;*/
     color: white;
 }
   
@@ -183,11 +122,9 @@ body {
 }
   
 .fa-youtube {
-    /*background: #000000;*/
     color: white;
 }
   
-
 .social2 {
     font-size: 40px;
     margin-top: 300px;
@@ -197,12 +134,10 @@ body {
 }
 
 .social3 {
-    /*margin-left: 220px;*/
     text-align: center;
 }
 
 .social4 {
-    
     transition: all 1s;
 }
 
