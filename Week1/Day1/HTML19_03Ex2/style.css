@@ -1,0 +1,41 @@
+body {
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+span {
+    background-color: yellow;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+ol {
+    list-style: upper-roman;
+}
+
+h5 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.img1 {
+    height: 400px;
+    width: 600px;
+    
+}
+
+.box {
+    border: 2px solid red;
+    color: red;
+    text-align: center;
+    
+    
+}
+
+table, td, th {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+}
