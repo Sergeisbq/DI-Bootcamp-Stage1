@@ -1,0 +1,85 @@
+span {
+    text-decoration: underline;
+    font-style: italic;
+}
+table, td, th {
+    border: 1px solid red;
+}
+div p {
+    background-color: yellow;
+}
+
+.paragraph {
+    
+    background-color: #aef3d1;
+    border: 3px solid #2bae75;
+    padding: 10px 5px 20px 20px;
+    line-height: 35px;
+    
+    
+}
+
+.box {
+    height: 200px;
+    width: 800px;
+}
+
+.flag {
+    
+    font-size: 0px;
+    border: 1px solid black;
+    height: 30px;
+    width: 60px;
+}
+
+.white {
+    display: inline-block;
+    height: 30px;
+    width: 20px;
+    background-color: white;
+}
+
+.blue {
+    display: inline-block;
+    height: 30px;
+    width: 20px;
+    background-color: blue;
+}
+
+.red {
+    display: inline-block;
+    height: 30px;
+    width: 20px;
+    background-color: red;
+}
+
+
+
+
+
+.container {
+    position: absolute;
+    background-color: rgb(133, 142, 169);
+    border: 3px solid grey;
+    height: 100px;
+    width: 400px;
+}
+
+.bluebox {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background-color: rgb(73, 115, 230);
+    
+    height: 70px;
+    width: 70px;
+}
+
+.yellowbox {
+    position: relative;
+    background-color: rgb(229, 168, 37);
+    top: 5px;
+    left: 5px;
+    height: 70px;
+    width: 70px;
+}
