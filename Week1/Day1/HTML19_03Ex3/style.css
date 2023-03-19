@@ -1,0 +1,151 @@
+body {
+    background-image: url("image1.jpg");
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Tilt Warp', cursive;
+    
+    
+}
+
+.container {
+    background-color: #6a808fc3;
+    height: 65px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    
+}
+
+.logo {
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    left: 200px;
+    font-size: 30px;
+    
+
+}
+
+.btn {
+    display: inline-block;
+    height: 35px;
+    width: 100px;
+    position: relative;
+    top: 10px;
+    left: 830px;
+    background-color: rgb(49, 49, 238);
+    color: white;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 0px;
+}
+
+h2 {
+    position: absolute;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    top: 365px;
+    left: 570px;
+    font-size: 36px;
+    
+
+}
+
+.middleblock {
+    position: absolute;
+    top: 500px;
+    left: 380px;
+    height: 50px;
+    width: 750px;
+    
+}
+
+.btn2 {
+    display: inline-block;
+    height: 30px;
+    width: 120px;
+    position: relative;
+    left: 660px;
+    top: -21px;
+    background-color: rgb(49, 49, 238);
+    color: white;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 0px;
+}
+
+.searching {
+    display: inline-block;
+    height: 30px;
+    width: 640px;
+    top: 10px;
+    position: relative;
+    border-radius: 8px;
+    border: 0px;
+    font-size: 15px;
+    text-align: right;
+}
+
+.container2 {
+    background-color: #6a808fc3;
+    height: 185px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0px;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.fa-solid {
+    position: relative;
+
+    margin-top: 10px;
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    position: relative;
+    text-align: center;
+    
+}
+
+.box1 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+
+.box2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+
+.box3 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    
+    
+}
+
+p {
+    margin-top: -5px;
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'News Cycle', sans-serif;  
+}
