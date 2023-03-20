@@ -1,0 +1,60 @@
+body {
+    margin: 0px;
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Tilt Warp', cursive;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    /* text-align: center;  */
+    
+}
+
+i {
+    display: inline-block;
+    position: relative;
+    margin-top: 0px;
+    top: 5px;
+    left: 2%;
+    font-size: 50px;
+    color: white; 
+    
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    margin-top: 0px;
+    top: 5px;
+    left: 70%;
+    font-size: 50px;
+    color: white; 
+    
+    text-decoration: none;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center; 
+}
+
+p {
+    display: inline-block;
+    position: relative;
+    
+    font-size: 20px;
+    color: white; 
+}
