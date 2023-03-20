@@ -73,7 +73,7 @@ span {
     display: inline;
     position: relative;
     text-align: center;
-    bottom: 250px;
+    bottom: 200px;
 }
 
 i {
@@ -98,12 +98,76 @@ i {
     background-color: rgb(90, 181, 90);
 }
 
+.pop2 {
+    display: none;
+    color: white;
+    background-color: black;
+    width: 160px;
+    height: 30px;
+    text-align: center;
+    padding-top: 7px;
+    border: 1px solid green;
+    border-radius: 5px;
+    
+}
+
+.fa-bag-shopping:hover  .pop2 {
+    display: inline;
+    position: absolute;
+    bottom: 50px;
+    left: -60px;
+    font-size: 20px;
+}
+
+
 .fa-heart:hover  {
     background-color: rgb(90, 181, 90);
 }
 
+.pop1 {
+    display: none;
+    color: white;
+    background-color: black;
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    padding-top: 7px;
+    border: 1px solid green;
+    border-radius: 5px;
+    
+}
+
+.fa-heart:hover  .pop1 {
+    display: inline;
+    position: absolute;
+    bottom: 50px;
+    left: 45px;
+    font-size: 20px;
+}
+
 .fa-bars:hover  {
     background-color: rgb(90, 181, 90);
+}
+
+.pop3 {
+    display: none;
+    color: white;
+    background-color: black;
+    width: 220px;
+    height: 30px;
+    text-align: center;
+    padding-top: 7px;
+    border: 1px solid green;
+    border-radius: 5px;
+    
+}
+
+.fa-bars:hover  .pop3 {
+    display: inline;
+    position: absolute;
+    bottom: 50px;
+    left: -140px;
+    font-size: 20px;
 }
 
 .image {
