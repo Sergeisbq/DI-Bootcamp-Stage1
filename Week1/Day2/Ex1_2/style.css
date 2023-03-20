@@ -1,0 +1,15 @@
+p {
+    
+    font-size: 250px;
+}
+
+.hid {
+    display: none;
+    
+}
+
+.hid:hover {
+    display: block;
+    
+}
+

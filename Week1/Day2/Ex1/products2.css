@@ -6,7 +6,7 @@ body {
 }
 
 img {
-    position: relative;
+    
     width: 300px;
     height: auto;
 }
@@ -15,9 +15,8 @@ img {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
-    
+    padding: 20px;
+    margin: 20px;
 }
 
 .crossprice {
@@ -45,72 +44,39 @@ span {
     border: 2px solid rgb(80, 77, 77);
 }
 
-.btn:hover {
-    background-color: rgb(90, 181, 90);
-}
-
 .hidden {
     display: none;   
-}
-
-.image:hover .hidden {
-    display: inline; 
-}
-
-.shadow {
-    display: inline-block;
-    width: 320px;
-    height: 450px;
-    padding: 20px;
-
-}
-
-.shadow:hover .box {
-    box-shadow: 0px 8px 16px 0px rgb(90, 181, 90);
+    
 }
 
 .whentouch {
-    display: inline;
     position: relative;
-    text-align: center;
     bottom: 250px;
+    opacity: 0;
+    transition: all 400ms ease-out;
 }
 
 i {
-    position: relative;
+    display: inline-block;
+    text-align: center;
     background-color: rgb(255, 255, 255);
     font-size: 30px;
     padding: 10px;
     border: 1px solid green;
     border-radius: 5px;
-    left: 70px;
 }
 
 .fa-bag-shopping {
-    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    background-color: rgb(90, 181, 90);
     font-size: 30px;
     padding: 10px;
     border: 1px solid green;
     border-radius: 5px;
 }
 
-.fa-bag-shopping:hover {
-    background-color: rgb(90, 181, 90);
-}
-
-.fa-heart:hover  {
-    background-color: rgb(90, 181, 90);
-}
-
-.fa-bars:hover  {
-    background-color: rgb(90, 181, 90);
-}
-
-.image {
-    width: 300px;
-    height: 385px;
+.image .whentouch:hover {
+    display: inline-block;
+    opacity: 1;
 }
   
-.container {
-    padding-bottom: 80px;
-}
