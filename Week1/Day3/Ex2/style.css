@@ -1,120 +1,22 @@
-/* .wrapper {
-    display: grid;
-    
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(10, 100px);
-    gap: 10px 20px;
+.p {
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+}
 
-} */
-
-.wrapper {
+.container {
     display: flex;
-}
 
-div {
-    /* border: 1px solid black; */
-}
-
-.left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 120px;
-    height: 500px;
-    text-align: center;
     
-}
 
-.box1 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    
-}
-
-.box2 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.box3 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.box4 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.middle {
-    width: 1300px;
-    height: 500px;
-    display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-    align-items: center;
-}
+    flex-wrap: wrap;
+    align-content: space-around;
 
-.box5 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
+    /* flex-flow: column wrap; */
+    height: 100%;
 
-.box6 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
+    justify-content: center;
 
-.box7 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.box8 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 120px;
-    height: 500px;
-    text-align: center;
-    
-}
-
-.box9 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    
-}
-
-.box10 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.box11 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-}
-
-.box12 {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    /* align-items: center; */
 }
