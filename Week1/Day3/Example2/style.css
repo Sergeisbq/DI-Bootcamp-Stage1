@@ -1,0 +1,7 @@
+.wrapper {
+    display: grid;
+}
+
+div {
+    border: 1px solid black;
+}
