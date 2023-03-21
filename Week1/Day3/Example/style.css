@@ -7,30 +7,46 @@
 .container {
     display: flex;
 
-    /* flex-direction: column; */
+    flex-direction: column;
 
-    /* flex-direction: row;
-    flex-wrap: wrap; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    align-content: space-around;
 
-    /* flex-flow: column wrap;
-    height: 500px; */
+    /* flex-flow: column wrap; */
+    height: 100%;
 
-    /* justify-content: space-evenly; */
+    justify-content: center;
 
     /* align-items: center; */
 }
 
+p {
+    /* flex-grow: ; */
+    /* flex-basis: 500px; */
+}
+
 .p1 {
+    /* align-items: stretch; */
     /* align-self: flex-start; */
     /* flex: flex grow, flex shrink, basis; */
-    flex: 1 0 0;
+    width: 80%;
+    align-self: center;
+    
+    
 }
 
 .p2 {
+    
     /* order: -1; */
-    flex: 1;
+    /* flex: 1; */
+    width: 100%;
+
+    
 }
 
 .p3 {
+    width: 80%;
+    align-self: center;
     
 }
