@@ -1,8 +1,8 @@
 .wrapper {
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr; */
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 100px);
     gap: 10px 20px;
     /* justify-items: end; */
     /* align-items: end; */
@@ -13,58 +13,66 @@ div {
 }
 
 .box1 {
-    background-color: rgb(255, 145, 0);
+    background-color: rgb(76, 138, 180);
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: 1;
-    grid-column-end: 1;
+    grid-column-end: 6;
     /* grid-area: 1/ 1/ 4/ 1/; */
 }
 
 .box2 {
-    background-color: rgb(60, 0, 255);
-    grid-row-start: 1;
-    grid-column-start: 2;
-    grid-row-end: 1;
-    grid-column-end: 5;
+    background-color: rgb(133, 118, 185);
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 3;
 }
 
 .box3 {
-    background-color: rgb(255, 145, 0);
+    background-color: rgb(176, 160, 38);
     grid-row-start: 2;
-    grid-column-start: 1;
-    grid-row-end: 2;
-    grid-column-end: 1;
+    grid-column-start: 3;
+    grid-row-end: 6;
+    grid-column-end: 6;
 }
 
 .box4 {
-    background-color: rgb(60, 0, 255);
-    grid-row-start: 2;
-    grid-column-start: 2;
-    grid-row-end: 2;
-    grid-column-end: 5;
+    background-color: rgb(113, 155, 71);
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-row-end: 9;
+    grid-column-end: 3;
 }
 
 .box5 {
-    background-color: rgb(255, 145, 0);
-    grid-row-start: 3;
-    grid-column-start: 1;
-    grid-row-end: 3;
-    grid-column-end: 1;
+    background-color: rgb(79, 73, 64);
+    grid-row-start: 6;
+    grid-column-start: 3;
+    grid-row-end: 9;
+    grid-column-end: 6;
 }
 
 .box6 {
-    background-color: rgb(60, 0, 255);
-    grid-row-start: 3;
-    grid-column-start: 2;
-    grid-row-end: 3;
-    grid-column-end: 5;
+    background-color: rgb(28, 130, 81);
+    grid-row-start: 9;
+    grid-column-start: 1;
+    grid-row-end: 10;
+    grid-column-end: 4;
 }
 
 .box7 {
-    background-color: rgb(0, 255, 47);
-    grid-row-start: 4;
+    background-color: rgb(121, 77, 125);
+    grid-row-start: 9;
+    grid-column-start: 4;
+    grid-row-end: 10;
+    grid-column-end: 6;
+}
+
+.box8 {
+    background-color: rgb(207, 153, 15);
+    grid-row-start: 10;
     grid-column-start: 1;
-    grid-row-end: 4;
-    grid-column-end: 5;
+    grid-row-end: 11;
+    grid-column-end: 6;
 }

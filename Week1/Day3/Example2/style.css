@@ -19,6 +19,7 @@ div {
     grid-row-end: 1;
     grid-column-end: 1;
     /* grid-area: 1/ 1/ 4/ 1/; */
+    /* grid-column: 1/ span 3; */
 }
 
 .box2 {
