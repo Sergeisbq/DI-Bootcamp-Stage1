@@ -1,12 +1,16 @@
 body {
     background-color: rgba(250,247,241,255);
+    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'News Cycle', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .wrapper {
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 400px);
+    grid-template-rows: repeat(3, 450px);
     gap: 10px 20px;
     /* justify-items: end; */
     /* align-items: end; */
@@ -23,7 +27,7 @@ div {
 
 img {
     margin-left: 130px;
-    border: 2px solid rgba(237,230,219,255);
+    border: 3px solid rgba(237,230,219,255);
 }
 
 .box1 {
