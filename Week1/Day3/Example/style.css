@@ -1,0 +1,36 @@
+.p {
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+}
+
+.container {
+    display: flex;
+
+    /* flex-direction: column; */
+
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+
+    /* flex-flow: column wrap;
+    height: 500px; */
+
+    /* justify-content: space-evenly; */
+
+    /* align-items: center; */
+}
+
+.p1 {
+    /* align-self: flex-start; */
+    /* flex: flex grow, flex shrink, basis; */
+    flex: 1 0 0;
+}
+
+.p2 {
+    /* order: -1; */
+    flex: 1;
+}
+
+.p3 {
+    
+}
