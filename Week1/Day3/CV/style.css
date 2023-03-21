@@ -16,6 +16,13 @@ body {
     /* align-items: end; */
 }
 
+.cont1 {
+    padding: 5px;
+}
+
+.fa-regular, .fa-brands {
+    margin-right: 10px;
+}
 
 .uni, .cont {
     list-style: none;
