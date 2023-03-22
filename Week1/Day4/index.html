@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-expand-md bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand text-warning" href="#">Navbar</a>
@@ -23,6 +24,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">People<span class="badge bg-secondary">5</span></a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -34,16 +38,58 @@
                   <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" type="search" placeholder="Email" aria-label="Search">
+              <input class="form-control me-2" type="search" placeholder="Password" aria-label="Search">
+              <button class="btn btn-outline-warning text-warning" type="submit" style="width: 150px;">Sign in</button>
             </form>
           </div>
         </div>
       </nav>
+      <main>
+        <div class="jumbotron bg-body-secondary">
+          <h1 class="display-4 offset-md-1 mt-2">Hello, world!</h1>
+          <p class="lead offset-md-1">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr class="my-4 offset-md-1">
+          <p class="offset-md-1">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg offset-md-1 mb-3" href="#" role="button">Learn more</a>
+          </p>
+        </div>
+        <div class="container text-center">
+          <div class="row align-items-start">
+            <div class="col mt-5">
+              <h4 class="text-start">One of three columns</h4>
+              <p class="text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut, eaque excepturi debitis possimus, odit doloribus sint porro veritatis placeat dolorum. Praesentium ipsam pariatur vero saepe ex placeat, nobis sint.</p>
+              <p class="text-start"><a class="btn btn-outline-secondary mb-3" href="#" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
+                <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z"/>
+              </svg>
+              Learn more</a></p>
+            </div>
+            <div class="col mt-5">
+              <h4 class="text-start">One of three columns</h4>
+              <p class="text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut, eaque excepturi debitis possimus, odit doloribus sint porro veritatis placeat dolorum. Praesentium ipsam pariatur vero saepe ex placeat, nobis sint.</p>
+              <p class="text-start"><a class="btn btn-outline-secondary mb-3" href="#" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bootstrap" viewBox="0 0 16 16">
+                  <path d="M5.062 12h3.475c1.804 0 2.888-.908 2.888-2.396 0-1.102-.761-1.916-1.904-2.034v-.1c.832-.14 1.482-.93 1.482-1.816 0-1.3-.955-2.11-2.542-2.11H5.062V12zm1.313-4.875V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377H6.375z"/>
+                  <path d="M0 4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4zm4-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3H4z"/>
+                </svg>
+                Learn more</a></p>
+            </div>
+            <div class="col mt-5">
+              <h4 class="text-start">One of three columns<span class="badge bg-primary">NEW</span></h4>
+              <p class="text-start">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut, eaque excepturi debitis possimus, odit doloribus sint porro veritatis placeat dolorum. Praesentium ipsam pariatur vero saepe ex placeat, nobis sint.</p>
+              <p class="text-start"><a class="btn btn-outline-secondary mb-3" href="#" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box2-heart" viewBox="0 0 16 16">
+                  <path d="M8 7.982C9.664 6.309 13.825 9.236 8 13 2.175 9.236 6.336 6.31 8 7.982Z"/>
+                  <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5Zm0 1H7.5v3h-6l2.25-3ZM8.5 4V1h3.75l2.25 3h-6ZM15 5v10H1V5h14Z"/>
+                </svg>
+                Learn more</a></p>
+            </div>
+          </div>
+        </div>
+      </main>
 </body>
 </html>
