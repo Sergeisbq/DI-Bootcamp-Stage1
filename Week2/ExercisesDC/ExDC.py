@@ -12,7 +12,10 @@ else:
 
 
 for i in range(len(string)):
-    new_str = list(string)
-    random.shuffle(new_str)
-    result = ''.join(new_str)
-    print(result[:i+1])
+    print(string[:i+1])
+
+
+new_list = list(string)
+random.shuffle(new_list)
+result = ''.join(new_list)
+print(result)
