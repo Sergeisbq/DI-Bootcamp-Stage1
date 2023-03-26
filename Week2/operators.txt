@@ -1,0 +1,24 @@
+'+' - addition (1+1)
+
+'-' - substraction (2-1)
+
+'*' - multiplication (2*2)
+
+'/' - division (4/2)
+
+'%' - modulo (10 % 5 -> 0, 14 % 5 -> 4)
+
+'**' - power (5 ** 2 -> 25)
+
+'<' - less than
+
+'>' - greater than
+
+'==' - equal
+
+'!=' - not equal
+
+'<=' less or equal
+
+'>=' greater or equal
+

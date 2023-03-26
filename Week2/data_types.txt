@@ -1,0 +1,16 @@
+Numerical types
+
+Integer - whole number (positive and negative)
+1, 10, 10000
+
+Float - floating number (positive and negative, with remainer)
+0.5, 105.232
+
+Boolean ('bool')
+True
+False
+
+---
+
+Strings ('str')
+
