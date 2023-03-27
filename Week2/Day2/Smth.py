@@ -43,11 +43,56 @@
 #   finished_sandwiches.append(sandwiches_inprogress)
 #   print(f'I made your {sandwiches_inprogress}')
 
-sandwich_orders = ["Tuna sandwich", "Pastrami sandwich", "Avocado sandwich", "Pastrami sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
+# sandwich_orders = ["Tuna sandwich", "Pastrami sandwich", "Avocado sandwich", "Pastrami sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
 
-print('The deli has run out of pastrami')
-while "Pastrami sandwich" in sandwich_orders:
-  sandwich_orders.remove("Pastrami sandwich")
-print(sandwich_orders)
+# print('The deli has run out of pastrami')
+# while "Pastrami sandwich" in sandwich_orders:
+#   sandwich_orders.remove("Pastrami sandwich")
+# print(sandwich_orders)
 
+# result = []
+# number = input("Type a number: ")
+# value = int(number)
+# length = input("Type a multiplier: ")
+# multiplier = int(length)
+# j = 0
+# i = int(j)
+
+# while i < multiplier:
+#   result.append(value * (i+1))
+#   i+=1
+# print(result)
+
+
+
+# for i in range(len(newlist)):
+#     if [i] == [i+1]:
+#         del newlist[i+1]
+#         i += i
+# print(newlist)
+
+# somestr = input("Type a text: ")
+# newlist = list(somestr)
+
+
+# i = 0
+# while i < len(newlist) - 1:
+#     if newlist[i] == newlist[i+1]:
+#         del newlist[i]
+#     else:
+#         i += i
+# print(newlist)
+
+
+somestr = input("Type a text: ")
+newlist = list(somestr)
+i = 0
+
+while i < len(newlist) - 1:
+    if newlist[i] == newlist[i+1]:
+        del newlist[i]
+    else:
+        i += 1
+
+print(newlist)
 
