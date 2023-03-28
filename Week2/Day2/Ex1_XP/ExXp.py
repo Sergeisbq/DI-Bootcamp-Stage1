@@ -93,6 +93,23 @@ while True:
 print(f"{counter_2}$")
 
 
+teenagers = []
+list_in_progress = []
+allow_list = []
+while True:
+    teenagers=input('Type your name (when finish, type quit): ')
+    list_in_progress.append(teenagers)
+    if teenagers == 'quit':
+        break
+    
+for name in list_in_progress:
+    age=int(input(f'{name}, type your age (when finish, type 0): '))
+    if 16 <= age <= 21:
+        allow_list.append(name)
+
+print(f'teens right age:', allow_list)
+
+
 sandwich_orders = ["Tuna sandwich", "Avocado sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
 finished_sandwiches = []
 

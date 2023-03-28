@@ -84,15 +84,38 @@
 # print(newlist)
 
 
-somestr = input("Type a text: ")
-newlist = list(somestr)
-i = 0
+# age = 0
+# teenagers = []
+# allow = []
+# while True:
+#     teenagers=input("Type your name (when finish, type 'quit'): ")
+#     print(teenagers)
+#     if teenagers == 'quit':
+#         break
+#     else:
+#         for name in teenagers:
+#             age=int(input('Write your age: '))
+#     if 16 <= age <= 21:
+#         allow.append(name) 
+# print(f'teenagers right age:', allow)
 
-while i < len(newlist) - 1:
-    if newlist[i] == newlist[i+1]:
-        del newlist[i]
-    else:
-        i += 1
 
-print(newlist)
+
+teenagers = []
+list_in_progress = []
+allow_list = []
+while True:
+    teenagers=input('Type your name (when finish, type quit): ')
+    list_in_progress.append(teenagers)
+    if teenagers == 'quit':
+        break
+    
+for name in list_in_progress:
+    age=int(input(f'{name}, type your age (when finish, type 0): '))
+    if 16 <= age <= 21:
+        allow_list.append(name)
+
+print(f'teens right age:', allow_list)
+
+
 
