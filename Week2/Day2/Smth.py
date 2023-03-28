@@ -101,21 +101,38 @@
 
 
 
-teenagers = []
-list_in_progress = []
-allow_list = []
-while True:
-    teenagers=input('Type your name (when finish, type quit): ')
-    list_in_progress.append(teenagers)
-    if teenagers == 'quit':
-        break
+# teenagers = []
+# list_in_progress = []
+# allow_list = []
+# while True:
+#     teenagers=input('Type your name (when finish, type quit): ')
+#     list_in_progress.append(teenagers)
+#     if teenagers == 'quit':
+#         break
     
-for name in list_in_progress:
-    age=int(input(f'{name}, type your age (when finish, type 0): '))
-    if 16 <= age <= 21:
-        allow_list.append(name)
+# for name in list_in_progress:
+#     age=int(input(f'{name}, type your age (when finish, type 0): '))
+#     if 16 <= age <= 21:
+#         allow_list.append(name)
 
-print(f'teens right age:', allow_list)
+# print(f'teens right age:', allow_list)
 
 
+teenagers = ['Adam', 'Roy', 'Billy']
+teenagers_info = []
+
+for teenager in teenagers:
+   age = input(f"Hi {teenager}, what's your age? ")
+   age_int = int(age)
+   info = teenager, age_int
+   teenagers_info.append(info)
+
+allow = []
+for name, age in teenagers_info:
+   if 16 < age < 21:
+      continue
+   allow.append(name)
+
+print("Allow:", allow)
+   
 

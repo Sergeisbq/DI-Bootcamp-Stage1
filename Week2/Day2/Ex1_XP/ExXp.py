@@ -110,6 +110,24 @@ for name in list_in_progress:
 print(f'teens right age:', allow_list)
 
 
+# teenagers = ['Adam', 'Roy', 'Billy']
+# teenagers_info = []
+
+# for teenager in teenagers:
+#    age = input(f"Hi {teenager}, what's your age? ")
+#    age_int = int(age)
+#    info = teenager, age_int
+#    teenagers_info.append(info)
+
+# allow = []
+# for name, age in teenagers_info:
+#    if 16 < age < 21:
+#       continue
+#    allow.append(name)
+
+# print("Allow:", allow)
+
+
 sandwich_orders = ["Tuna sandwich", "Avocado sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
 finished_sandwiches = []
 
