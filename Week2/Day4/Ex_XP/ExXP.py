@@ -39,10 +39,15 @@ random_number(5)
 
 #5
 def make_shirt(size: int, text: str):
-    return print(f"The size of the shirt is {size}\nThe text is {text}")
+    print(f"The size of the shirt is {size}\nThe text is {text}")
 
 make_shirt(38, 'Developer')
 
+def make_shirt(size="L", text='I love Python') -> str:
+    return print(f'shirt is {size} and the text is {text}')
+make_shirt()
+make_shirt('M') 
+make_shirt("S", "It's small shirt")
 
 #6
 magician_names = ['Harry Houdini', 'David Blaine', 'Criss Angel']
