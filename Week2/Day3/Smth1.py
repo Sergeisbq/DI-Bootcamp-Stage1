@@ -168,17 +168,35 @@ for i in variable:
     inew = items_purchase[i].replace(',', '')
     inew = int(inew.replace('$', ''))
     items_purchase[i] = inew
+
+
 new_list = []
 
-for i in variable:
-    if items_purchase[i] <= wallet3:
-        new_list.append(items_purchase[i])
-        new_list.
-    elif items_purchase[i] > wallet3:
-        new_list
-    else:
-        break
-print(new_list)
+
+for i in items_purchase.keys(): 
+    if wallet3 - items_purchase[i] >= 0: 
+        new_list.append([i]) 
+        wallet3 -= items_purchase[i]
+
+if new_list == []:
+    print('Nothing')
+else:
+    print(sorted(new_list))
+
+
+# new_list = []
+
+# value = []
+# for i, f in new_list:
+#     if items_purchase[i] == new_list[f]:
+#         value.append(items_purchase)
+#         print(value)
+        
+
+
+
+
+
 
 
 # final_list =[]
@@ -192,3 +210,29 @@ print(new_list)
 # new_list = sorted(items_purchase.values())
 # print(new_list)
 
+
+
+# items_purchase = {"Water": "$1", "Bread": "$3", "TV": "$1,000", "Fertilizer": "$20"}
+# wallet = "$300"
+# print(items_purchase)
+
+# goods = [] # add list for goods
+
+# sorted(items_purchase.items()) 
+# sorted_items_purchase = dict(sorted(items_purchase.items())) print(sorted_items_purchase)
+
+# wallet=int(wallet.replace('$',' ')) print(wallet)
+
+# for p in items_purchase.keys():
+#   items_purchase[p]=items_purchase[p].replace('$',' ')   items_purchase[p]=int(items_purchase[p].replace(',','')) 
+# print(items_purchase)
+
+# for p in items_purchase.keys(): 
+#     if wallet-items_purchase[p]>=0: 
+#         goods.append([p]) 
+#         wallet-=items_purchase[p]
+# goods.sort()
+# if len(goods)== 0:
+#     print("Nothing")
+# else:
+#     print(goods)
