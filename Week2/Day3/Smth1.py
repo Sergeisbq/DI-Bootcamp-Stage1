@@ -160,11 +160,35 @@ items_purchase = {
                 }
 
 wallet = "$300"
+wallet2 = str(wallet)
+wallet3 = int(wallet2.replace('$', ''))
 
-new_pack = items_purchase.values()
-newone_dict = []
-for name in new_pack:
-     if '$' in name:
-          
-        
-print(newone_dict)
+variable = items_purchase.keys()
+for i in variable:
+    inew = items_purchase[i].replace(',', '')
+    inew = int(inew.replace('$', ''))
+    items_purchase[i] = inew
+new_list = []
+
+for i in variable:
+    if items_purchase[i] <= wallet3:
+        new_list.append(items_purchase[i])
+        new_list.
+    elif items_purchase[i] > wallet3:
+        new_list
+    else:
+        break
+print(new_list)
+
+
+# final_list =[]
+# for i in variable:
+#     if new_list[i] in items_purchase:
+#         final_list.append(items_purchase.keys())
+    
+    
+
+
+# new_list = sorted(items_purchase.values())
+# print(new_list)
+
