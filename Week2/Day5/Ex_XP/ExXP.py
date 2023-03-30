@@ -37,42 +37,14 @@ def check_win(matrix:list) -> str:
                     break
                 else:
                     results = "z"
-    return(results)
-
-
-
-# def display_board(play_field):
-#     field=[['*','*','*','*','*','*','*'],['*',' ','|',' ','|',' ','*']]
-
-# def check_win_01(play_field):
-#     local_field=play_field[::]
-#     local_field.insert(0,['','',''])
-#     local_field.append(['','',''])
-#     for p in local_field:
-#         p.insert(0,'')
-#         p.append('')
-#     print (local_field)
-#     for y in range(1,4):
-#         for x in range(1,4):
-#             if local_field[x][y]!='' and ((local_field[x][y]==local_field[x-1][y-1] and local_field[x][y]==local_field[x+1][y+1])\
-#             or (local_field[x][y]==local_field[x+1][y-1] and local_field[x][y]==local_field[x-1][y+1])\
-#             or (local_field[x][y]==local_field[x][y-1] and local_field[x][y]==local_field[x][y+1])\
-#             or (local_field[x][y]==local_field[x+1][y] and local_field[x][y]==local_field[x-1][y])):
-#                 print ('Winner')
-#             else:
-#                 print ("No winner")
-            
+    return(results)            
 
 def display_board(data:list):
     data_2=deepcopy(data)
-    # data_2=data.copy()
-    # print(id(data), id(data_2))
     for col in range(len(data_2[0])):
         for row in range(len(data_2)):
             if data_2[row][col] == '':
                 data_2[row][col] = ' '
-    # print(data)
-    # print(data_2)
     print(f"""
 +  _ _ _  +\n
 + |{data_2[0][0]}|{data_2[0][1]}|{data_2[0][2]}| +\n
