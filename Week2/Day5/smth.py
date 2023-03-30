@@ -1,7 +1,8 @@
+from copy import deepcopy
 data = [['','',''],['','',''],['','','']]
 
 def matrix_convert(data):
-    data_2 = data.copy()
+    data_2 = deepcopy(data)
     for col in range(len(data_2[0])):
         for row in range(len(data_2)):
             if data_2[row][col] == '':
@@ -14,5 +15,8 @@ def matrix_convert(data):
 +  - - -  +\n
 """
 )
+          
+
 
 matrix_convert(data)
+print(data)
