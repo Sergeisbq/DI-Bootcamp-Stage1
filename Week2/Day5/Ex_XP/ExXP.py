@@ -4,7 +4,7 @@ def player_input(player, play_field):
     print(f"Player '{player}'")
     pos=''
     while not pos:
-        pos=input("Enter your coordinates for your move. (Format: line/column):")
+        pos=input("Enter your coordinates for your move. (Format: column/line):")
         x,y=tuple(pos.split('/'))
         x=int(x)
         y=int(y)
