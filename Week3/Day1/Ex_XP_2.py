@@ -30,3 +30,7 @@ elif sarahs_dog.height == davids_dog.height:
     print(f'Dogs have the same height')
 else:
     print(f'{davids_dog.name} is bigger than {sarahs_dog.name}')
+
+
+# 3
+
