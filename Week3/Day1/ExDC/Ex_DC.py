@@ -23,8 +23,10 @@ class Farm:
         return (f"McDonald's farm has {r[0]}s, {r[1]}s and {r[2]}")
     
     def get_main_text(self):
-        r=self.get_animal_types()
+        r = self.get_animal_types()
         return (f'''McDonald's farm:
+
+    
 {r[0]}  :  5
 {r[1]}  :  2
 {r[2]}  :  12
