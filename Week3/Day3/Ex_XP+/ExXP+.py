@@ -43,4 +43,12 @@ print(diff3)
 age_on_mars = seconds_bd * 11.862615
 print(age_on_mars)
 
-users = [{}, {}, {}]
+
+users=[]
+fake=Faker()
+for i in range(3):
+    name=fake.name()
+    addres=fake.address()
+    language=fake.language_code()
+    users.append({'name':name, 'addres':addres, 'language':language})
+print (users)
