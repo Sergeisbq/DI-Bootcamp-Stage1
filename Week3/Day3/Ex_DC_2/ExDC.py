@@ -33,6 +33,12 @@ class Circle:
     # ==
     def __eq__(self, other_circle):
         return self.radius == other_circle.radius
+    
+    def __str__(self) -> str: # For individual usage
+        return f'{self.radius}, {self.diameter})'
+    
+    def __repr__(self) -> str: # For casws with large data collections (list with Circles)
+        return f'(Radius: {self.radius}, Diameter: {self.diameter})'
 
 c1 = Circle(2.0)
 c2 = Circle.from_diameter(6.0)
@@ -56,7 +62,9 @@ print(c3 > c1)
 circles = [c3, c2, c1]
 circles.sort()
 print(circles[0].radius)
-print(circles[2].radius)
+print(circles[-1].radius)
+
+print(circles)
 
 
 
