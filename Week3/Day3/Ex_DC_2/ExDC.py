@@ -1,4 +1,5 @@
 from math import pi
+import turtle
 
 class Circle:
 
@@ -40,8 +41,8 @@ class Circle:
     def __repr__(self) -> str: # For casws with large data collections (list with Circles)
         return f'(Radius: {self.radius}, Diameter: {self.diameter})'
 
-c1 = Circle(2.0)
-c2 = Circle.from_diameter(6.0)
+c1 = Circle(100.0)
+c2 = Circle.from_diameter(60.0)
 
 print("Radius circle1", c1.radius)
 print("Diameter circle1", c1.diameter)
@@ -65,6 +66,9 @@ print(circles[0].radius)
 print(circles[-1].radius)
 
 print(circles)
+
+turtle.circle(c3.radius)
+turtle.circle(c2.radius)
 
 
 
