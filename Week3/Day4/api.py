@@ -4,6 +4,7 @@ import json
 
 database = []
 
+
 while len(database) < 20:
     response = requests.get('http://api.open-notify.org/iss-now.json')
     data = response.json()
