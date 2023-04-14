@@ -4,10 +4,10 @@ class AnagramChecker():
         self.words_list = []
         with open('sowpods.txt', 'r') as file:
             for line in file:
-                self.words_list.append(line[:-1]) #
+                self.words_list.append(line[:-1]) 
         return 
 
-    def is_valid_word(word):
+    def is_valid_word(self, word):
         word2 = word
         word_ok = True
         if len(word2) > 1:
@@ -35,14 +35,17 @@ class AnagramChecker():
 
         list_to_sort_2 = []
         for i in words_to_compare:
+            list_to_sort_3 = []
             list_to_sort = []
             for letter_wl in range(len(i)):
                 j = i[letter_wl]
                 list_to_sort.append(j)
                 list_to_sort.sort()
+                print(list_to_sort, word_2)
                 if list_to_sort == word_2:
+                    print('*****')
                     list_to_sort_2.append(i)
-                    list_to_sort_3 = []
+                    
                     for k in list_to_sort_2:
                         if k not in list_to_sort_3:
                             list_to_sort_3.append(k)
@@ -53,7 +56,8 @@ class AnagramChecker():
 
 word = input('Type word: ')
 # word_check = AnagramChecker()
-print(AnagramChecker.get_anagrams(word))
+obj = AnagramChecker()
+print(obj.get_anagrams(word))
 # if __name__ == "__MAIN__":
 #     word_check = AnagramChecker()
 #     print(word_check.get_anagrams('TABLE'))

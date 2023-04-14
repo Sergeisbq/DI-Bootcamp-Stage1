@@ -117,6 +117,7 @@ for i in words_list:
 
 word_2 = list(word1)
 word_3 = word_2.sort()
+print(word_3, type(word_3), word_2.sort(), word_2, word1, list(word1))
 
 print(words_to_compare)
 
@@ -151,8 +152,15 @@ for letter in range(len(word1)):
 
 
 print(word1)
+print(word_2)
+print(word_3)
 print(list_to_sort_3)
 
+a = ['a', 'b']
+b = ['a', 'b']
+
+print(a == b, id(a), id(b))
+    
 
 
 
