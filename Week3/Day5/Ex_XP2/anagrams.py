@@ -16,15 +16,8 @@ This is an anagram checker
         word_ok = False
         while not word_ok:
             word = input('Type a word: ') 
-            word = (word.upper()).strip()
             word_ok = word_check.is_valid_word(word)
         words = word_check.get_anagrams(word)
         if words:
-            print('''
-                YOUR WORD :”{word}”
-              this is a valid English word.
-            Anagrams for your word: {words}.
-            ''')
-
+            print(f'YOUR WORD: {word}\nthis is a valid English word.\nAnagrams for your word: {words}')
             
-
