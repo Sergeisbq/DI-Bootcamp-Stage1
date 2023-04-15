@@ -177,6 +177,6 @@ import random
 #             print(i[letter_wl])
                     
 
-list_1 = ['r', 'p', 's']
+# list_1 = ['r', 'p', 's']
 
-return random.choice(list_1)
+# return random.choice(list_1)
