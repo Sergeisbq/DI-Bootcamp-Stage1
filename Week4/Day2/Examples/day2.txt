@@ -1,0 +1,88 @@
+-- alter table actors rename column age to birthday
+
+-- alter table actors rename column actor_id to id
+
+-- alter table actors 
+-- alter column number_oscars
+-- set data type bigint;
+
+-- person - id
+-- car - owner_id(person_id)
+
+-- create table apartment (
+-- id serial primary key,
+-- location varchar(50),
+-- actor_id int references actors(id)
+-- );
+
+-- fkey - foreign key
+
+-- insert into apartment (location, actor_id)
+-- values
+-- ('Beverly Hills', 1);
+
+
+-- insert into apartment (location, actor_id)
+-- values
+-- ('Afula', (select id from actors where first_name = 'Steve'));
+
+-- insert into apartment (location, actor_id)
+-- values
+-- ('TA', (select id from actors where first_name = 'George'));
+
+
+-- select first_name, last_name, location
+-- from actors
+-- join apartment
+-- on actors.id = apartment.actor_id;
+
+-- create table producers
+-- insert couple of rows into producers
+-- connect the apartment to producers (rename the actor_id to **)
+-- inner join producers with apartment
+
+
+-- create table producers (
+-- id serial primary key,
+-- first_name varchar(20) not null,
+-- last_name varchar(20) not null,	
+-- number_oscars int not null
+-- );
+
+-- insert into producers
+-- (first_name, last_name, number_oscars) 
+-- values
+-- ('Stanley', 'Kubrik', 1),
+-- ('Quentin', 'Tarantino', 2);
+
+-- alter table apartment rename column actor_id to resident_id
+
+-- insert into apartment (location, resident_id)
+-- values
+-- ('New York', (select id from producers where first_name = 'Stanley')),
+-- ('Tel Aviv', (select id from producers where first_name = 'Quentin'))
+
+-- select first_name, last_name, location from
+-- producers as p
+-- join apartment as a
+-- on p.id = a.resident_id;
+
+-- alter table apartment add column producer_id int;
+
+-- alter table apartment add constraint fk_producers
+-- foreign key (producer_id) references producers(id);
+
+-- insert into apartment (location, producer_id)
+-- values
+-- ('New York', (select id from producers where first_name = 'Stanley'));
+
+-- delete from apartment where id in (2, 4, 5);
+
+-- alter table apartment rename column resident_id to actor_id;
+
+-- select first_name, last_name, location from
+-- apartment
+-- join actors
+-- on apartment.actor_id = actors.id
+
+

@@ -17,7 +17,7 @@ j_list = []
 def make_sentence():
     i = int(input("Type the length of sentence (from 2 to 20): "))
     for j in range(i):
-        j = random.randint(1, len(text_lines))
+        j = random.randint(1, len(text_lines) - 1)
         p = text_lines[j]
         j_list.append(p)
 

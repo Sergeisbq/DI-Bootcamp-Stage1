@@ -38,3 +38,19 @@
 -- select first_name from students where first_name like '%a_';
 
 -- select * from students where id = 1 or id = 3;
+
+
+-- XPG
+
+-- select * from students where id >= 1 and id <= 4
+-- order by last_name;
+
+-- select * from students
+-- order by birth_date
+-- DESC LIMIT 1;
+
+
+-- select * from students where id > 2 limit 3
+
+
+
