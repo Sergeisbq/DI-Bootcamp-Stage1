@@ -2,9 +2,9 @@ import psycopg2
 from datetime import date
 
 HOSTNAME = 'localhost'
-USERNAME = 'sergeiboiko' 
+USERNAME = 'postgres' 
 PASSWORD = ''
-DATABASE = 'actors'
+DATABASE = 'ExXP_Week4_Day4'
 
 connection = psycopg2.connect(host = HOSTNAME, user = USERNAME, password = PASSWORD, dbname = DATABASE)
 
