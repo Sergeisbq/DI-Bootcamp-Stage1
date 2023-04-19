@@ -1,8 +1,10 @@
-import menu
+from menu import MenuItem
+
 input_list = ['a','d','v','x']
 
 def load_manager():
     ...
+
 
 def show_user_menu():
     print('''
@@ -13,20 +15,21 @@ def show_user_menu():
     (x) Exit
     ''')
 
+
 def add_item_to_menu():
     item_name = input("Enter item's name:  ")
     item_price = int(input("Enter item's price:  "))
-    item = menu(item_name, item_price)
+    item = MenuItem(item_name, item_price)
     item.save() 
 
+
 def remove_item_from_menu():
-    item_name = input("Enter item's name you'd like to delete: ")
-    menu.delete(item_name)
+    MenuItem.delete()
 
 
 def show_restaurant_menu():
-    result = menu.all() 
-    print(result)
+    print(MenuItem.all()) 
+    
 
 def main():
     choice = ''
@@ -34,7 +37,7 @@ def main():
         show_user_menu()
         choice = str()
         while choice not in input_list:
-            choice = input('Your choice:  ')
+            choice = input('Your choice: ')
             if choice == 'a':
                 add_item_to_menu()
             elif choice == 'd':
@@ -44,5 +47,4 @@ def main():
             else:
                 break
 
-# load_manager()
 main()
