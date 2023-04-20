@@ -18,10 +18,9 @@ class MenuItem():
         with connection.cursor() as cursor:
             cursor.execute(query)
             connection.commit()
-# connection.close()
             print(f'{self.name} has been successfully added!')
 
-
+    @staticmethod
     def delete():
         a = MenuItem.all()
         print(a)
@@ -45,20 +44,19 @@ class MenuItem():
         with connection.cursor() as cursor:
             cursor.execute(query)
             connection.commit()
-            connection.close()
             print(f'Information about {self.name} has been successfully changed!')
 
-
+    @staticmethod
     def all():
         query = f"select * from cafe_menu"
         with connection.cursor() as cursor:
             cursor.execute(query)
             connection.commit()
             result = cursor.fetchall()
-# connection.close()
+
         return result
     
-
+    @staticmethod
     def get_by_name(name):
             query = f"select * from cafe_menu where name = '{name}'"
             with connection.cursor() as cursor:
