@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1> <small>  Profile of </small> of {{name}} </h1>
+
+    {% if gender == 'M' %}
+    <h2>Hello Man</h2>
+    {% elif gender == 'F' %}
+    <h2>Hello Woman</h2>
+    {% endif %}
+
+    {% for hobby in hobbies %}
+        {% if hobby == 'Running' %}
+            What are you joking
+        {% endif %}
+    {%endfor%}
+
+</body>
+</html>

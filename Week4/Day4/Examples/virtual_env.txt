@@ -15,3 +15,5 @@
 
 6. create .gitignore file and exclude the 'my_env' folder from uploading
 
+7. deactivate ??
+
