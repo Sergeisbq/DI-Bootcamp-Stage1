@@ -1,0 +1,8 @@
+-- create table country (
+-- item_id serial primary key,
+-- name varchar (50) not null,
+-- capital varchar (50) not null,
+-- flag varchar (50) not null,
+-- subregion varchar (50) not null,
+-- population int
+-- );
