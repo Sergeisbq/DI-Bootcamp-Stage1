@@ -10,13 +10,11 @@ DATABASE = 'ExDC_Week4_Day4'
 connection = psycopg2.connect(host = HOSTNAME, user = USERNAME, password = PASSWORD, dbname = DATABASE)
 
 
-
-
-
 def get_data(url) -> list[dict]:
     response = requests.get("https://restcountries.com/v3.1/all") 
     data = response.json()
     return data
+
 
 def get_random_instanse(data_list: list, n: int):
     instances = []
@@ -24,6 +22,7 @@ def get_random_instanse(data_list: list, n: int):
         random_list = choice(data_list)
         instances.append(random_list)
     return instances
+
 
 def extract(instance: dict):
 
@@ -38,6 +37,7 @@ def extract(instance: dict):
     except KeyError:
         return None
 
+
 def preprocess(instances: list[dict]):
     preprocessed = []
 
@@ -47,6 +47,7 @@ def preprocess(instances: list[dict]):
             continue
         preprocessed.append(preprocessed_inst)
     return preprocessed
+
 
 url = "https://restcountries.com/v3.1/all"
 data = get_data(url)
@@ -58,23 +59,18 @@ print(clean_list)
 def insert_query(columns_names: list[str], data: tuple, table_name: str) -> str:
     columns = ", ".join(columns_names)
     name, capital, flag, subregion, population = data
-
-    query = f"insert into {table_name} ({columns}), values ('{name}', '{capital}', '{flag}', '{subregion}', '{population}')"
+    query = f"insert into {table_name} ({columns}) values ('{name}', '{capital}', '{flag}', '{subregion}', '{population}')"
     return query
+
+
+def run_change_query(query: str): 
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        connection.commit()
+        print("SUCCESS")
 
 
 columns = ['name', 'capital', 'flag', 'subregion', 'population']
 for inst in clean_list:
     q = insert_query(columns, inst, 'country')
-    print(q)
-
-
-# q = insert_query(column_names = columns, data = clean_list, table_name = 'country')
-
-# def run_query(query: str):
-#     with connection.cursor() as cursor:
-#         cursor.execute(query)
-#         result = cursor.fetchall()
-#     return result
-
-
+    run_change_query(q)
