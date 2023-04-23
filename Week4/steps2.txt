@@ -1,0 +1,66 @@
+Implementing Databases
+
+1. in settings.py, specify the DATABASES part;
+2. create new database (in PgAdmin, psql shell)
+3. [in terminal] python manage.py migrate:
+    - might get an error - pip install psycopg2 (or psycopg2-binary)
+
+4. specify models inside the app folder, inside models.py
+5. [in terminal] python manage.py makemigrations
+6. [in terminal] python manage.py migrate
+7. [in terminal] python manage.py shell 
+
+    - importing and adding to database:
+        from info.models import Animal, Family
+        felidae = Family(name = 'Felidae') # adding an object to a Family
+        felidae
+            <Family: Family object (None)>
+        felidae.save() # saving an object to a Family
+
+                Examples:
+                >>> from info.models import Animal, Family
+                >>> felidae = Family(name = 'Felidae')
+                >>> felidae
+                <Family: Family object (None)>
+                >>> felidae.save()
+                >>> felidae
+                <Family: Family object (1)>
+                >>> felidae = Family.objects.get(name='Felidae')
+                >>> feliday
+                Traceback (most recent call last):
+                File "<console>", line 1, in <module>
+                NameError: name 'feliday' is not defined
+                >>> felidae
+                <Family: Family object (1)>
+                >>> animal = Animal(name = 'Domestic Cat', legs = 4, weight = 5.67, height = 4.2, speed = 34, family = felidae)
+                >>> animal
+                <Animal: Animal object (None)>
+                >>> animal.save()
+                >>> animal
+                <Animal: Animal object (1)>
+                >>> animal = Animal(name = 'Panther', legs = 4, weight = 5.67, height = 4.2, speed = 34, family = felidae)
+                >>> animal
+                <Animal: Animal object (None)>
+                >>> animal.save()
+                >>> animal
+                <Animal: Animal object (2)>
+                >>> canidae = Family(name = 'Canidae')
+                >>> canidae.save()
+                >>> canidae
+                <Family: Family object (2)>
+                >>> animal = Animal(name = 'Dog', legs = 4, weight = 5.67, height = 4.2, speed = 34, family = canidae)
+                >>> animal
+                <Animal: Animal object (None)>
+                >>> animal.save()
+                >>> animal
+                <Animal: Animal 
+
+to get multiple instances:
+>> all_animal = Animal.objects.all()
+>>> all_animal
+<QuerySet [<Animal: Animal object (1)>, <Animal: Animal object (2)>, <Animal: Animal object (3)>]>
+>>> all_animal[0].name
+'Domestic Cat'
+>>> all_animal[1].name
+'Panther'
+>>> 
