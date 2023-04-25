@@ -1,0 +1,10 @@
+>>> from gifs.models import Gif, Category
+>>> cat_funny = Category.objects.get(name='funny')
+>>> cat_animals = Category.objects.get(name='animals')
+>>> gif = Gif.objects.get(title='dancing monkey')
+>>> gif.categories
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x7fe38907d580>
+>>> gif.categories.all()
+<QuerySet []>
+>>> gif.categories.add(cat_funny, cat_animals)
+>>> exit()
