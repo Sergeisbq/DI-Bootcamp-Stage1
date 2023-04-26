@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Person
+from .forms import SearchForm
 # Create your views here.
 
 
@@ -55,3 +56,18 @@ def profile_view(request, search_value: str):
         context = {'person_info': person_info, 'person_profile': person_profile, 'languages': person_languages}
 
     return render(request, 'profile.html', context)
+
+
+def search_by_np(request):
+    if request.method == 'GET':
+        search_form = SearchForm()
+        print('GET DATA: ', request.GET) # data associated with the GET method
+        print('GETTING DATA OUT')
+        context = {'form': search_form}
+        # getting_data_n = search_form.name
+        # getting_data_p = search_form.phone
+
+        
+
+
+    return render(request, 'person.html', context)
