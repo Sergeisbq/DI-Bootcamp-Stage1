@@ -22,3 +22,8 @@ class AddGifForm(forms.Form):
 
 class AddCategory(forms.Form):
     category = forms.CharField(max_length=50)
+
+
+class LikeForm(forms.Form):
+    gif = forms.ModelChoiceField(queryset = Gif.objects.all(), widget = forms.HiddenInput())
+    like = forms.BooleanField(required = False, widget = forms.HiddenInput()) # True, False
