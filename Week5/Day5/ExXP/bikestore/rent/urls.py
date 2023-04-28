@@ -17,15 +17,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path('add_page/', ,'add_page_name' views.persons),
-    path('rent', views.home),
-    # path('/rent/rental/'),
-    # path('/rent/rental/<pk>', views.add_category, name = 'add_category'),
-    # path('/rent/rental/add', views.category, name = 'category_path'),
-    # path('/rent/customer/<pk>', views.gifs_view, name = 'gifs_view'),
-    # path('/rent/customer/', views.gifs_view, name = 'gifs_view'),
-    # path('/rent/customer/add', views.gifs_view, name = 'gifs_view'),
-    # path('/rent/vehicle/', views.gifs_view, name = 'gifs_view'),
-    # path('/rent/vehicle/<pk>', views.gifs_view, name = 'gifs_view'),
-    # path('/rent/vehicle/add', views.gifs_view, name = 'gifs_view'),
+    path('', views.home, name="home_path"),
+    path('rentals_list/', views.rentals_list, name="rentals_list_path" ),
+    path('rental/<int:r_id>', views.rental, name="rental_path" ),
+    path('customer/<int:c_id>', views.customer, name="customer_path"),
+    path('vehicle/<int:v_id>', views.vehicle, name="vehicle_path"),
 ]
