@@ -19,7 +19,7 @@ Implementing Databases
 
                 Examples:
                 >>> from info.models import Animal, Family
-                >>> felidae = Family(name = 'Felidae')
+                >>> felidae = Family(name = 'Felidae') a = VehicleSize(name = 'double')
                 >>> felidae
                 <Family: Family object (None)>
                 >>> felidae.save()

@@ -64,48 +64,16 @@ def search_by_np(request):
         if form.is_valid():
             name_1 = Person(name = form.cleaned_data['name'])
             phone_1 = Person(phone_number = form.cleaned_data['phone_number'])
-            # phone_1 = Person(phone_number = form.cleaned_data['phone_number'])
             print(phone_1.phone_number)
             print(name_1.name)
             if Person.objects.filter(name = name_1.name):
                 print(name_1.name)
                 return name_view(request, name_1.name)
-                # name_view(request, name_1.name)
             elif Person.objects.filter(phone_number = phone_1.phone_number):
                 print(phone_1.phone_number)
                 return phone_view(request, phone_1.phone_number)
-            
-            # print(phone_1.phone_number)
-        # if search_form.is_valid():
-        #     objects_n = Person(name = search_form.cleaned_data['name'])
-        #     # objects_p = SearchForm(phone_number = search_form.cleaned_data['phone_number'])
-        #     print(objects_n)
-        #     # print(objects_p)
-        #     # category_base_object.save()
-        #     # f=AddCategory()
-
+        
         context = {'form': form}
-        
-        # getting_data_n = search_form.name
-        # getting_data_p = search_form.phone
-
-    #     context = {'person': name_1.name}
-    # return render(request, 'name.html', context)
-        
-
 
     return render(request, 'person.html', context)
 
-
-# def add_category(request):
-#     if request.method == 'POST':
-#         f = AddCategory(request.POST)
-#         if f.is_valid():
-#             category_base_object = Category(name = f.cleaned_data['category'])
-#             category_base_object.save()
-#             f=AddCategory()
-#     else:
-#         f = AddCategory()
-#     category_list = Category.objects.all()
-#     context={'form':f, 'menu':menu, 'category_list':category_list}
-#     return render(request, 'gifs/add_category.html', context)
