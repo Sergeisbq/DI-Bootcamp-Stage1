@@ -50,18 +50,18 @@ dish_2 = list(dish[0].values())
 
 ### compairing customers allergens to dishes ingridients
 
-list_of_ingr = dish_2[0]
-print(sorted(list_of_ingr))
-allergen = algs_2[0]
-print(sorted(allergen))
+# list_of_ingr = dish_2[0]
+# print(sorted(list_of_ingr))
+# allergen = algs_2[0]
+# print(sorted(allergen))
 
-for j in range(len(allergen)):
-    if allergen[j] in list_of_ingr:
-        print("No")
-        print(allergen[j])
-        break
-    else:
-        pass
+# for j in range(len(allergen)):
+    # if allergen[j] in list_of_ingr:
+    #     print("No")
+    #     print(allergen[j])
+    #     break
+    # else:
+    #     pass
 
 
 
@@ -116,21 +116,21 @@ list_of_rests = Restaurant.objects.all().values_list('id', flat=True)
 list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
 # print(list_of_dishes)
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    print("Populating database, table 'Menu'")
-    for _ in range(70):
-        restaurant_id_to_add = random.choice(list_of_rests)
-        dish_id_to_add = random.choice(list_of_dishes)
-        # Menu.restaurant_id.add(*restaurant_id_to_add)
-        # Menu.objects.create(restaurant_id = restaurant_id_to_add, dish_id = dish_id_to_add)
+#     print("Populating database, table 'Menu'")
+#     for _ in range(70):
+#         restaurant_id_to_add = random.choice(list_of_rests)
+#         dish_id_to_add = random.choice(list_of_dishes)
+#         # Menu.restaurant_id.add(*restaurant_id_to_add)
+#         # Menu.objects.create(restaurant_id = restaurant_id_to_add, dish_id = dish_id_to_add)
         
-        new_menu = Menu()
-        new_menu.save()
-        new_menu.restaurant_id.add(restaurant_id_to_add)
-        new_menu.dish_id.add(dish_id_to_add)
+#         new_menu = Menu()
+#         new_menu.save()
+#         new_menu.restaurant_id.add(restaurant_id_to_add)
+#         new_menu.dish_id.add(dish_id_to_add)
 
-        print(new_menu)
+#         print(new_menu)
         # new_menu.save()
 
 
@@ -147,10 +147,46 @@ if __name__ == '__main__':
 #         new_allergen.save()
 
 
+#  restautant: Restaurant,
+def is_allergic(customer_id: int, dish_id: int) -> bool:
+
+    person_algens = Customer.objects.all().get(id=customer_id)
+    allergens = person_algens.allergens.all()
+    dish = Dishes.objects.get(id=dish_id)
+    
+    ingredients = dish.dish
+    print(allergens)
+    print(dish)
+    for allergen in allergens:
+        if allergen.name in ingredients:
+            print(f"FOUND ALLERGEN - {allergen}")
+            return True
+    return False
+
+        
+
+is_allergic(12, 8)
+choose_dish = Menu.objects.all().filter(restaurant_id=8)
+print(choose_dish)
+# for i in range(len(person_algens)):
+#     a = list(person_algens[i].values())[0]
+#     b = list(Allergens.objects.all().filter(id=a).values('id')[0].values())
+#     if a == b[0]:
+#         c = Allergens.objects.all().filter(id=a)[0]
+#         print(c)
+        # for i in c:
+        #     print(i)
     
 
-
-
+# a = list(person_algens[0].values())[0]
+# b = list(Allergens.objects.all().filter(id=a).values('id')[0].values())
+# print(a, b)
+# if a == b[0]:
+#     print(Allergens.objects.all().filter(id=a)[0])
+    
+# print(len(person_algens))
+# b = list(Allergens.objects.all().filter(id=a).values('id')[0].values())
+# print(b[0])
 
     
     

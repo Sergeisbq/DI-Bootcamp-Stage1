@@ -11,7 +11,7 @@ class Customer(models.Model):
     allergens = models.ManyToManyField('Allergens')
 
     def __str__(self):
-        return f"{self.id} {self.first_name} {self.last_name} {self.allergens}"
+        return f"{self.first_name} {self.last_name}"
     
 
    
@@ -37,8 +37,8 @@ class Restaurant(models.Model):
 
 class Menu(models.Model):
 
-    restaurant_id = models.ManyToManyField('Restaurant', blank=True, db_index=True)
-    dish_id = models.ManyToManyField('Dishes', blank=True, db_index=True)
+    restaurant_id = models.ManyToManyField('Restaurant', blank=True, db_index=True, related_name='menus')
+    dish_id = models.ManyToManyField('Dishes', blank=True, db_index=True, related_name='menus')
     # dish_id = models.ForeignKey('Dishes', on_delete=models.DO_NOTHING)
 
     def __str__(self):

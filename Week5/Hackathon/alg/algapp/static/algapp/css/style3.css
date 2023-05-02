@@ -1,0 +1,115 @@
+/* Background image */
+.bg-image {
+    background-image: url('https://example.com/background-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+  
+  /* Menu container */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+  
+  /* Boxes */
+#boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+  
+  /* Content */
+.content {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+}
+  
+.content p {
+    margin: 0;
+}
+  
+#dish_phrase {
+    margin-top: 10px;
+}
+  
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style the form inputs */
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"], 
+input[type="email"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+select:focus, 
+textarea:focus {
+    outline: none;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #6d7578;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #128aae;
+}
+
+.menu {
+    margin-bottom: 20px;
+    background-color: #f2f2f200;
+    padding: 20px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
+    width: 100%;
+    text-align: center;
+}
