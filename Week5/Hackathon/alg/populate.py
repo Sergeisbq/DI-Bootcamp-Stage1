@@ -121,7 +121,7 @@ list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
 #     print("Populating database, table 'Menu'")
 #     for _ in range(70):
 #         restaurant_id_to_add = random.choice(list_of_rests)
-#         dish_id_to_add = random.choice(list_of_dishes)
+        # dish_id_to_add = random.choice(list_of_dishes)
 #         # Menu.restaurant_id.add(*restaurant_id_to_add)
 #         # Menu.objects.create(restaurant_id = restaurant_id_to_add, dish_id = dish_id_to_add)
         

@@ -22,6 +22,8 @@ class Dishes(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.dish}"
+    def list_ing(self):
+        return ", ".join(self.dish)
     
 
 
@@ -31,7 +33,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=100, blank=False, db_index=True)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} {self.address}"
     
 
 

@@ -3,20 +3,46 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from datetime import date
 from django.views import generic
+from django.forms.models import BaseModelForm
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 # CRUD - CREATE - RETRIEVE - UPDATE - DELETE
 
-class PostCreateView(generic.CreateView):
+@login_required(login_url = reverse_lazy('login'))
+def a_view(request):
+    ...
 
+
+
+class PostCreateView(LoginRequiredMixin, generic.CreateView):
+
+    login_url = reverse_lazy('login')
     template_name = 'create_post.html'
     model = Post
     form_class = PostForm
     success_url = reverse_lazy("posts-all")
 
-class PostUpdateView(generic.UpdateView):
+    def get_initial(self) -> Dict[str, Any]:
+        user = self.request.user
+        profile = user.profile
+        initial_data = {'author': profile,
+                        'date_created': date.today()}
+        return initial_data
 
+    # def get_form_class(self) -> type[BaseModelForm]:
+    #     form = super().get_form_class()
+    #     user = self.request.userprofile 
+    #     profile = user.profile
+
+    #     form = form(initial={'author': profile})
+    #     return form
+
+class PostUpdateView(LoginRequiredMixin, generic.UpdateView):
+
+    login_url = reverse_lazy('login')
     template_name = 'update_post.html'
     model = Post
     form_class = PostForm

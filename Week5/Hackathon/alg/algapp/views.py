@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from .forms import CustomerForm, SomeForm, DishForm
+from .forms import CustomerForm, SomeForm, DishForm, RestForm, RestAddForm
 from .models import Customer, Dishes, Restaurant, Menu
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
+import random
 
 # Create your views here.
 
-menu =   [{'title': "Home",          'url_name': 'home_path'},
 
-]
 
 def home (request):
     context={'title':'Home page'}
@@ -46,86 +45,74 @@ def add_customer_view(request):
         return render(request, 'algapp/add_customer.html', context)
     
 
+def add_rest_view(request):
+
+    if request.method == 'POST':
+
+        rest_filled_form = RestAddForm(request.POST) # put the data from the request into the ModelForm
+
+        if rest_filled_form.is_valid(): # check if all fields contain the correct data
+             rest_filled_form.save()# save data into database
+
+             for _ in range(random.randint(12, 18)):
+
+                list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
+                restaurant_id_to_add_1 = Restaurant.objects.latest('id')
+                restaurant_id_to_add = restaurant_id_to_add_1.id
+                dish_id_to_add = random.choice(list_of_dishes)
+                # Menu.restaurant_id.add(*restaurant_id_to_add)
+                # Menu.objects.create(restaurant_id = restaurant_id_to_add, dish_id = dish_id_to_add)
+                
+                new_menu = Menu()
+                new_menu.save()
+                new_menu.restaurant_id.add(restaurant_id_to_add)
+                new_menu.dish_id.add(dish_id_to_add)
+
+                print(new_menu)
+                new_menu.save()
+            
+                # return HttpResponse("SUCCESSFULLY SAVED")
+        
+        else:
+            pass
+
+        return HttpResponseRedirect('/restaurants')
+
+    # GET mode - getting content out
+    if request.method == 'GET':
+        rest_filled_form = RestAddForm()
+        print("GET data: ", request.GET) # data associated with the GET method
+        print("GETTING DATA OUT")
+        context = {'form': rest_filled_form}
+        return render(request, 'algapp/add_restaurant.html', context)
+
 
 # def get_cust_and_rest(request):
 
 #     if request.method == 'POST':
-
-#         cust_and_rest = SomeForm(request.POST) # put the data from the request into the ModelForm
-
-#         if cust_and_rest.is_valid(): # check if all fields contain the correct data
+#         form_filled = SomeForm(request.POST)
+#         if form_filled.is_valid():
+#             customer = form_filled.cleaned_data['customer']
+#             restaurant = form_filled.cleaned_data['restaurant']
             
-            
-#             customer = cust_and_rest.cleaned_data['customers'] # <QuerySet [<Category: animals>]>
-#             restaurant = cust_and_rest.cleaned_data['restaurants'] # <QuerySet [<Category: animals>]>
+#             menus = restaurant.menus.all()
+#             dishes = [menu.dish_id.all()[0] for menu in menus]
+#             print(dishes)
+#             dishes_allergic = [is_allergic(customer.id, dish.id) for dish in dishes]
 
+#             dishes_allergend = list(zip(dishes, dishes_allergic))
 
-#             print("customer:", customer)
-#             print("restaurant:", restaurant)
-#             context = {"customer:", customer,
-#                        "restaurant:", restaurant}
-#             return HttpResponse("SUCCESSFULLY SAVED")
-        
-#         else:
-#             print(cust_and_rest.errors)
-#             return HttpResponse(cust_and_rest.errors)
+#             context = {'dishes_allergens': dishes_allergend, }
 
-#     # GET mode - getting content out
+#             return render(request, 'algapp/choose_dish.html', context)
+
 #     if request.method == 'GET':
+
 #         cust_and_rest = SomeForm()
-#         if cust_and_rest.is_valid(): # check if all fields contain the correct data
-            
-#             customer = cust_and_rest.cleaned_data['customers'] # <QuerySet [<Category: animals>]>
-#             restaurant = cust_and_rest.cleaned_data['restaurants'] # <QuerySet [<Category: animals>]>
-#             return (customer, restaurant)
-#         print("GET data: ", request.GET) # data associated with the GET method
-#         print("GETTING DATA OUT")
+
 #         context = {'form': cust_and_rest}
+
 #         return render(request, 'algapp/choose_c_r.html', context)
-
-# customer, restaurant = get_cust_and_rest()
-
-# if customer is not None and restaurant is not None:
-#     print(customer, restaurant)
-# else:
-#     pass
-
-# class PostCreateView(generic.CreateView):
-
-#     template_name = 'algapp/choose_c_r.html'
-#     model = Customer
-#     form_class = SomeForm
-#     success_url = reverse_lazy("algapp/choose_dish.html")
-
-
-
-
-def get_cust_and_rest(request):
-
-    if request.method == 'POST':
-        form_filled = SomeForm(request.POST)
-        if form_filled.is_valid():
-            customer = form_filled.cleaned_data['customer']
-            restaurant = form_filled.cleaned_data['restaurant']
-            
-            menus = restaurant.menus.all()
-            dishes = [menu.dish_id.all()[0] for menu in menus]
-            print(dishes)
-            dishes_allergic = [is_allergic(customer.id, dish.id) for dish in dishes]
-
-            dishes_allergend = list(zip(dishes, dishes_allergic))
-
-            context = {'dishes_allergens': dishes_allergend, }
-
-            return render(request, 'algapp/choose_dish.html', context)
-
-    if request.method == 'GET':
-
-        cust_and_rest = SomeForm()
-
-        context = {'form': cust_and_rest}
-
-        return render(request, 'algapp/choose_c_r.html', context)
 
 
 
@@ -154,3 +141,78 @@ def is_allergic(customer_id: int, dish_id: int) -> bool:
 # return_values = get_cust_and_rest(None)
 # restaurant1 += return_values[1]
 # customer1 += return_values[2]
+
+
+
+    
+
+def all_rest(request):
+
+    if request.method == 'POST':
+        rest_form = RestForm(request.POST)
+        if rest_form.is_valid():
+            rest = rest_form.cleaned_data['rests']
+
+            context = {'rest': rest}
+
+            return render(request, 'algapp/restaurant.html', context)
+
+    if request.method == 'GET':
+
+        rest_form = RestForm()
+
+        context = {'form': rest_form}
+
+        return render(request, 'algapp/restaurants.html', context)
+    
+
+def rest (request):
+
+    rests = Restaurant.objects.all()
+    context={'rests': rests}
+    return render(request, 'algapp/restaurants.html', context)
+ 
+
+    
+def one_rest (request, r_id):
+    
+    r = Restaurant.objects.get(pk=r_id)
+    menus = r.menus.all()
+    dishes = [menu.dish_id.all()[0] for menu in menus]
+    
+    context={'r':r, 'dishes': dishes}
+    return render(request, 'algapp/restaurant.html', context)
+
+
+
+def from_one_rest_to(request, r_id):
+    restaurant = Restaurant.objects.get(pk=r_id)
+    menus = restaurant.menus.all()
+    dishes = [menu.dish_id.all()[0] for menu in menus]
+    if request.method == 'POST':
+        form_filled = SomeForm(request.POST)
+        if form_filled.is_valid():
+            customer = form_filled.cleaned_data['customer']
+            
+            
+            menus = restaurant.menus.all()
+            dishes = [menu.dish_id.all()[0] for menu in menus]
+
+            dishes_allergic = [is_allergic(customer.id, dish.id) for dish in dishes]
+
+            dishes_allergend = list(zip(dishes, dishes_allergic))
+
+            context = {'dishes_allergens': dishes_allergend, }
+
+            return render(request, 'algapp/choose_dish.html', context)
+
+    if request.method == 'GET':
+
+        cust_and_rest = SomeForm()
+
+        context = {'form': cust_and_rest}
+
+        return render(request, 'algapp/restaurant.html', context)
+    
+
+

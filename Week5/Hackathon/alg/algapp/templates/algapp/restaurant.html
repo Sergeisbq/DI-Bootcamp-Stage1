@@ -1,0 +1,44 @@
+{%extends 'algapp/base.html'%}
+
+{%block content%}
+
+
+<h1>Restaurant {{r.name}} </h1>
+
+{%csrf_token%}
+{{r.address}} 
+<div class="form-container">
+    <form method="post" action="{% url 'dish_path' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Show the menu</button>
+    </form>
+</div>
+
+<div class="bg-image">
+    <div class="menu-container">
+        <div id="boxes"> 
+
+            {%for dish in dishes%}
+            <div class="content">
+            <input type="radio"><p><b>{{dish.name}}</b></p><br> 
+            Ingridients:{%for i in dish.dish%}<br>
+            {{i}}
+            {%endfor%}<br><br>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+
+    </div>
+</div>
+    
+
+
+{%endblock content%}
+
+
+
+
