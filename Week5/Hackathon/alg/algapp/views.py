@@ -174,45 +174,72 @@ def rest (request):
  
 
     
+# def one_rest (request, r_id):
+    
+#     r = Restaurant.objects.get(pk=r_id)
+#     menus = r.menus.all()
+#     dishes = [menu.dish_id.all()[0] for menu in menus]
+    
+#     context={'r':r, 'dishes': dishes}
+#     return render(request, 'algapp/restaurant.html', context)
+
+
 def one_rest (request, r_id):
     
     r = Restaurant.objects.get(pk=r_id)
     menus = r.menus.all()
     dishes = [menu.dish_id.all()[0] for menu in menus]
-    
-    context={'r':r, 'dishes': dishes}
-    return render(request, 'algapp/restaurant.html', context)
-
-
-
-def from_one_rest_to(request, r_id):
-    restaurant = Restaurant.objects.get(pk=r_id)
-    menus = restaurant.menus.all()
-    dishes = [menu.dish_id.all()[0] for menu in menus]
+    form_filled = SomeForm()
     if request.method == 'POST':
         form_filled = SomeForm(request.POST)
         if form_filled.is_valid():
             customer = form_filled.cleaned_data['customer']
-            
-            
-            menus = restaurant.menus.all()
+            menus = r.menus.all()
             dishes = [menu.dish_id.all()[0] for menu in menus]
 
             dishes_allergic = [is_allergic(customer.id, dish.id) for dish in dishes]
 
             dishes_allergend = list(zip(dishes, dishes_allergic))
-
-            context = {'dishes_allergens': dishes_allergend, }
+            context = {'dishes_allergens': dishes_allergend, 'r': r}
 
             return render(request, 'algapp/choose_dish.html', context)
+            
+    
+    context={'r':r, 'dishes': dishes, 'form': form_filled}
+    return render(request, 'algapp/restaurant.html', context)
 
-    if request.method == 'GET':
 
-        cust_and_rest = SomeForm()
 
-        context = {'form': cust_and_rest}
+# def from_one_rest_to(request, r_id):
+#     restaurant = Restaurant.objects.get(pk=r_id)
+    
+#     print(r_id, '@@@@@@@@@')
+#     menus = restaurant.menus.all()
+#     dishes = [menu.dish_id.all()[0] for menu in menus]
+#     if request.method == 'POST':
+#         form_filled = SomeForm(request.POST)
+#         if form_filled.is_valid():
+#             customer = form_filled.cleaned_data['customer']
+            
+            
+#             menus = restaurant.menus.all()
+#             dishes = [menu.dish_id.all()[0] for menu in menus]
 
-        return render(request, 'algapp/restaurant.html', context)
+#             dishes_allergic = [is_allergic(customer.id, dish.id) for dish in dishes]
+
+#             dishes_allergend = list(zip(dishes, dishes_allergic))
+
+#             context = {'dishes_allergens': dishes_allergend, 'r': restaurant}
+
+#             return render(request, 'algapp/choose_dish.html', context)
+
+#     if request.method == 'GET':
+
+#         cust_and_rest = SomeForm()
+
+#         context = {'form': cust_and_rest}
+
+#         return render(request, 'algapp/restaurant.html', context)
     
 
 

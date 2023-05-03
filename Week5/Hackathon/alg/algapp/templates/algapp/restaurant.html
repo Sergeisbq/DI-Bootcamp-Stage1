@@ -2,17 +2,19 @@
 
 {%block content%}
 
+<div class="rest_p">
+    <div class="rp_h1"><h1>Restaurant {{r.name}} </h1>
 
-<h1>Restaurant {{r.name}} </h1>
-
-{%csrf_token%}
-{{r.address}} 
-<div class="form-container">
-    <form method="post" action="{% url 'dish_path' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Show the menu</button>
-    </form>
+        {%csrf_token%}
+        {{r.address}} 
+    </div>
+    <div class="form-container"><br>
+        <form method="post" action="{% url 'dish_path' r.id%}">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Show adapted menu</button>
+        </form>
+    </div>
 </div>
 
 <div class="bg-image">
@@ -21,7 +23,7 @@
 
             {%for dish in dishes%}
             <div class="content">
-            <input type="radio"><p><b>{{dish.name}}</b></p><br> 
+            <p><b>{{dish.name}}</b></p><br> 
             Ingridients:{%for i in dish.dish%}<br>
             {{i}}
             {%endfor%}<br><br>
@@ -31,7 +33,8 @@
         </div>
     </div>
     <div>
-
+        
+        
     </div>
 </div>
     

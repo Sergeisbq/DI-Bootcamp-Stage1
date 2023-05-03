@@ -5,6 +5,29 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+
+}
+
+.rest_p {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    
+
+
+}
+
+.form-container {
+
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.rp_h1 {
+    text-align: center;
 }
 
 .imghp {
@@ -108,6 +131,7 @@
     margin-left: 340px;
     max-width: 100%;
     padding: 0px;
+    margin-bottom: 30px;
     
 }
 
@@ -373,7 +397,7 @@ textarea:focus {
 /* Style the submit button */
 button[type="submit"] {
     background-color: #25bea234;
-    color: #fff;
+    color: black;
     padding: 12px 20px;
     border: none;
     border-radius: 3px;
@@ -398,6 +422,7 @@ button[type="submit"]:hover {
 .form_add_c {
     width: 50%;
     text-align: center;
+    margin-top: 10px;
 }
 
 
@@ -461,7 +486,7 @@ table {
   
   .form_add_c button[type="submit"] {
     background-color: #25bea234;
-    color: #fff;
+    color: black;
     padding: 12px 20px;
     border: none;
     border-radius: 3px;
