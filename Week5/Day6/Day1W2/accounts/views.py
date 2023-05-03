@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, UpdateView
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
 from .forms import ProfileForm
@@ -19,22 +19,61 @@ class SignUpView(CreateView):
 
 
 def profile_redirect_view(request):
+
     user = request.user
     if hasattr(user, 'profile'):
-        return redirect('posts-all')
-    else:
-        return redirect('create-profile')
+        return redirect('update-profile')
+        # return redirect('profile-page', user.profile.id)
 
 
-def create_profile_view(request):
+
+# class UpdateProfileView(UpdateView):
+
+#     template_name = 'profile_update.html'
+#     context_object_name = 'profile'
+
+#     def post(self, request, *args, **kwargs):
+#         profile = self.get_object()
+#         form = self.get_form()
+
+#         if form.is_valid():
+#             form.save()
+#             return redirect('posts-all')   ###
+
+
+def update_profile(request):
+    user = request.user
+    profile = user.profile
 
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
+        filled_form = ProfileForm(request.POST, instance=profile) # instance - the instance in the database to update
+        if filled_form.is_valid():
+            filled_form.save()
             return redirect('posts-all')
-        
-    user = request.user
-    form = ProfileForm(initial={'user': user})
+        else:
+            errors = filled_form.errors
+            print(errors)        
+
+    form = ProfileForm(instance=profile)
+
     context = {'form': form}
-    return render(request, 'create_profile.html', context)
+    return render(request, 'profile_update.html', context)
+
+
+
+
+
+
+
+# def create_profile_view(request):
+
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('posts-all')
+        
+#     user = request.user
+#     form = ProfileForm(initial={'user': user})
+#     context = {'form': form}
+#     return render(request, 'create_profile.html', context)

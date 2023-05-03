@@ -38,4 +38,5 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'post': forms.HiddenInput(),
             'author': forms.HiddenInput(),
+            'content': forms.Textarea()
         }

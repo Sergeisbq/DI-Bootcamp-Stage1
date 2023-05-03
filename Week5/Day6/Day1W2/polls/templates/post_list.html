@@ -13,20 +13,43 @@
         <button><a href="{% url 'logout' %}">Logout</a></button><br>
 
         Hello {{user}}
-
-    {% else %}
-
-        Forbidden
-
-    {% endif %}
     <!-- Current user: {{user}} -->
     <br>
-    {{current_date}}
+
     <h1>POST LIST</h1>
-    {%for post in posts%}
+    {%for post, comment_form in post_comments%}
         <br> 
             {{post}}
         <br>
+        {%for comment in post.comments.all%}
+        <br>
+            {{comment}}
+        <br>
+        {%endfor%}
+
+    
+        <form method="post" action="{% url 'add_comment' %}">
+            {%csrf_token%}
+            {{ comment_form }}
+            <button type="submit"> Comment </button>
+        </form>
     {%endfor%}
+
+    {% else %}
+
+        <a href="{% url 'login' %}"> Login </a>
+
+        <h1> Post list </h1>
+
+        {%for post in posts%}
+        <br> 
+            {{post}}
+        <br>
+        {%endfor%}
+
+    {%endif%}
+
+
+    
 </body>
 </html>

@@ -1,4 +1,10 @@
 /* Background image */
+body {
+    background-color: rgba(136, 129, 129, 0.218) !important;
+
+}
+
+
 .home_page_c {
     margin-top: 10px;
     display: flex;
@@ -87,7 +93,7 @@
     position: relative;
     top: 65px;
     /* margin-top: -50px; */
-    margin-left: 320px;
+    margin-left: 410px;
     border: 3px solid #ecabbb;
     width: 285px;
     height: 80px;
@@ -103,7 +109,7 @@
     flex-direction: row;
     align-items: start;
     text-align: end;
-    margin-left: 50px;
+    margin-left: 140px;
     max-width: 100%;
     padding: 0px;
     
@@ -355,6 +361,12 @@
   
 #dish_phrase {
     margin-top: 10px;
+    
+}
+
+.dish_phrase_2 {
+    text-transform: lowercase;
+    
 }
   
 input[type="radio"] {
@@ -431,16 +443,20 @@ button[type="submit"]:hover {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 110%;
+    background-color: #25bea20c;
+ 
   }
   
   th, td {
     text-align: left;
     padding: 2px;
+    
+    
   }
   
   th {
-    background-color: #f2f2f2;
+    
     font-weight: bold;
   }
   

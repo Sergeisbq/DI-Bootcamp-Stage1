@@ -19,14 +19,10 @@ class RestAddForm(forms.ModelForm):
         fields = ('name', 'address')
 
 
-# class SomeForm(forms.Form):
-
-#     customer = forms.ModelChoiceField(queryset=Customer.objects.all())
-#     restaurant = forms.ModelChoiceField(queryset=Restaurant.objects.all()) 
 
 class SomeForm(forms.Form):
 
-    customer = forms.ModelChoiceField(queryset=Customer.objects.all())
+    customer = forms.ModelChoiceField(queryset=Customer.objects.all().order_by('-id'))
 
 
 

@@ -20,8 +20,10 @@
             Ingridients:{%for i in dish.dish%}<br>
             {{i}}
             {%endfor%}<br><br>
-            <div id="dish_phrase"><p><b>{{allergic}}</b></p>
-
+            <div id="dish_phrase">
+            {%if allergic%}
+            <p><img src="/static/algapp/images/3.png" width="30px"><br><b>{{allergic}}</b></p>
+            {%endif%}
             </div><br>
             </div>
             {% endfor %}
@@ -29,33 +31,5 @@
     </div>
 </div>
     
-    <!-- <button type="submit"> Order </button> -->
-
-
-
-
-
-
-    <!-- {%for gif, like, dislike in gifs_forms%}
-
-        <br>
-        
-            {{gif}}
-            {{gif.likes}}
-            
-            <form method="POST"> 
-                {%csrf_token%}
-                {{customer}}
-                <button type="submit"> LIKE </button>
-            </form>
-            
-            <form method="POST"> 
-                {%csrf_token%}
-                {{restaurant}}
-                <button type="submit"> DISLIKE </button>
-            </form>
-
-        <br>
-    {%endfor%} -->
     
 {%endblock content%}
