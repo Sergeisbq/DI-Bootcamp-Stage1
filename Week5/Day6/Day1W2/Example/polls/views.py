@@ -93,6 +93,7 @@ class PostView(generic.DetailView):
 
     template_name = 'post.html'
     context_object_name = 'post'
+    # lookup_field = 'slug'
     model = Post
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:

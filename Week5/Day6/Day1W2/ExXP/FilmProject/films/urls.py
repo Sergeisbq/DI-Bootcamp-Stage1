@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-# from .views import 
+from .views import addFilm, add_director
 
 
 
 urlpatterns = [
-    path('homepage/', views.home, name="homepage"),
-    # path("add_customer/", add_customer_view),
+    path('films/homepage/', views.home, name="homepage"),
+    path('films/addfilm/', addFilm.as_view(), name="addfilm"),
+    path('films/adddirector/', add_director, name="adddirector"),
     # path("restaurants/", rest, name='restaurants'), 
     # path("add_restaurant/", add_rest_view, name='add_restaurant'), 
     # path("restaurant/<int:r_id>", one_rest, name='restaurant'), 

@@ -1,0 +1,13 @@
+{%extends 'partials/base.html'%}
+{%block title%} Add film {%endblock title%}
+{%block content%}
+<h1>ADD Director</h1>
+<br>
+<form method="post"> 
+    <br>
+    {%csrf_token%}
+    {{form}}
+    <br>
+<button type="submit"> Add Director</button>
+<br>
+{%endblock%}

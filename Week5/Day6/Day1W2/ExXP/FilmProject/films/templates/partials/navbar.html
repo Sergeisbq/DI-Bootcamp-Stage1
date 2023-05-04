@@ -1,3 +1,4 @@
+
 <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="/films/homepage/">Home</a>
@@ -15,10 +16,10 @@
       <a class="nav-link" href="/films/add-director">ADD a Director</a>
     </li> -->
     <li class="nav-item">
-      <a class="nav-link" href="/films/login">Login</a>
+      <a class="nav-link" href="/films/addfilm">Add film</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/films/signup">SignUP</a>
+      <a class="nav-link" href="/films/adddirector">Add director</a>
     </li>
   </ul>
   
@@ -29,11 +30,12 @@
 
 
     
-    <!-- <li class="nav-item {% if request.path == '/films/add-film/' %}active{% endif %}">
+    <li class="nav-item {% if request.path == '/films/add-film/' %}active{% endif %}">
       <a class="nav-link" href="{% url 'addfilm' %}">Add Film</a>
     </li>
     <li class="nav-item {% if request.path == '/films/add-director/' %}active{% endif %}">
       <a class="nav-link" href="{% url 'adddirector' %}">Add Director</a>
-    </li> -->
+    </li>
   </ul>
   {% endif %}
+

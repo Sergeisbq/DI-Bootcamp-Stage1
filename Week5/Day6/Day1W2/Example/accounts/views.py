@@ -60,6 +60,13 @@ def update_profile(request):
     return render(request, 'profile_update.html', context)
 
 
+# class UpdateProfileView(UpdateView):
+#     model = UserProfile
+#     form_class = ProfileForm
+#     template_name = 'profile_update.html'
+#     success_url = 
+
+
 
 
 
