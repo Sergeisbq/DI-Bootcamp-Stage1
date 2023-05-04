@@ -1,0 +1,17 @@
+{% extends 'partials/base.html' %}
+{%block title%} Profile {%endblock title%}
+{%block content%}
+<h1>Profile</h1>
+Hello {{profile_context.first_name}}
+Hello {{profile_context.is_authenticated}}
+<ul>
+    <li>Username: {{request.user.username}}</li>
+    <li>First name: {{profile.first_name}}</li>
+    <li>Last name: {{request.user.last_name}}</li>
+    <li>Last name: {{request.user.is_authenticated}}</li>
+    
+
+</ul>
+<a href="{%url 'login'%}">logout</a>
+
+{%endblock%}
