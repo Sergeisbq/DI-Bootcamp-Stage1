@@ -1,47 +1,31 @@
-
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/films/homepage/">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Directors</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Profile</a>
-    </li>
-
-    <div style="width: 60%;"></div>
-
-
-    <!-- <li class="nav-item">
-      <a class="nav-link" href="/films/addfilm">Add film</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/films/adddirector">Add director</a>
-    </li>
-  </ul> -->
-  
-  {% if request.user.is_authenticated and request.user.is_superuser %}
-
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item {% if request.path == '/films/addfilm' %} active {% endif %}">
-      <a class="nav-link" href="{% url 'addfilm' %}">Add Film</a>
-    </li>
-    <li class="nav-item {% if request.path == '/films/adddirector' %} active {% endif %}">
-      <a class="nav-link" href="{% url 'adddirector' %}">Add Director</a>
-    </li>
-  </ul>
-
-  {% endif %}
+<header>
+  <div id="uppage" class="wrapper_2">
+      <div class="box1">IMDI</div>
+      <div class="box2"><a class="navabout" href="/films/homepage/">Home</a></div>
+      {% if request.user.is_authenticated and request.user.is_superuser %}
+      <div class="box3"><a class="navabout {% if request.path == '/films/addfilm' %} active {% endif %}" href="/accounts/profile/">Profile</a></div>
+      {% endif %}
+      {% if not request.user.is_authenticated%}
+      <div class="box3"><a class="navabout {% if request.path == '/films/addfilm' %} active {% endif %}" href="/accounts/signup/">Sign up</a></div>
+      <div class="box4"><a class="navabout {% if request.path == '/films/addfilm' %} active {% endif %}" href="/accounts/login/">Login</a></div>
+      {% endif %}
+      <div class="box5"></div>
+      {% if request.user.is_authenticated and request.user.is_superuser %}
+      <div class="box6"><a class="navabout {% if request.path == '/films/addfilm' %} active {% endif %}" href="{% url 'addfilm' %}">Add Film</a></div>
+      <div class="box7"><a class="navabout {% if request.path == '/films/addfilm' %} active {% endif %}" href="{% url 'adddirector' %}">Add Director</a></div>
+      {% endif %}
+      <div class="box8"></div>
+      <div class="box9"></div>
+  </div>
+</header>
 
 
 
 
-  <!-- <li class="nav-item">
-    <a class="nav-link" href="/films/addfilm">Add film</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/films/adddirector">Add director</a>
-  </li>
-</ul> -->
+
+
+
+
+
+
 

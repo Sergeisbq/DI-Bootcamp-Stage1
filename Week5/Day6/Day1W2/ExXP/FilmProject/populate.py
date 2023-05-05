@@ -21,13 +21,13 @@ cat_list = ['Drama',
 'Western',
 'Thriller']
 
-# if __name__ == '__main__':
-#     for _ in range(15):
-#         print("Populating database, table 'Country'")
+if __name__ == '__main__':
+    for _ in range(15):
+        print("Populating database, table 'Country'")
 
-#         new_cat = Country(name = fake.country())
-#         print(new_cat)
-#         new_cat.save()
+        new_cat = Country(name = fake.country())
+        print(new_cat)
+        new_cat.save()
 
 
 # if __name__ == '__main__':

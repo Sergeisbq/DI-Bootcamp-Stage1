@@ -1,4 +1,5 @@
 {% extends 'partials/base.html' %}
+
 {% block title %} 
 
 
@@ -7,10 +8,11 @@
 
 <h1>{{title}}</h1>
 
+
 <div class="films">
         {%for film in films%}
     
-        <div class="card_film">
+        <div class="imghp">
             <h3>{{film.title}}</h3>
             <p>Date created: {{film.release_date}}</p><br>
             <p>Country of origin:<br> {{film.created_in_country}}</p><br>

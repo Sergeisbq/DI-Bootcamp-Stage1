@@ -25,9 +25,9 @@ class SignUpView(CreateView):
 
 class ProfileView(LoginRequiredMixin, DetailView): # LoginRequiredMixin - to access users that already login, DetailView - we need to see only about 1 user
     model = UserProfile #python bull-in model
-    template_name = 'profile.html' # template_name = profile.html
+    template_name = 'profile.html' #'films/templates/homepage.html' #'profile.html' # template_name = profile.html, myapp/profile.html
     context_object_name = 'profile_context' # take object to template
 
-    def get_object(self, queryset=None): # take loggedin user
+    def get_object(self): # take loggedin user
  
         return self.request.user #self.query.set - access to user

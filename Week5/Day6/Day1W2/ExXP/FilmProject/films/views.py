@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import AddFilmForm, AddDirectorForm
 from .models import Director, Film, Category, Country
+from django.views.generic.edit import DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
+from django.contrib import messages 
 from django.urls import reverse, reverse_lazy
 
 
@@ -14,6 +16,7 @@ def home(request):
     context = {
         'title':'Home page',
         'films': films,
+        'directors': directors
     }
     return render(request, 'homepage.html', context)
 
@@ -43,19 +46,48 @@ def add_director(request):
             new_dir = Director(first_name = first_name, last_name = last_name)
             new_dir.save()
             new_dir.films.add(*films)
-            film_filled_form.save()
+            # film_filled_form.save()
             print(new_dir)
-            # new_film.save()
+
             
         else:
             pass
 
-        return HttpResponseRedirect('director/adddirector.html')
+        return redirect('adddirector')
 
         # GET mode - getting content out
     if request.method == 'GET':
         film_filled_form = AddDirectorForm()
         print("GET data: ", request.GET) # data associated with the GET method
         print("GETTING DATA OUT")
-        context = {'form': film_filled_form}
+        directors = Director.objects.all()
+        context = {'form': film_filled_form,
+                   'directors': directors}
         return render(request, 'director/adddirector.html', context)
+    
+
+# class DirectorDeleteView(DeleteView):
+
+#     template_name = 'director/deldirector.html'
+#     model = Director
+#     success_url = reverse_lazy('homepage')
+#     messages.add_message(request, messages.INFO, "Hello world.")
+
+
+class DirectorDeleteView(DeleteView):
+
+    model = Director
+    success_url = reverse_lazy('homepage')
+    template_name = 'director/deldirector.html'
+
+    def delete(self, request, *args, **kwargs):
+
+        messages.success(request, 'Director deleted successfully!')
+        return super().delete(request, *args, **kwargs)
+
+
+# class FilmDeleteView(DeleteView):
+#     template_name = 'film/delfilm.html'
+#     model = Film
+#     success_url = reverse_lazy('sfd')
+

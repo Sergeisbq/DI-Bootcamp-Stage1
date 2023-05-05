@@ -10,4 +10,22 @@
     <br>
 <button type="submit"> Add Director</button>
 <br>
-{%endblock%}
+<br>
+
+  {% if request.user.is_authenticated %}
+    <h1>DIRECTORS</h1>
+    <ul>
+      {% for director in directors %}
+        <br>
+        <h2>{{ director.pk }}</h2>
+        <h2>{{ director.first_name }}</h2>
+        
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+          <p><a href="{% url 'deldirector' director.pk %}">Delete</a></p>
+        {%endif%}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Please <a href="{%url 'login'%}">login</a> to view the list of directors.</p>
+  {% endif %}
+{% endblock %}
