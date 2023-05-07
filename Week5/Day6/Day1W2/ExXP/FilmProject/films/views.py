@@ -106,23 +106,16 @@ class FilmDeleteView(DeleteView):
     template_name = 'film/delfilm.html'
     success_url = reverse_lazy('homepage')
 
-    def delete(self, request, *args, **kwargs):
-
-        messages.success(request, 'Film deleted successfully!')
-        return super().delete(request, *args, **kwargs)
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['messages'] = messages.get_messages(self.request)
-        return context
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.SUCCESS, 'Film deleted successfully!')
+        return super().form_valid(form)
     
 
+def add_comment(request, pk):
 
-def add_comment(request):
-
-    # film = Film.objects.get(pk=pk)
-    # print(film)
-    # field_form = CommentForm()
+    film = Film.objects.get(id=pk)
+    print(film)
+    field_form = CommentForm()
     if request.method == 'POST':
         print("ADD COMMENT:", request.POST)
         field_form = CommentForm(request.POST)
@@ -130,7 +123,7 @@ def add_comment(request):
         if field_form.is_valid():
             print('SMTH')
             comment = field_form.save(commit=False)
-            # comment.film = film
+            comment.film = film ###
             comment.save()
             
             print("SUCCESSFULLY ADDED COMMENT")

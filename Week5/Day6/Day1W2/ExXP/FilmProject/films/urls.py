@@ -25,7 +25,7 @@ urlpatterns = [
     path('films/adddirector/', add_director, name="adddirector"),
     path('films/deldirector/<int:pk>', DirectorDeleteView.as_view(), name="deldirector"),
     path('films/delfilm/<int:pk>', FilmDeleteView.as_view(), name="delfilm"),
-    path('films/addcomment/', add_comment, name="addcomment")
+    path('films/addcomment/<int:pk>', add_comment, name="addcomment")
     
     # path("restaurants/", rest, name='restaurants'), 
     # path("add_restaurant/", add_rest_view, name='add_restaurant'), 
