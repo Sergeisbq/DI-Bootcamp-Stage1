@@ -4,6 +4,8 @@ Create Project
 
 0. pip install django
 
+0.1/ pip install djangorestframework 
+
 1. [terminal] django-admin startproject mysite
 
 2. cd into mysite 
@@ -13,6 +15,8 @@ manage.py is the project runner (runs server, runs tests)
 3. python manage.py startapp polls
 
 4. Add 'polls' into 'INSTALLED_APPS' in mysite.settings.py
+
+4.1. Add 'rest_framework' into 'INSTALLED_APPS' in mysite.settings.py
 
 5. Inside polls.views.py create a view (example, index)
 
