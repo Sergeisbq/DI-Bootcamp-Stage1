@@ -66,3 +66,59 @@ to get multiple instances:
 >>> 
 
 person = Person(name = 'Alex Smith', email = 'alexx1@gmail.com', phone_number = '+546352745245', address = 'Bat Yam, Herz, 15')
+
+
+
+
+
+
+(my_env) sergeiboiko@MacBook-Air-Sergej polls_rest % python manage.py shell
+Python 3.11.1 (v3.11.1:a7a450f84a, Dec  6 2022, 15:24:06) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from posts.models import Post
+>>> post = Post(title='Test', custom_id=10, category='Dj')
+>>> post.save()
+>>> post
+<Post: Test>
+>>> from posts.serializers import PostSerializer
+>>> serializer = PostSerializer(post)
+>>> serializer
+PostSerializer(<Post: Test>):
+    id = IntegerField(label='ID', read_only=True)
+    title = CharField(max_length=100)
+    custom_id = IntegerField()
+    category = ChoiceField(choices=(('Dj', 'Django'), ('Py', 'Python')))
+    publish_date = DateTimeField(read_only=True)
+    last_updated = DateTimeField(read_only=True)
+>>> serializer.data
+{'id': 2, 'title': 'Test', 'custom_id': 10, 'category': 'Dj', 'publish_date': '2023-05-07T08:19:58.360691Z', 'last_updated': '2023-05-07T08:19:58.361120Z'}
+>>> from rest_framework.parsers import JSONParser
+>>> from rest_framework.renderers import JSONRenderer
+>>> content = JSONRenderer().render(serializer.data)
+>>> content
+b'{"id":2,"title":"Test","custom_id":10,"category":"Dj","publish_date":"2023-05-07T08:19:58.360691Z","last_updated":"2023-05-07T08:19:58.361120Z"}'
+>>> type(content)
+<class 'bytes'>
+
+>>> import io
+>>> stream = io.BytesIO(content)
+>>> stream
+<_io.BytesIO object at 0x1068f1440>
+>>> data = JSONParser().parse(stream)
+>>> data
+{'id': 2, 'title': 'Test', 'custom_id': 10, 'category': 'Dj', 'publish_date': '2023-05-07T08:19:58.360691Z', 'last_updated': '2023-05-07T08:19:58.361120Z'}
+>>> type(data)
+<class 'dict'>
+
+>>> deserialized = PostSerializer(data=data)
+>>> deserialized
+PostSerializer(data={'id': 2, 'title': 'Test', 'custom_id': 10, 'category': 'Dj', 'publish_date': '2023-05-07T08:19:58.360691Z', 'last_updated': '2023-05-07T08:19:58.361120Z'}):
+    id = IntegerField(label='ID', read_only=True)
+    title = CharField(max_length=100)
+    custom_id = IntegerField()
+    category = ChoiceField(choices=(('Dj', 'Django'), ('Py', 'Python')))
+    publish_date = DateTimeField(read_only=True)
+    last_updated = DateTimeField(read_only=True)
+>>> deserialized.is_valid()
+True
