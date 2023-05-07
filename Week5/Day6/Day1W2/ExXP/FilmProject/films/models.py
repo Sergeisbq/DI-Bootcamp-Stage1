@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from accounts.models import UserProfile
 
 # Create your models here.
 
@@ -38,3 +39,20 @@ class Director(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
+    
+
+class Comment(models.Model):
+
+    film = models.ForeignKey(Film, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return f"{self.film.title} | {self.created_at} | {self.short_content()}"
+    
+    def short_content(self):
+        try:
+            return self.content[:15]
+        except IndexError:
+            return self.content

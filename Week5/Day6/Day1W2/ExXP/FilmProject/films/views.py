@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import AddFilmForm, AddDirectorForm
+from .forms import AddFilmForm, AddDirectorForm, CommentForm
 from .models import Director, Film, Category, Country
 from django.views.generic.edit import DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
@@ -23,10 +23,19 @@ def home(request):
 
 class addFilm(generic.CreateView):
 
-    template_name = 'film/addfilm.html'
     model = Film
-    form_class = AddFilmForm
+    # form_class = AddFilmForm
+    template_name = 'film/addfilm.html'
     success_url = reverse_lazy("addfilm")
+
+    def get_context_data(self, **kwargs):
+
+        films = Film.objects.all()
+        form_class = AddFilmForm
+        context = {'films': films,
+                   'form': form_class}
+        return context
+
 
 
 
@@ -57,11 +66,11 @@ def add_director(request):
 
         # GET mode - getting content out
     if request.method == 'GET':
-        film_filled_form = AddDirectorForm()
+        dir_filled_form = AddDirectorForm()
         print("GET data: ", request.GET) # data associated with the GET method
         print("GETTING DATA OUT")
         directors = Director.objects.all()
-        context = {'form': film_filled_form,
+        context = {'form': dir_filled_form,
                    'directors': directors}
         return render(request, 'director/adddirector.html', context)
     
@@ -77,17 +86,70 @@ def add_director(request):
 class DirectorDeleteView(DeleteView):
 
     model = Director
-    success_url = reverse_lazy('homepage')
     template_name = 'director/deldirector.html'
+    success_url = reverse_lazy('homepage')
 
     def delete(self, request, *args, **kwargs):
 
         messages.success(request, 'Director deleted successfully!')
         return super().delete(request, *args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['messages'] = messages.get_messages(self.request)
+        return context
 
 
-# class FilmDeleteView(DeleteView):
-#     template_name = 'film/delfilm.html'
-#     model = Film
-#     success_url = reverse_lazy('sfd')
+class FilmDeleteView(DeleteView):
 
+    model = Film
+    template_name = 'film/delfilm.html'
+    success_url = reverse_lazy('homepage')
+
+    def delete(self, request, *args, **kwargs):
+
+        messages.success(request, 'Film deleted successfully!')
+        return super().delete(request, *args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['messages'] = messages.get_messages(self.request)
+        return context
+    
+
+
+def add_comment(request):
+
+    # film = Film.objects.get(pk=pk)
+    # print(film)
+    # field_form = CommentForm()
+    if request.method == 'POST':
+        print("ADD COMMENT:", request.POST)
+        field_form = CommentForm(request.POST)
+        print('SMTH')
+        if field_form.is_valid():
+            print('SMTH')
+            comment = field_form.save(commit=False)
+            # comment.film = film
+            comment.save()
+            
+            print("SUCCESSFULLY ADDED COMMENT")
+            return redirect('homepage')
+    else:
+        field_form = CommentForm()
+
+        return render(request, 'film/addcomment.html', {'form': field_form})
+        
+
+
+    # if request.method == 'POST':
+    #     form = CommentForm(request.POST)
+    #     if form.is_valid():
+    #         comment = form.save(commit=False)
+    #         comment.film = film
+    #         comment.save()
+    #         return redirect('film_detail', pk=film.pk)
+    # else:
+    #     form = CommentForm()
+
+    # return render(request, 'add_comment.html', {'form': form})

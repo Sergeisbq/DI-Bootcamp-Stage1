@@ -1,5 +1,5 @@
 from django import forms
-from .models import Director, Film, Category, Country
+from .models import Director, Film, Category, Country, Comment
 
 
 class AddFilmForm(forms.ModelForm):
@@ -20,3 +20,15 @@ class AddDirectorForm(forms.ModelForm):
         fields = ('first_name', 'last_name')
         
     films = forms.ModelMultipleChoiceField(queryset=Film.objects.all()) 
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = '__all__'
+        widgets = {
+            'film': forms.HiddenInput(),
+            'author': forms.HiddenInput(),
+            'content': forms.Textarea()
+        }

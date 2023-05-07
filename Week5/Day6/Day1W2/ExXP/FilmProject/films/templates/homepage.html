@@ -2,7 +2,6 @@
 
 {% block title %} 
 
-
 {% endblock title %}
 {% block content %}
 
@@ -16,6 +15,8 @@
             <h3>{{film.title}}</h3>
             <p>Date created: {{film.release_date}}</p><br>
             <p>Country of origin:<br> {{film.created_in_country}}</p><br>
+            <p><a href="{% url 'addcomment'%}">Comment</a></p>
+            
             <p>Director(s):</p>
             {%for i in film.director.all%}
             

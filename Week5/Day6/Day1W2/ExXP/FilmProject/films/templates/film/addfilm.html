@@ -10,4 +10,21 @@
     <br>
 <button type="submit"> Add FILM</button>
 <br>
+
+{% if request.user.is_authenticated %}
+<h1>FILMS</h1>
+<ul>
+  {% for film in films %}
+    <br>
+    <h2>{{ film.pk }}</h2>
+    <h2>{{ film.title }}</h2>
+    
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+      <p><a href="{% url 'delfilm' film.pk %}">Delete</a></p>
+    {%endif%}
+  {% endfor %}
+</ul>
+{% else %}
+<p>Please <a href="{%url 'login'%}">login</a> to view the list of directors.</p>
+{% endif %}
 {%endblock%}

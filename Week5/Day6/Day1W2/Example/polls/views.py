@@ -86,7 +86,7 @@ def add_comment(request):
         if field_form.is_valid():
             field_form.save()
             print("SUCCESSFULLY ADDED COMMENT")
-            return redirect('posts-all')
+            return redirect('homepage')
 
 
 class PostView(generic.DetailView):

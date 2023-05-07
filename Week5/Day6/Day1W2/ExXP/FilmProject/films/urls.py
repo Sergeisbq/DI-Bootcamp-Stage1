@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from .views import addFilm, add_director, DirectorDeleteView
+from .views import addFilm, add_director, DirectorDeleteView, FilmDeleteView, add_comment
 
 
 
@@ -23,7 +23,9 @@ urlpatterns = [
     path('films/homepage/', views.home, name="homepage"),
     path('films/addfilm/', addFilm.as_view(), name="addfilm"),
     path('films/adddirector/', add_director, name="adddirector"),
-    path('films/deldirector/<int:pk>', DirectorDeleteView.as_view(), name="deldirector")
+    path('films/deldirector/<int:pk>', DirectorDeleteView.as_view(), name="deldirector"),
+    path('films/delfilm/<int:pk>', FilmDeleteView.as_view(), name="delfilm"),
+    path('films/addcomment/', add_comment, name="addcomment")
     
     # path("restaurants/", rest, name='restaurants'), 
     # path("add_restaurant/", add_rest_view, name='add_restaurant'), 
