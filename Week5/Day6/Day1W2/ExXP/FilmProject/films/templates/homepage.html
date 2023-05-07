@@ -15,7 +15,9 @@
             <h3>{{film.title}}</h3>
             <p>Date created: {{film.release_date}}</p><br>
             <p>Country of origin:<br> {{film.created_in_country}}</p><br>
+
             <p><a href="{% url 'addcomment' film.id %}">Comment</a></p>
+            <p><a href="{% url 'addcomment' film.id %}">Rate</a></p>
             
             <p>Director(s):</p>
             {%for i in film.director.all%}
@@ -29,3 +31,5 @@
     </div>
 
 {% endblock %}
+
+

@@ -25,8 +25,11 @@ class AddDirectorForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
 
     class Meta:
+        INTEGER_CHOICES= [tuple([x,x]) for x in range(1,6)]
         model = Comment
-        fields = ['content']
+        fields = ['content', 'rate']
+        widgets = {'rate':forms.Select(choices=INTEGER_CHOICES)
+                   }
         # widgets = {
         #     'film': forms.HiddenInput(),
         #     'author': forms.HiddenInput(),

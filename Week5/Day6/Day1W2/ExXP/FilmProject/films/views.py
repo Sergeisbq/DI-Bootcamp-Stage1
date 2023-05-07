@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import AddFilmForm, AddDirectorForm, CommentForm
-from .models import Director, Film, Category, Country
+from .models import Director, Film, Category, Country, Comment
 from django.views.generic.edit import DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
@@ -14,10 +14,12 @@ from django.urls import reverse, reverse_lazy
 def home(request):
     films = Film.objects.all()
     directors = Director.objects.all()
+    comments = Comment.objects.all()
     context = {
         'title':'Home page',
         'films': films,
-        'directors': directors
+        'directors': directors,
+        'comments': comments,
     }
     return render(request, 'homepage.html', context)
 

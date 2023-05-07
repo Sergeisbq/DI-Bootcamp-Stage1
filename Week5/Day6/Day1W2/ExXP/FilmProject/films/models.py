@@ -46,7 +46,9 @@ class Comment(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
+    rate = models.IntegerField(blank=True, null=True, default=0)
+
 
     def __str__(self):
         return f"{self.film.title} | {self.created_at} | {self.short_content()}"
