@@ -4,7 +4,7 @@ Create Project
 
 0. pip install django
 
-0.1/ pip install djangorestframework 
+0.1. pip install djangorestframework 
 
 1. [terminal] django-admin startproject mysite
 
