@@ -2,7 +2,7 @@
                      - python3 -m venv my_env 
 2. activate my_env: [in terminal]:
                         for mac:
-                            source my_env/bin/activate  
+                            source my_env/bin/activate  weather_report
 
 3. create requirements.txt: [in terminal]:
                             pip freeze > requirements.txt
