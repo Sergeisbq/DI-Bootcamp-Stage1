@@ -26,9 +26,9 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = '__all__'
-        widgets = {
-            'film': forms.HiddenInput(),
-            'author': forms.HiddenInput(),
-            'content': forms.Textarea()
-        }
+        fields = ['content']
+        # widgets = {
+        #     'film': forms.HiddenInput(),
+        #     'author': forms.HiddenInput(),
+        #     'content': forms.Textarea()
+        # }

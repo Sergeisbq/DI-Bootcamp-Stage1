@@ -5,6 +5,7 @@ from django.views.generic.edit import DeleteView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.contrib import messages 
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
 
 
@@ -24,16 +25,14 @@ def home(request):
 class addFilm(generic.CreateView):
 
     model = Film
-    # form_class = AddFilmForm
+    fields = ['title', 'release_date', 'category', 'created_in_country']
     template_name = 'film/addfilm.html'
     success_url = reverse_lazy("addfilm")
 
     def get_context_data(self, **kwargs):
-
+        context = super().get_context_data(**kwargs)
         films = Film.objects.all()
-        form_class = AddFilmForm
-        context = {'films': films,
-                   'form': form_class}
+        context['films'] = films         
         return context
 
 
@@ -42,7 +41,7 @@ class addFilm(generic.CreateView):
 def add_director(request):
         
     if request.method == 'POST':
-        print("$$$$$$$$$$$$$$$$$$$$$$$$$$")
+
         film_filled_form = AddDirectorForm(request.POST) # put the data from the request into the ModelForm
 
         if film_filled_form.is_valid(): # check if all fields contain the correct data
@@ -58,7 +57,6 @@ def add_director(request):
             # film_filled_form.save()
             print(new_dir)
 
-            
         else:
             pass
 
@@ -75,29 +73,22 @@ def add_director(request):
         return render(request, 'director/adddirector.html', context)
     
 
-# class DirectorDeleteView(DeleteView):
-
-#     template_name = 'director/deldirector.html'
-#     model = Director
-#     success_url = reverse_lazy('homepage')
-#     messages.add_message(request, messages.INFO, "Hello world.")
-
-
-class DirectorDeleteView(DeleteView):
+class DirectorDeleteView(SuccessMessageMixin, DeleteView):
 
     model = Director
     template_name = 'director/deldirector.html'
     success_url = reverse_lazy('homepage')
+    success_message = 'Director deleted successfully!'
 
-    def delete(self, request, *args, **kwargs):
+    # def delete(self, request, *args, **kwargs):
 
-        messages.success(request, 'Director deleted successfully!')
-        return super().delete(request, *args, **kwargs)
+    #     messages.success(request, 'Director deleted successfully!')
+    #     return super().delete(request, *args, **kwargs)
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['messages'] = messages.get_messages(self.request)
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['messages'] = messages.get_messages(self.request)
+    #     return context
 
 
 class FilmDeleteView(DeleteView):
@@ -120,10 +111,11 @@ def add_comment(request, pk):
         print("ADD COMMENT:", request.POST)
         field_form = CommentForm(request.POST)
         print('SMTH')
-        if field_form.is_valid():
+        if field_form.is_valid(): # self, field_form
             print('SMTH')
             comment = field_form.save(commit=False)
             comment.film = film ###
+            comment.author = request.user
             comment.save()
             
             print("SUCCESSFULLY ADDED COMMENT")
@@ -134,15 +126,3 @@ def add_comment(request, pk):
         return render(request, 'film/addcomment.html', {'form': field_form})
         
 
-
-    # if request.method == 'POST':
-    #     form = CommentForm(request.POST)
-    #     if form.is_valid():
-    #         comment = form.save(commit=False)
-    #         comment.film = film
-    #         comment.save()
-    #         return redirect('film_detail', pk=film.pk)
-    # else:
-    #     form = CommentForm()
-
-    # return render(request, 'add_comment.html', {'form': form})

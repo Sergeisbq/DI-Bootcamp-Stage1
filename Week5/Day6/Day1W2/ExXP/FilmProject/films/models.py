@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date
-from accounts.models import UserProfile
+from accounts.models import UserProfile, User
 
 # Create your models here.
 
@@ -44,7 +44,7 @@ class Director(models.Model):
 class Comment(models.Model):
 
     film = models.ForeignKey(Film, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
 
