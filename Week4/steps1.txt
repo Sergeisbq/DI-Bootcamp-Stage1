@@ -6,7 +6,7 @@ Create Project
 
 0.1. pip install djangorestframework 
 
-1. [terminal] django-admin startproject mysite
+1. [terminal] django-admin startproject mysite 
 
 2. cd into mysite 
 
