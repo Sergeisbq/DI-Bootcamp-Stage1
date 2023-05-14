@@ -7,11 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="post"> 
-        {%csrf_token%}
-        {{form}}
-        <button type="submit"> Login </button>
-    </form>
-    <a href="{% url 'signup' %}"> </a>
+    <h1> Profile: <small> {{profile.user}} </small> </h1>
+
+    
 </body>
 </html>

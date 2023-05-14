@@ -1,0 +1,20 @@
+{% extends 'partials/base.html' %}
+ 
+
+{% block content %}
+<h2>Images</h2>
+
+  
+    {% for image in images %}
+      <p>
+
+          <img src="{{ MEDIA_URL }}/media/{{ image.file }}" alt="{{ image.title }}" width="300px">
+          <br>
+          {{ image.description }}
+
+
+        </a>
+    </p>
+    {% endfor %}
+  
+{% endblock %}

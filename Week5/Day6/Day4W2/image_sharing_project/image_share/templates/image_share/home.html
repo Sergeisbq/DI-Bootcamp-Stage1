@@ -1,0 +1,9 @@
+{% extends 'partials/base.html' %}
+ 
+{% block content %}
+<div class="rectangle">
+    {% for profile in profiles %}
+    <h3>{{ profile }} {{ profile.number_of_images }}</h3>
+    {% endfor %}
+</div>
+{% endblock %}
