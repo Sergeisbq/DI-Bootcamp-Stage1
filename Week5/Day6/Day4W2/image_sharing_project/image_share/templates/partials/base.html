@@ -16,13 +16,13 @@
   <header>
     <div id="uppage" class="wrapper_2">
         <div class="box1"></div>
-        <div class="box2"><a class="navabout" href="/">Home</a></div>
+        <div class="box2"><a class="navabout" href="{% url 'home' %}">Home</a></div>
         <div class="box3"></div>
         <div class="box4"></div>
-        <div class="box5"><a class="navabout" href="/restaurants/">Restaurants</a></div>
-        <div class="box6"><a class="navabout" href="/add_customer/">For guests</a></div>
-        <div class="box7"><a class="resume_l" href="accounts/login/">Log in</a></div>
-        <div class="box8">Contacts</div>
+        <div class="box5"><a class="navabout" href="{% url 'upload_image' %}">Upload an image</a></div>
+        <div class="box6"><a class="navabout" href="{% url 'user_images' %}">My images</a></div>
+        <div class="box7"><a class="resume_l" href="{% url 'login' %}">LogIn</a></div>
+        <div class="box8"><a class="resume_l" href="{% url 'signup' %}">SignUp</a></div>
         <div class="box9"></div>
     </div>
 </header>

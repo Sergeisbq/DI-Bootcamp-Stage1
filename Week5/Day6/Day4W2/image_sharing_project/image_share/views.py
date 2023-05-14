@@ -22,8 +22,8 @@ class SignUpView(CreateView):
 
 
 def index_view(request):
-    profiles = Profile.objects.all()
-    context = {'profiles': profiles}
+    images = Image.objects.all()
+    context = {'images': images}
     return render(request, 'image_share/home.html', context)
 
 
@@ -80,5 +80,5 @@ def images_view(request):
 def user_images(request):
     profile = Profile.objects.get(user=request.user)
     user_images = Image.objects.filter(user_upload=profile)
-    context = {'user_images': user_images}
+    context = {'user_images': user_images, 'profile': profile}
     return render(request, 'image_share/user_images.html', context)

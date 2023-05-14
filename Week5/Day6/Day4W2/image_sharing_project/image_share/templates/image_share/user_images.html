@@ -2,8 +2,11 @@
 {% block content %}
   <h1>My Images</h1>
 
-
+  {% if profile %}
+  <p>{{profile.number_of_images}}</p>
+  {% endif %}
       {% for image in user_images %}
+      
         <p>
 
             <img src="{{ MEDIA_URL }}/media/{{ image.file }}" alt="{{ image.title }}" width="300px">

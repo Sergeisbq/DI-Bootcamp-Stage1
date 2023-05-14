@@ -2,8 +2,17 @@
  
 {% block content %}
 <div class="rectangle">
-    {% for profile in profiles %}
-    <h3>{{ profile }} {{ profile.number_of_images }}</h3>
+    {% for image in images %}
+      <p>
+
+          <img src="{{ MEDIA_URL }}/media/{{ image.file }}" alt="{{ image.title }}" width="300px">
+          <br>
+          {{ image.title }} ||
+          {{ image.description }}
+
+
+        </a>
+    </p>
     {% endfor %}
 </div>
 {% endblock %}
