@@ -1,0 +1,7 @@
+Your website for checking user allergens demonstrates a solid understanding of django and showcases good coding practices.
+The code is well-structured, it is DRY, making it easy to navigate and maintain.
+The views and forms handle user requests and data validation efficiently, eror handling and validation are also implemented, providing a good user experience.
+
+for future features you could implement a notification system to alert users if a restaurant or dish they are interested in contains any of their allergens.
+
+good job!
