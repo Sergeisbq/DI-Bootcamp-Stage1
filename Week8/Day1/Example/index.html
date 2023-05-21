@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="App">
+    <div id="outer" class="outer">
+        <div id="inner" class="inner">
+        
+        </div>
+    </div>
+    <button onClick="y()" type="button" name="button">Move!</button> 
+    <button onClick="z()" name="button">Stop!</button> 
+        <button onClick="handleClick(event)">Click Me! </button>
+        <!-- <button onClick="handleClick(this)">Click Me! </button> -->
+        <button id="buta">Click Me A!</button>
+        <input type="text" name="username" value="" onkeypress="" onInput="handleInput(event)"/>
+
+        <table id="sampleTable" > 
+            <tr>
+                <td>Row1 cell1</td> 
+                <td>Row1 cell2</td>
+            </tr> 
+            <tr>
+                <td>Row2 cell1</td> 
+                <td>Row2 cell2</td>
+            </tr> 
+            </table>
+            
+            <input type="button" onclick="insertRow2()" value="Insert row"> 
+    </div>
+
+    <div id="div1">
+        <div id="div2">
+            <button id="but">Click Me!</button>
+        </div>
+    </div>
+    <form onSubmit="handleSubmit(event)" name="form_one">
+        <select name="fruits">
+            <option value="apple">Apple</option>
+            <option value="pear">Pear</option>
+            <option value="banana">Banana</option>
+        </select>
+        <input type="submit" name="" value="Send">
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
