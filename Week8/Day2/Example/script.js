@@ -262,3 +262,78 @@ obj_1.c.d = 44;
 console.log(str);
 console.log(obj_1);
 console.log(obj_2);
+
+
+
+
+
+
+
+
+// function declaration
+
+addition(2,4)
+
+
+function addition (a, b) {
+    return a + b
+}
+
+addition(2,4)
+
+// function expression
+// anonymous function
+
+const addition_second = function (a,b) {
+    return a + b
+}
+
+addition_second(2,4)
+
+
+
+// callback function
+div.addEventListener("click", function(){
+    alert("hello")
+})
+
+// SELF INVOKING FUNCTION
+// DECLARED AND EXECUTED AT THE SAME TIME
+
+(function () {
+    console.log("welcome")
+})()
+
+(function (username) {
+    console.log("welcome" + username)
+})("John")
+
+// ARROW FUNCTION
+
+function addition (a, b) {
+    return a + b
+}
+
+const addition_third = function (a,b) {
+    return a + b
+}
+
+const addition_fourth = (a, b) => a+b
+
+function addition_fifth (a, b, operator) {
+    if (operator === "+") {
+        return a + b
+    } else {
+        return a - b
+    }
+}
+
+const addition_six = (a, b, operator) => {
+    let total = operator === "+" ? a + b : a - b
+    return total
+}
+
+const addition_seven = (a, b, operator) => operator === "+" ? a + b : a - b
+
+const winBattle = () => true
+let experiencePoints = winBattle() ? 10 : 1
