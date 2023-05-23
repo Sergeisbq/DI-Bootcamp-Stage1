@@ -166,7 +166,7 @@
 
 
 // let arr = ['blue', ['red', ['yellow', 'orange']], 'green'];
-// console.log(arr.flat(2)); // number is the level, 'infinite' - for all levels 
+// console.log(arr.flat(2)); // number is the level, 'infinity' - for all levels 
 
 // let arr = [1,2,3,4]
 // let arr3 = []
