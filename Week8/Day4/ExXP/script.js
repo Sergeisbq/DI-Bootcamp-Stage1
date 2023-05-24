@@ -63,6 +63,21 @@
 
 
 // // -----6-----
+const x = function() {
+    if ([2] !== [2]) {
+        return console.log('Hi');
+}
+}
+x() // Answer - false
+
+const y = function() {
+    if ({} !== {}) {
+        return console.log('Hello');
+}
+}
+y() // Answer - false
+
+
 const object1 = { number: 5 }; 
 const object2 = object1; 
 const object3 = object2; 
