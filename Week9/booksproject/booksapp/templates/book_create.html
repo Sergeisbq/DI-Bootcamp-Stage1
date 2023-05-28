@@ -1,0 +1,18 @@
+<!-- book_create.html-->
+<form action="{% url 'book-create' %}" method="post">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="" required> 
+
+    <label for="author">Author:</label>
+    <input type="text" name="author" id="author" value="" required> 
+
+    <label for="publication_date">Published Date:</label>
+    <input type="date" name="publication_date" id="publication_date" value="" required> 
+
+    <label for="price">Price:</label>
+    <input type="text" name="price" id="price" value="" required> 
+
+    <button type="submit"> Add a Book </button>
+    
+</form>

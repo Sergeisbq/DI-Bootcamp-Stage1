@@ -1,0 +1,12 @@
+<form method="POST" action="{% url 'book-update' book.id %}">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+    <label for="published_date">Published Date:</label>
+    <input type="date" id="publication_date" name="publication_date" required>
+    <label for="isbn">Price:</label>
+    <input type="text" id="price" name="price" required>
+    <button type="submit">Update Book</button>
+  </form>
