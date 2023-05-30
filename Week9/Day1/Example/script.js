@@ -3,7 +3,7 @@ let form1 = document.forms.myForm
 
 let elems = form1.elements;
 
-let select = elems[2]
+let select = elems[1]
 
 function handleSubmit(e) {
     e.preventDefault();
