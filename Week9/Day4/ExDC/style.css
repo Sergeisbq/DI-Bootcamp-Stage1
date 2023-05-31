@@ -1,0 +1,85 @@
+body {
+    background-image: url("https://cdn.corporatefinanceinstitute.com/assets/currency.jpeg");
+    
+}
+
+
+#frame {
+    margin: auto;
+    width: 40%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.788);
+}
+
+#selF, #selS {
+    margin-left: 26%;
+    height: 30px;
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(240, 91, 163, 0.788);
+}
+
+#myForm {
+
+    
+    padding: 10px;
+    background-color: rgba(211, 211, 211, 0);
+    height: 40px;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0.605);
+    height: 25px;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+
+.title {
+
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+
+.textContent {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}
+
+#toAddCont {
+    margin: auto;
+    width: 50%;
+    height: 300px;
+    border: 3px solid rgba(240, 91, 163, 0.788);
+    border-radius: 20px;
+}
+
+
+
+
+.toFindBtn {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 20%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 3px solid rgba(240, 91, 163, 0.788);
+    border-radius: 20px;
+    color: rgba(240, 91, 163, 0.788);
+    font-size: 20px; 
+    cursor: pointer;
+}
