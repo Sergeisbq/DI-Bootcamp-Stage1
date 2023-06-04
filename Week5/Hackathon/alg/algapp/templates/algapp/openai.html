@@ -1,0 +1,10 @@
+{% extends 'algapp/base.html' %}
+{% block content %}
+<form method="POST" action="{% url 'openai-ask' %}">
+    <label for="title">Ask ChatGPT:</label>
+    <input type="text" name="prompt" required value="what is the time in tel aviv?">
+    <button type="submit">Ask ChatGPT</button>
+</form>
+
+
+{% endblock %}

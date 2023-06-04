@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from .views import add_customer_view, rest, one_rest, add_rest_view
+from .views import add_customer_view, rest, one_rest, add_rest_view, ask_chatGPT
 
 
 
 urlpatterns = [
     path('', views.home, name="home_path"),
-    path("add_customer/", add_customer_view),
+    path("add_customer/", add_customer_view, name='add_customer'),
     path("restaurants/", rest, name='restaurants'), 
     path("add_restaurant/", add_rest_view, name='add_restaurant'), 
     path("restaurant/<int:r_id>", one_rest, name='restaurant'), 
     path("choose_dish/<int:r_id>", one_rest, name='dish_path'), 
+    path('openai/ask/', ask_chatGPT, name='openai-ask'),
+    path('openai/answer/', ask_chatGPT, name='answerOA'),
 
 ]

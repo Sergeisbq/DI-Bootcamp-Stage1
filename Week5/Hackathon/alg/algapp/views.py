@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from .forms import CustomerForm, SomeForm, DishForm, RestForm, RestAddForm
-from .models import Customer, Dishes, Restaurant, Menu
+from .models import Customer, Dishes, Restaurant, Menu, Allergens, Statistic
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
 import random
-
-# Create your views here.
-
+from django.contrib.messages.views import SuccessMessageMixin
+import json
+import os
+import openai
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 
 def home (request):
@@ -20,26 +23,25 @@ def add_customer_view(request):
 
     if request.method == 'POST':
 
-        customer_filled_form = CustomerForm(request.POST) # put the data from the request into the ModelForm
+        customer_filled_form = CustomerForm(request.POST)
 
-        if customer_filled_form.is_valid(): # check if all fields contain the correct data
-            new_customer = customer_filled_form.save() # save data into database
-            
-            allergens = customer_filled_form.cleaned_data['allergens'] # <QuerySet [<Category: animals>]>
-
-            new_customer.allergens.add(*allergens)  # [<Category: animals>, <Category: funny>]
-
+        if customer_filled_form.is_valid(): 
+            new_customer = customer_filled_form.save() 
+            allergens = customer_filled_form.cleaned_data['allergens']
+            new_customer.allergens.add(*allergens) 
+            # customer_allergens = Allergens.
             print("allergens:", allergens)
-            return HttpResponse("SUCCESSFULLY SAVED")
+            
+            context = {'new_customer': new_customer}
+            return render(request, 'profile.html', context)
         
         else:
             print(customer_filled_form.errors)
             return HttpResponse(customer_filled_form.errors)
 
-    # GET mode - getting content out
     if request.method == 'GET':
-        customer_filled_form = CustomerForm()
-        print("GET data: ", request.GET) # data associated with the GET method
+        customer_filled_form = CustomerForm(initial={"user": request.user})
+        print("GET data: ", request.GET)
         print("GETTING DATA OUT")
         context = {'form': customer_filled_form}
         return render(request, 'algapp/add_customer.html', context)
@@ -79,8 +81,6 @@ def add_rest_view(request):
     # GET mode - getting content out
     if request.method == 'GET':
         rest_filled_form = RestAddForm()
-        print("GET data: ", request.GET) # data associated with the GET method
-        print("GETTING DATA OUT")
         context = {'form': rest_filled_form}
         return render(request, 'algapp/add_restaurant.html', context)
 
@@ -159,6 +159,56 @@ def one_rest (request, r_id):
     return render(request, 'algapp/restaurant.html', context)
 
 
+
+@csrf_exempt
+def ask_chatGPT(request):
+    if request.method == 'POST':
+        try:
+            
+            # data = {
+            #     'prompt': request.POST.get('prompt')
+            #     # Add more fields as needed
+            # }
+            
+            json_data = json.dumps(request.POST)
+            data = json.loads(json_data)
+            print(data)
+            openai.api_key = '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' #os.environ.get('OPENAI_API_KEY') 
+            
+            response = openai.Completion.create(
+                model="text-davinci-003",
+                prompt=data['prompt'],
+                temperature=0,
+                max_tokens=150,
+                top_p=1.0,
+                frequency_penalty=0.0,
+                presence_penalty=0.0,
+                stop=["###"]
+            )
+
+            json_object = json.dumps(response, indent=4)
+
+            with open("sample.json", "w") as outfile:
+                outfile.write(json_object)
+
+            with open('sample.json') as file:
+                json_data = json.load(file)
+                print(json_data)
+                new_data = Statistic()
+                new_data.file = json_data
+                new_data.save()
+                print(json_data['choices'][0]['text'])
+                text = json_data['choices'][0]['text']
+                context = {'text': text}
+
+            return render(request, 'algapp/answerOA.html', context)
+
+            # return JsonResponse(response, safe=False)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid JSON'}, status=400)
+    else:
+        # return JsonResponse({'error': 'Invalid request method'}, status=405)
+        return render(request, 'algapp/openai.html', {})
 
 
     

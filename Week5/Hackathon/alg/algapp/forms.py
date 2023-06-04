@@ -7,7 +7,10 @@ class CustomerForm(forms.ModelForm):
 
     class Meta: 
         model = Customer
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('first_name', 'last_name', 'email', 'user')
+        widgets = {
+            'user': forms.HiddenInput()
+        }
         
     allergens = forms.ModelMultipleChoiceField(queryset=Allergens.objects.all()) 
 

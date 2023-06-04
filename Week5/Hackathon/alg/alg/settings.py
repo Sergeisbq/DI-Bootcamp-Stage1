@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import openai
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'profile-redirect'
 LOGOUT_REDIRECT_URL = 'login'
+
+
+# api_key = os.environ.get('OPENAI_API_KEY')
+OPENAI_API_KEY = config('OPENAI_API_KEY')
+# openai.api_key = api_key
+# OPENAI_API_KEY = <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>

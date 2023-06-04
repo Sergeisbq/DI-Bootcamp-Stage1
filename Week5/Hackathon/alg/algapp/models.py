@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 
 
@@ -7,7 +8,8 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=50, blank=False, db_index=True)
     last_name = models.CharField(max_length=50, blank=False, db_index=True)
     email = models.EmailField()
-    # allergens = ArrayField(models.CharField(max_length=250, null=True))
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
+
     allergens = models.ManyToManyField('Allergens')
 
     def __str__(self):
@@ -54,5 +56,11 @@ class Allergens(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+    
+
+class Statistic(models.Model):
+
+    file = models.JSONField()
+
 
 
