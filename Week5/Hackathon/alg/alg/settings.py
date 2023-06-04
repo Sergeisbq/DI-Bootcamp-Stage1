@@ -138,6 +138,6 @@ LOGOUT_REDIRECT_URL = 'login'
 
 
 # api_key = os.environ.get('OPENAI_API_KEY')
-OPENAI_API_KEY = config('OPENAI_API_KEY')
+# OPENAI_API_KEY = config('OPENAI_API_KEY')
 # openai.api_key = api_key
 # OPENAI_API_KEY = <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>

@@ -1,19 +1,19 @@
 {
-    "id": "cmpl-7NROxZjnvcKyg1xmpXmd1j57ll058",
+    "id": "cmpl-7Nf1KKOa6sijENCXwjdzySI0d1c3t",
     "object": "text_completion",
-    "created": 1685821231,
+    "created": 1685873582,
     "model": "text-davinci-003",
     "choices": [
         {
-            "text": "\n\nChocolate Chip Cookies\n\nIngredients:\n\n- 2 1/4 cups all-purpose flour\n- 1 teaspoon baking soda\n- 1 teaspoon salt\n- 1 cup (2 sticks) butter, softened\n- 3/4 cup granulated sugar\n- 3/4 cup packed brown sugar\n- 1 teaspoon vanilla extract\n- 2 large eggs\n- 2 cups (12-oz. pkg.) semi-sweet chocolate chips\n\nInstructions:\n\n1. Preheat oven to 375\u00b0F.\n\n2. Combine flour, baking soda and salt in small bowl.\n\n3. Beat butter, granulated sugar, brown sugar and vanilla extract in large mixer bowl until creamy. Add eggs, one at",
+            "text": "\n\n{\n    \"name\": \"Carrot Pie Without Walnuts\",\n    \"ingredients\": [\n        \"1/2 cup butter\",\n        \"1/2 cup white sugar\",\n        \"2 eggs\",\n        \"1/2 teaspoon ground cinnamon\",\n        \"1/4 teaspoon ground nutmeg\",\n        \"1/4 teaspoon ground allspice\",\n        \"1/4 teaspoon ground ginger\",\n        \"1/2 teaspoon salt\",\n        \"1/2 cup all-purpose flour\",\n        \"2 cups grated carrots\",\n        \"1/2 cup raisins\",\n        \"1/2 cup chopped dates\",\n        \"1/2 cup chopped apples\"\n    ],\n    \"instructions\": [\n        \"Preheat oven to 350 degrees F (175 degrees C).\",\n        \"In a medium bowl, cream together the butter and sugar until light and fluffy.\",\n        \"Beat in the eggs one at a time, then stir in the cinnamon, nutmeg, allspice, ginger and salt.\",\n        \"Stir in the flour, then fold in the carrots, raisins, dates and apples.\",\n        \"Pour the mixture into a 9 inch pie pan.\",\n        \"Bake in preheated oven for 40 minutes, or until a knife inserted into the center of the pie comes out clean.\"\n    ]\n}",
             "index": 0,
             "logprobs": null,
-            "finish_reason": "length"
+            "finish_reason": "stop"
         }
     ],
     "usage": {
-        "prompt_tokens": 5,
-        "completion_tokens": 150,
-        "total_tokens": 155
+        "prompt_tokens": 13,
+        "completion_tokens": 298,
+        "total_tokens": 311
     }
 }

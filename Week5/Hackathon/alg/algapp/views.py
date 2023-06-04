@@ -11,6 +11,8 @@ import os
 import openai
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from dotenv import load_dotenv
+load_dotenv()
 
 
 def home (request):
@@ -173,13 +175,16 @@ def ask_chatGPT(request):
             json_data = json.dumps(request.POST)
             data = json.loads(json_data)
             print(data)
-            openai.api_key = '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' #os.environ.get('OPENAI_API_KEY') 
+            api_key = os.getenv('OPENAI_API_KEY')
+            openai.api_key = api_key
+            # openai.api_key = os.environ.get('OPENAI_API_KEY') #'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' # 
+            print(api_key)
             
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt=data['prompt'],
+                prompt=data['prompt']+' response as a JSON',
                 temperature=0,
-                max_tokens=150,
+                max_tokens=1500,
                 top_p=1.0,
                 frequency_penalty=0.0,
                 presence_penalty=0.0,
@@ -197,6 +202,7 @@ def ask_chatGPT(request):
                 new_data = Statistic()
                 new_data.file = json_data
                 new_data.save()
+
                 print(json_data['choices'][0]['text'])
                 text = json_data['choices'][0]['text']
                 context = {'text': text}
