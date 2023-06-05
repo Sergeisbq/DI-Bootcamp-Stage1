@@ -164,25 +164,34 @@ def one_rest (request, r_id):
 
 @csrf_exempt
 def ask_chatGPT(request):
+    user = request.user
+    customer = Customer.objects.get(user=user)
     if request.method == 'POST':
         try:
             
-            # data = {
-            #     'prompt': request.POST.get('prompt')
-            #     # Add more fields as needed
-            # }
-            
             json_data = json.dumps(request.POST)
             data = json.loads(json_data)
-            print(data)
+            print(data['select_th'])
             api_key = os.getenv('OPENAI_API_KEY')
             openai.api_key = api_key
-            # openai.api_key = os.environ.get('OPENAI_API_KEY') #'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' # 
-            print(api_key)
+            promt1 = ''
+            if data['select_th'] == 'Recipe':
+                promt1 = 'Type a recipe for '
+            elif data['select_th'] == 'Suggestion':
+                promt1 = 'Reccomend me '
+            else:
+                promt1 = ''
+            allergens = []
+            for allergen in customer.allergens.all():
+                allergens.append(allergen.name)
+            promt2 = f" without {allergens}"
+            print(promt2)
+            print(promt1 + ' ' + data['prompt'] + promt2 + ' response as a JSON')
+
             
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt=data['prompt']+' response as a JSON',
+                prompt=promt1 + ' ' + data['prompt'] + promt2 + ' response as a JSON',
                 temperature=0,
                 max_tokens=1500,
                 top_p=1.0,
@@ -190,7 +199,7 @@ def ask_chatGPT(request):
                 presence_penalty=0.0,
                 stop=["###"]
             )
-
+            print('This is a prompt ' + promt1 + data['prompt'] + ' response as a JSON')
             json_object = json.dumps(response, indent=4)
 
             with open("sample.json", "w") as outfile:
@@ -205,7 +214,9 @@ def ask_chatGPT(request):
 
                 print(json_data['choices'][0]['text'])
                 text = json_data['choices'][0]['text']
-                context = {'text': text}
+                print("----here text ----", text)
+                context = {'response': json.loads(text)}
+                # print(context)
 
             return render(request, 'algapp/answerOA.html', context)
 

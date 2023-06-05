@@ -1,19 +1,19 @@
 {
-    "id": "cmpl-7Nf1KKOa6sijENCXwjdzySI0d1c3t",
+    "id": "cmpl-7NlQJEsGQy8m58NoLUH1uLpSwG08D",
     "object": "text_completion",
-    "created": 1685873582,
+    "created": 1685898195,
     "model": "text-davinci-003",
     "choices": [
         {
-            "text": "\n\n{\n    \"name\": \"Carrot Pie Without Walnuts\",\n    \"ingredients\": [\n        \"1/2 cup butter\",\n        \"1/2 cup white sugar\",\n        \"2 eggs\",\n        \"1/2 teaspoon ground cinnamon\",\n        \"1/4 teaspoon ground nutmeg\",\n        \"1/4 teaspoon ground allspice\",\n        \"1/4 teaspoon ground ginger\",\n        \"1/2 teaspoon salt\",\n        \"1/2 cup all-purpose flour\",\n        \"2 cups grated carrots\",\n        \"1/2 cup raisins\",\n        \"1/2 cup chopped dates\",\n        \"1/2 cup chopped apples\"\n    ],\n    \"instructions\": [\n        \"Preheat oven to 350 degrees F (175 degrees C).\",\n        \"In a medium bowl, cream together the butter and sugar until light and fluffy.\",\n        \"Beat in the eggs one at a time, then stir in the cinnamon, nutmeg, allspice, ginger and salt.\",\n        \"Stir in the flour, then fold in the carrots, raisins, dates and apples.\",\n        \"Pour the mixture into a 9 inch pie pan.\",\n        \"Bake in preheated oven for 40 minutes, or until a knife inserted into the center of the pie comes out clean.\"\n    ]\n}",
+            "text": "\n\n{\n  \"name\": \"Pelmeny\",\n  \"ingredients\": [\n    \"1 lb ground beef\",\n    \"1/2 cup onion, finely chopped\",\n    \"1/2 cup cooked rice\",\n    \"1 egg\",\n    \"1/2 teaspoon salt\",\n    \"1/4 teaspoon pepper\",\n    \"1/4 teaspoon garlic powder\"\n  ],\n  \"instructions\": [\n    \"In a large bowl, combine the ground beef, onion, cooked rice, egg, salt, pepper, and garlic powder.\",\n    \"Mix together until all ingredients are evenly distributed.\",\n    \"Form the mixture into small balls, about 1 inch in diameter.\",\n    \"Bring a large pot of salted water to a boil.\",\n    \"Drop the pelmeny into the boiling water and cook for 10 minutes.\",\n    \"Remove the pelmeny from the water and serve hot.\"\n  ]\n}",
             "index": 0,
             "logprobs": null,
             "finish_reason": "stop"
         }
     ],
     "usage": {
-        "prompt_tokens": 13,
-        "completion_tokens": 298,
-        "total_tokens": 311
+        "prompt_tokens": 17,
+        "completion_tokens": 205,
+        "total_tokens": 222
     }
 }

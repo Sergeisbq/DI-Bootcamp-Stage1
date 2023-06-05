@@ -1,16 +1,38 @@
 {% extends 'algapp/base.html' %}
+
+
  
 {% block content %}
-<div class="rectangle"><h1 class="h1hp">AllerGuard</h1></div>
 
-<div class="home_page_c">
-    <script>
-        let obj = JSON.parse('{{ text|escapejs }}');
-        obj.name
-        // console.log('tttttt', obj.name);
-        // console.log('{{text|escapejs}}');
-    </script>
-	<p>{{ text }}</p>
-    <img class="imghp"src="/static/algapp/images/1.jpg">
+<h2>{{response.name}}</h2><br>
+<div id="container_re">
+    <div id="container_re_inside">
+        <h3>Ingridients</h3>
+        {% for item in response.ingredients%}
+
+        <ul>
+            <li>{{item}}</li>
+        </ul>
+
+        {% endfor %}
+    </div>
+    <br>
+    <div id="container_re_inside">
+        <h3>Instructions</h3>
+        {% for item in response.instructions%}
+
+        <ul>
+            <li>{{item}}</li>
+        </ul>
+        {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
+
+{% block js_files %} 
+<script src="/static/algapp/js/script.js"></script>
+{% endblock %}
+
+
+

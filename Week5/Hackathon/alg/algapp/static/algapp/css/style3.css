@@ -49,6 +49,18 @@ body {
 
 }
 
+#container_re {
+    color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+#container_re_inside {
+    width: 300px;
+}
+
 .h2hp {
     display: flex;
     flex-direction: row;
