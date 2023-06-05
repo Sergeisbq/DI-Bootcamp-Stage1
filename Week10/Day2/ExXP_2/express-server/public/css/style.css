@@ -1,0 +1,13 @@
+#idForH1 {
+    color: red;
+    border: 2px dashed blue;
+    text-align: center;
+}
+
+#idForH2 {
+    text-align: center;
+}
+
+#btn {
+    color: blue;
+}
