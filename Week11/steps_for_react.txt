@@ -1,0 +1,6 @@
+1. npx create-react-app my-first-app(the name of the app);
+2. cd into my-first-app;
+3. npm start;
+// another way to create app:
+4. npm i -g create-react-app;
+5. create-react-app myapp
