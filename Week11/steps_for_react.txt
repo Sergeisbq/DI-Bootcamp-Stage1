@@ -3,4 +3,5 @@
 3. npm start;
 // another way to create app:
 4. npm i -g create-react-app;
-5. create-react-app myapp
+5. create-react-app myapp;
+6. 
