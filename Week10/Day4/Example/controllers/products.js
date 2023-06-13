@@ -46,7 +46,8 @@ const _searchProduct = (req, res) => {
 const _createProduct = (req, res) => {
     createProduct(req.body)
     .then(data => {
-        res.json(data)
+        // res.json(data)
+        _getAllProducts(req, res);
     })
     .catch(e => {
         console.log(e);

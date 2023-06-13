@@ -1,0 +1,28 @@
+import React from 'react';
+
+class BuggyCounter extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+    }
+
+    add = () => {
+        this.setState({count: this.state.count + 1})
+    }
+
+    render() {
+        if (this.state.count > 5) {
+            throw Error('I crashed')
+        }
+        return (
+            <>
+                {this.state.count}
+                <button onClick={this.add}>Add</button>
+            </>
+        )
+    }
+}
+
+export default BuggyCounter

@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-class Color extends React.Component {
+class Colors extends React.Component {
     constructor() {
         super();
         this.state = {
-            color: "red"
+            color: "red",
         };
     }
 
@@ -24,17 +24,20 @@ class Color extends React.Component {
     // }
 
     componentDidUpdate() {
-        console.log("in update");
-        setTimeout(() => {
-            this.setState({color: 'green'});
-            let span =  document.getElementById("spanone")
-            span.textContent = this.state.color;
-        }, 1000);
+        console.log("after update")
+        // setTimeout(() => {
+            // this.setState({color: 'green'});
+            // let span =  document.getElementById("spanone")
+            // span.textContent = this.state.color;
+        // }, 1000);
     }
     
+    getSnapshotBeforeUpdate() {
+        console.log("in getSnapshotBeforeUpdate")
+    }
+
     clickMe = () => {
         this.setState({color: 'blue'}); 
-
     }
 
     render() {
@@ -48,4 +51,4 @@ class Color extends React.Component {
     }
 }
 
-export default Color
+export default Colors
