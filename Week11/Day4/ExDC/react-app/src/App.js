@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import MyForm from './components/MyForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <MyForm setMessage={(message) => this.setState({message: message})}/>
         <h1>{this.state.message}</h1>
       </div>
     )
