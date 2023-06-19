@@ -5,4 +5,10 @@
 4. npm i -g create-react-app;
 5. create-react-app myapp;
 6. 
-7. npm i react-router-dom  
+7. npm i react-router-dom;
+8.
+9. npm i redux react-redux, inside src create folder "redux", 
+   - inside "redux" folder create file "reducer.js", 
+   - inside "redux" folder create file "store.js",
+   - in index.js wrap your App in Provider,
+   - in App.js wrap your export in connect,
