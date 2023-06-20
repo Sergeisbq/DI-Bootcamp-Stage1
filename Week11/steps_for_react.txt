@@ -12,3 +12,5 @@
    - inside "redux" folder create file "store.js",
    - in index.js wrap your App in Provider,
    - in App.js wrap your export in connect,
+
+10. npm install redux-thunk
