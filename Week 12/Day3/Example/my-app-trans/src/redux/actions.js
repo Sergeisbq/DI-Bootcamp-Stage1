@@ -1,7 +1,17 @@
 export const INSERT = "INSERT";
 export const UPDATE = "UPDATE";
 export const DELETE = "DELETE";
-export const UPDATE_INDEX = "UPDATE_INDEX";
+export const UPDATE_INDEX = "UPDATE_INDEX"; 
+export const USERS = "USERS";
+
+export const getUsers = () => (dispatch, getState) => {
+    console.log(getState().currentIndex);
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => {
+        dispatch({type: USERS, payload:data})
+    })
+}
 
 
 export const insert_trx = (trx) => {

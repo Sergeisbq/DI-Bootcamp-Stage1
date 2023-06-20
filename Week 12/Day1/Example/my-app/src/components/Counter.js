@@ -1,26 +1,32 @@
 import {useState} from 'react';
 import {connect, useSelector, useDispatch} from 'react-redux';
-import { incrementCounter, decrementCounter } from '../redux/actions';
+import { incrementCounter, decrementCounter, incrementIfOdd } from '../redux/actions';
 
 const Counter = (props) => {
-    // const [count, setCount] = useState(0)
     const count = useSelector((state) => state.count);
     const dispatch = useDispatch()
-    // return (
-    //     <>
-    //         <button onClick={()=>props.handleIncrement()}>+</button>
-    //         {props.count}
-    //         <button onClick={()=>props.handleDecrement()}>-</button>
-    //     </>
-    // )
+    const incrementOneSec = () => {
+        setTimeout(() => {
+          dispatch(incrementCounter());
+        }, 1000);
+      };
     return (
         <>
+            <p>Clicked: {count} times</p>
             <button onClick={()=>dispatch(incrementCounter())}>+</button>
-            {count}
             <button onClick={()=>dispatch(decrementCounter())}>-</button>
+            <button onClick={()=>dispatch(incrementIfOdd())}>Increment if odd</button>
+            <button onClick={incrementOneSec}>Increment async</button>
         </>
     )
 }
+
+export default Counter
+
+
+
+
+
 
 // const mapStateToProps = (state) => {
 //     return {
@@ -36,7 +42,6 @@ const Counter = (props) => {
 // }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter)
-export default Counter
 
 
 
