@@ -1,6 +1,7 @@
 const initialState = {
     users:[],
     inputValue : "",
+    loading: true
 };
 
 export const reducer = (state = initialState, action={}) => {
@@ -10,8 +11,14 @@ export const reducer = (state = initialState, action={}) => {
     } 
 
     else if (action.type === "GET_ROBOTS") {
+        console.log("In GET", state.loading);
         console.log("in reducer getrobots", action.payload);
         return {users : action.payload}
+    } 
+    else if (action.type === "DONE_ROBOTS") {
+        console.log("Before DONE", state.loading);
+        console.log("in reducer DONE_ROBOTS");
+        return {...state, loading : false}
     }
     return state
 }

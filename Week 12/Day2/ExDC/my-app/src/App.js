@@ -2,8 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import RobotContainer from './components/RobotContainer';
 import React from 'react';
-// import { connect } from 'react-redux';
-import { searchRobot, getRobots } from './redux/actions'
+import { searchRobot, getRobots, waitingRobots, doneRobots } from './redux/actions';
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 
@@ -13,9 +12,14 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    // setTimeout(() => {
+    //   dispatch(waitingRobots());
+    // }, 1000);
+    // setTimeout(() => {dispatch(waitingRobots())}, 2000)
     fetch(usersUrl)
       .then((res) => res.json())
       .then((users) => dispatch(getRobots(users)))
+      .then(dispatch(doneRobots()))
       .catch(console.error)
   }, [])
 

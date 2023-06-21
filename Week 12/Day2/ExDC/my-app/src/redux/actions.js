@@ -10,4 +10,10 @@ export const getRobots = (data) => {
     type: 'GET_ROBOTS',
     payload: data
   }
+}; 
+
+export const doneRobots = () => {
+  return {
+    type: 'DONE_ROBOTS',
+  }
 };
