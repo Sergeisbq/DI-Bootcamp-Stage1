@@ -3,6 +3,8 @@ export const UPDATE = "UPDATE";
 export const DELETE = "DELETE";
 export const UPDATE_INDEX = "UPDATE_INDEX"; 
 export const USERS = "USERS";
+export const PLUS = "PLUS";
+export const MINUS = "MINUS";
 
 export const getUsers = () => (dispatch, getState) => {
     console.log(getState().currentIndex);
@@ -39,6 +41,21 @@ export const update_indx = (indx) => {
     return {
         type: UPDATE_INDEX,
         payload: indx
+    }
+}
+
+
+export const increment = () => (dispatch, getState) => {
+    console.log(getState());
+    setTimeout(() => {
+        dispatch({type: PLUS})
+    }, 5000)
+}
+
+
+export const decrement = () => {
+    return {
+        type: MINUS,
     }
 }
 

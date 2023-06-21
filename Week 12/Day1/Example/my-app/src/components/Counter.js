@@ -3,7 +3,7 @@ import {connect, useSelector, useDispatch} from 'react-redux';
 import { incrementCounter, decrementCounter, incrementIfOdd } from '../redux/actions';
 
 const Counter = (props) => {
-    const count = useSelector((state) => state.age);
+    const count = useSelector((state) => state.count);
     const dispatch = useDispatch()
     const incrementOneSec = () => {
         setTimeout(() => {

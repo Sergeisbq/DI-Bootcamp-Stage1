@@ -1,10 +1,11 @@
-import { INSERT, UPDATE, DELETE, UPDATE_INDEX, USERS } from './actions';
+import { INSERT, UPDATE, DELETE, UPDATE_INDEX, USERS, PLUS, MINUS } from './actions';
 import { addToLocalStorage, getFromLocalStorage } from '../utils/storage';
 
 const initState = {
     list: getFromLocalStorage('transactions'),
     currentIndex: -1,
-    users: []
+    users: [],
+    count: 0
 }
 
 export const reducer = (state=initState, action={}) => {
@@ -25,6 +26,11 @@ export const reducer = (state=initState, action={}) => {
             state.list.splice(action.payload, 1)
             addToLocalStorage('transactions', [...state.list])
             return {...state, list:[...state.list], currentIndex: -1}
+
+        case PLUS:
+            return {...state, count: state.count + 1}
+        case MINUS:
+            return {...state, count: state.count - 1}
         default:
             return {...state}
     }

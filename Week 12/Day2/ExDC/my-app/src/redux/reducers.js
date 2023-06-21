@@ -1,12 +1,17 @@
-import { combineReducers } from "redux";
+const initialState = {
+    users:[],
+    inputValue : "",
+};
 
-const initialState = [];
+export const reducer = (state = initialState, action={}) => {
 
-function robotReducer(state = initialState, action) {
+    if (action.type === "SEARCH_ROBOT") {
+        return {...state, inputValue:action.payload};
+    } 
+
+    else if (action.type === "GET_ROBOTS") {
+        console.log("in reducer getrobots", action.payload);
+        return {users : action.payload}
+    }
     return state
-
 }
-
-export const rootReducer = combineReducers({
-    robotReducer: robotReducer
-})

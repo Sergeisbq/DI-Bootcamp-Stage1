@@ -2,9 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 import {connect, useSelector, useDispatch} from 'react-redux';
-import { incrementCounter, decrementCounter } from './redux/actions'
+import { incrementCounter, decrementCounter } from './redux/actions';
+
+
+
 function App() {
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state.age);
   const dispatch = useDispatch()
   return (
     <>
@@ -17,3 +20,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
