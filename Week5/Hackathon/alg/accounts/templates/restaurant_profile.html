@@ -5,8 +5,32 @@
 <p>Username: {{rest_user.username}}</p>
 <p>Name: {{rest_customer.name}}</p>
 <p>Address: {{rest_customer.address}}</p>
+<a href="{% url 'update_restaurant' %}">Update Restaurant's information</a>
+<div class="list_of_rest">
+    <table class="/">
 
-<a href="{% url 'update_restaurant' %}">Update Restaurant</a>
+        <tr>
+            <th>Dish name</th>
+            <th>Ingredients</th>
+            {% for dish in dishes %}
+                <tr>
+                    <td><a href="{% url 'update_dish' dish.id %}"><b>{{ dish.name }}</b></a></td>
+                    <td>
+                        {% for ingredient in dish.dish_main_ingredients.all %}
+                            {{ ingredient.name }},
+                        {% endfor %}
+                        {% for ingredient in dish.dish_var_ingredients.all %}
+                            {{ ingredient.name }},
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+
+
 
 {%endblock content%}
 

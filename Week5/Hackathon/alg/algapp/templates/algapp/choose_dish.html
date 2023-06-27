@@ -18,15 +18,15 @@
                 <div class="content">
                 <p><b>{{dish.name}}</b></p><br> 
                 Ingridients:
-                {% for i in dish.dish_main_ings %}
+                {% for i in dish.dish_main_ingredients.all %}
                 <br>
                     {% if i in allergic_m %}
                         <span style="color: red;">{{ i }}</span>
                     {% else %}
                         {{ i }}
                     {% endif %}
-                {% endfor %}<br><br>
-                {% for i in dish.dish_var_ings %}
+                {% endfor %}
+                {% for i in dish.dish_var_ingredients.all %}
                 <br>
                     {% if i in allergic_v %}
                         <span style="color: orange;">{{ i }}</span>

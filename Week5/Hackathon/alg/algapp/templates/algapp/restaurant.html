@@ -24,10 +24,10 @@
             {%for dish in dishes%}
             <div class="content">
             <p><b>{{dish.name}}</b></p><br> 
-            Ingridients:{%for i in dish.dish_main_ings%}<br>
+            Ingridients:{%for i in dish.dish_main_ingredients.all%}<br>
             {{i}}
-            {%endfor%}<br><br>
-            {%for i in dish.dish_var_ings%}<br>
+            {%endfor%}
+            {%for i in dish.dish_var_ingredients.all%}<br>
             {{i}}
             {%endfor%}<br><br>
 

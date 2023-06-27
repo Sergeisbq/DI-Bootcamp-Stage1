@@ -10,7 +10,7 @@ class Customer(models.Model):
     email = models.EmailField()
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
 
-    allergens = models.ManyToManyField('Allergens')
+    allergens = models.ManyToManyField('Ingredients')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -55,7 +55,7 @@ class Restaurant(models.Model):
 class Menu(models.Model):
 
     restaurant_id = models.ManyToManyField('Restaurant', blank=True, db_index=True, related_name='menus')
-    dish_id = models.ManyToManyField('Dishes', blank=True, db_index=True, related_name='menus')
+    dish_id = models.ManyToManyField('DishesIng', blank=True, db_index=True, related_name='menus')
     # dish_id = models.ForeignKey('Dishes', on_delete=models.DO_NOTHING)
 
     def __str__(self):

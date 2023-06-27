@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
-from algapp.models import Customer, Restaurant
+from algapp.models import Customer, Restaurant, Menu
 from .forms import ProfileForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -30,10 +30,18 @@ def customer_profile(request):
 @login_required
 def restaurant_profile(request):
     rest_user = request.user
-    print(rest_user.username)
     rest_customer = Restaurant.objects.get(user=rest_user)
-    print(rest_customer)
+    menus = Menu.objects.filter(restaurant_id=rest_customer.id)
+    dishes = []
+    
+    for menu in menus:
+        dishes.extend(menu.dish_id.all())
+
+    dishes = list(set(dishes))
+
+    print(dishes)
     context = {
+        'dishes': dishes,
         'rest_user': rest_user,
         'rest_customer': rest_customer,
     }
