@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import CustomerForm, SomeForm, DishForm, RestForm, RestAddForm
-from .models import Customer, Dishes, Restaurant, Menu, Allergens, Statistic
+from .forms import CustomerForm, SomeForm, DishForm, RestForm, RestAddForm, DishAddForm
+from .models import Customer, Dishes, Restaurant, Menu, Allergens, Statistic, DishesIng
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
@@ -327,6 +327,53 @@ def ask_chatGPT(request):
         return render(request, 'algapp/openai.html', {})
 
 
+
+def add_dish_view(request):
+
+    if request.method == 'POST':
+
+        dish_filled_form = DishAddForm(request.POST)
+
+        restaurant = Restaurant.objects.get(user_id=request.user.id)
+        print(restaurant.id)
+        new_menu = Menu()
+        new_menu.save()
+        new_menu.restaurant_id.add(restaurant.id)
+        dish_id_to_add = DishesIng.objects.latest('id')
+        new_menu.dish_id.add(dish_id_to_add)
+        print(new_menu)
+        new_menu.save()
+
+        if dish_filled_form.is_valid(): 
+            new_dish = dish_filled_form.save() 
+            dish_main_ingredients = dish_filled_form.cleaned_data['dish_main_ingredients']
+            new_dish.dish_main_ingredients.add(*dish_main_ingredients) 
+            dish_var_ingredients = dish_filled_form.cleaned_data['dish_var_ingredients']
+            new_dish.dish_var_ingredients.add(*dish_var_ingredients) 
+            dish_id_to_add = DishesIng.objects.latest('id')
+            new_menu.dish_id.add(dish_id_to_add)
+            print(new_menu)
+            new_menu.save()
+            
+            print("dish_main_ingredients:", dish_main_ingredients)
+            print("dish_var_ingredients:", dish_var_ingredients)
+            print(request.user.restaurant)
+            
+            context = {'new_dish': new_dish}
+            return render(request, 'algapp/add_dish.html', context)
+        
+        else:
+            print(dish_filled_form.errors)
+            return HttpResponse(dish_filled_form.errors)
+
+    if request.method == 'GET':
+        
+        dishes = DishesIng.objects.all()
+        print(dishes)
+        dish_filled_form = DishAddForm()
+        context = {'form': dish_filled_form,
+                   'dishes': dishes}
+        return render(request, 'algapp/add_dish.html', context)
     
 
 

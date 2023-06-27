@@ -29,6 +29,17 @@ class Dishes(models.Model):
         return ", ".join(self.dish_main_ings, self.dish_var_ings)
     
 
+class DishesIng(models.Model):
+    
+    name = models.CharField(max_length=50, blank=False, db_index=True)
+    dish_main_ingredients = models.ManyToManyField('Ingredients', related_name='main_dishes')
+    dish_var_ingredients = models.ManyToManyField('Ingredients', related_name='var_dishes')
+
+    def __str__(self):
+        return f"{self.name} {self.dish_main_ingredients}"
+    def list_ing(self):
+        return ", ".join(self.dish_main_ingredients, self.dish_var_ingredients)
+
 
 class Restaurant(models.Model):
 
@@ -53,6 +64,13 @@ class Menu(models.Model):
 
 
 class Allergens(models.Model):
+
+    name = models.CharField(max_length=50, blank=False, db_index=True, unique=True)
+
+    def __str__(self):
+        return f"{self.name}"
+    
+class Ingredients(models.Model):
 
     name = models.CharField(max_length=50, blank=False, db_index=True, unique=True)
 

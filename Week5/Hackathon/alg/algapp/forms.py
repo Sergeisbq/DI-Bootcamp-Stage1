@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Customer, Dishes, Restaurant, Menu, Allergens
+from .models import Customer, Dishes, Restaurant, Menu, Allergens, Ingredients, DishesIng
 
 
 
@@ -36,6 +36,17 @@ class SomeForm(forms.Form):
 class DishForm(forms.Form):
 
     dishes = forms.ModelChoiceField(queryset=Dishes.objects.all())
+
+class DishAddForm(forms.ModelForm):
+
+    class Meta: 
+        model = DishesIng
+        fields = ('name',)
+        # widgets = {
+        #     'user': forms.HiddenInput(),
+        # }
+    dish_main_ingredients = forms.ModelMultipleChoiceField(queryset=Ingredients.objects.all().order_by('name')) 
+    dish_var_ingredients = forms.ModelMultipleChoiceField(queryset=Ingredients.objects.all().order_by('name'))
 
 class RestForm(forms.Form):
 

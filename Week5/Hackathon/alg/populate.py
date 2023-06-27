@@ -78,19 +78,19 @@ list_of_main_ingridients = ['celery', 'egg', 'fish', 'garlic', 'milk', 'mustard'
 
 list_of_var_ingridients = ['sesame', 'wallnut', 'honey', 'pepper', 'chilie', 'sugar']
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    print("Populating database, table 'Dishes'")
-    for _ in range(30):
-        name_1 = fake.language_name().split()
-        dish_main_ings_add = random.sample(list_of_main_ingridients, 8)
-        dish_var_ings_add = random.sample(list_of_var_ingridients, 2)
-        new_dish = Dishes(name = name_1[0],
-                        dish_main_ings = dish_main_ings_add,
-                        dish_var_ings = dish_var_ings_add
-                        )
-        print(new_dish)
-        new_dish.save()
+#     print("Populating database, table 'Dishes'")
+#     for _ in range(30):
+#         name_1 = fake.language_name().split()
+#         dish_main_ings_add = random.sample(list_of_main_ingridients, 8)
+#         dish_var_ings_add = random.sample(list_of_var_ingridients, 2)
+#         new_dish = Dishes(name = name_1[0],
+#                         dish_main_ings = dish_main_ings_add,
+#                         dish_var_ings = dish_var_ings_add
+#                         )
+#         print(new_dish)
+#         new_dish.save()
 
 
 ### Adding restaurants to db
@@ -193,5 +193,45 @@ def is_allergic(customer_id: int, dish_id: int) -> bool:
 
     
     
+main_ingredients = ["Salt", "Pepper", "Olive oil", "Garlic", "Onion", "Tomato",
+                    "Chicken", "Beef", "Rice", "Pasta", "Lemon", "Butter",
+                    "Sugar", "Flour", "Eggs", "Milk", "Cheese", "Carrots", 
+                    "Potatoes", "Cucumber", "Spinach", "Basil", "Parsley", 
+                    "Thyme", "Oregano", "Cumin", "Paprika", "Ginger", "Soy sauce", 
+                    "Vinegar", "Honey", "Mustard", "Chili powder", "Turmeric", "Bay leaves", 
+                    "Nutmeg", "Cinnamon", "Coriander", "Celery", "Bell peppers", "Coconut milk", 
+                    "Worcestershire sauce", "Sesame oil", "Balsamic vinegar", "Dill", "Rosemary", "Mint", 
+                    "Red wine", "White wine", "Fish sauce", "Cilantro", "Lime", "Yogurt", 
+                    "Hoisin sauce", "Green onions", "Black beans", "Cornstarch", "Mayonnaise", "Maple syrup", 
+                    "Brown sugar", "Cayenne pepper", "Tofu", "Shrimp", "Salmon", "Crushed red pepper", 
+                    "Anchovies", "Sour cream", "Parmesan cheese", "Cheddar cheese", "Blue cheese", "Ground turkey", 
+                    "Ground cumin", "Ground coriander", "Ground ginger", "Tuna", "Coconut oil", "Sesame seeds", 
+                    "Rose water", "Cardamom", "Ground cloves", "Almonds", "Cashews", "Peppermint extract", 
+                    "Raisins", "Oats", "Quinoa", "Avocado", "Pineapple", "Orange", 
+                    "Lime juice", "Zucchini", "Kale", "Red onion", "Brown rice", "Ground beef", 
+                    "Ground pork", "Cocoa powder", "Tomato paste", "Tomato sauce", "Red pepper flakes", "Breadcrumbs", 
+                    "Baking powder", "Baking soda", "Vanilla extract", "Ground cinnamon", "Chicken broth", "Peanut butter", 
+                    "Apple", "Green beans", "Shallots", "Mushrooms", "Brussels sprouts", "Lentils", 
+                    "Walnuts", "Sunflower seeds", "Poppy seeds", "Chia seeds", "Ground nutmeg", "Ground turmeric", 
+                    "Ground paprika", "Ground cayenne pepper", "Barbecue sauce", "Salsa", "Sweet potatoes", "Provolone cheese",
+                    "Ricotta cheese", "Artichokes", "Yellow onion", "Rosemary leaves", "Ground thyme", "Sage", 
+                    "Parsnip", "Watermelon", "Red curry paste", "Pesto", "White vinegar", "Tabasco sauce", 
+                    "Ground allspice", "Ground fennel", "Hazelnuts", "Pecans", "Flaxseed", "Seaweed", 
+                    "Garam masala", "Crushed tomatoes", "Fresh ginger", "Cilantro leaves", "Tomato juice", "Pomegranate molasses", 
+                    "Chickpeas", "Red lentils", "Wheat flour", "Chickpea flour", "Pita bread", "Popcorn", 
+                    "Lavender", "Arrowroot powder", "Marjoram", "Bouillon cubes"]
+
+print(len(main_ingredients))
+
+
+if __name__ == '__main__':
+
+    print("Populating database, table 'Ingredients'")
+    for i in range(len(main_ingredients)):
+        print(main_ingredients[i])
+
+        new_ing = Ingredients(name = main_ingredients[i])
+        print(new_ing)
+        new_ing.save()
 
     

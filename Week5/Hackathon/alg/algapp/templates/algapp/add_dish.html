@@ -1,0 +1,20 @@
+{%extends 'algapp/base.html'%}
+
+{%block content%}
+<div class="rectangle3add"></div><h1 class="h1cadd">Please, type your full name, e-mail and choose the allergens from list below<br>to get the ability of using our service </h1>
+    {% for dish in dishes %}
+        <p><b>{{dish.name}}</b>
+        {% for ingredient in dish.dish_main_ingredients.all %}
+        {{ ingredient.name }},
+        {% endfor %}
+        {% for ingredient in dish.dish_var_ingredients.all %}
+        {{ ingredient.name }},
+        {% endfor %}</p>
+    {% endfor %}
+    <form class="form_add_c" method="post"> 
+        {%csrf_token%}
+            {{form}}
+        <button type="submit"> Add Dish </button>
+    </form>
+
+{%endblock content%}
