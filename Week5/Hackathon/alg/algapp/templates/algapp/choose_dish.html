@@ -14,18 +14,37 @@
     <div class="menu-container">
         <div id="boxes"> 
             {%csrf_token%}
-            {%for dish, allergic in dishes_allergens%}
-            <div class="content">
-            <p><b>{{dish.name}}</b></p><br> 
-            Ingridients:{%for i in dish.dish%}<br>
-            {{i}}
-            {%endfor%}<br><br>
-            <div id="dish_phrase">
-            {%if allergic%}
-            <p><img src="/static/algapp/images/3.png" width="30px"><br><b>{{allergic}}</b></p>
-            {%endif%}
-            </div><br>
-            </div>
+            {%for dish, allergic_m, allergic_v in dishes_allergens%}
+                <div class="content">
+                <p><b>{{dish.name}}</b></p><br> 
+                Ingridients:
+                {% for i in dish.dish_main_ings %}
+                <br>
+                    {% if i in allergic_m %}
+                        <span style="color: red;">{{ i }}</span>
+                    {% else %}
+                        {{ i }}
+                    {% endif %}
+                {% endfor %}<br><br>
+                {% for i in dish.dish_var_ings %}
+                <br>
+                    {% if i in allergic_v %}
+                        <span style="color: orange;">{{ i }}</span>
+                    {% else %}
+                        {{ i }}
+                    {% endif %}
+                {% endfor %}<br><br>
+                <div id="dish_phrase">
+                {% if allergic_m %}
+                    <p><img src="/static/algapp/images/warning_red.png" width="30px"></p><br>
+                    <p><b>Found allergens in base ingredients: {% for allergen in allergic_m %}{{ allergen }}{% if not forloop.last %}, {% endif %}{% endfor %}</b></p>
+                {% endif %}
+                {% if allergic_v %}
+                    <p><img src="/static/algapp/images/warning_yellow.png" width="30px"></p><br>
+                    <p><b>Found allergens in modifiable ingredients: {% for allergen in allergic_v %}{{ allergen }}{% if not forloop.last %}, {% endif %}{% endfor %}</b></p>
+                {% endif %}
+                </div><br>
+                </div>
             {% endfor %}
         </div>
     </div>

@@ -12,7 +12,7 @@
         <form method="post" action="{% url 'dish_path' r.id%}">
             {% csrf_token %}
             
-            <button type="submit" name="process_button">Show adapted menu</button>
+            <button type="submit" name="process_button">Highlight your allergens</button>
         </form>
     </div>
 </div>
@@ -24,7 +24,10 @@
             {%for dish in dishes%}
             <div class="content">
             <p><b>{{dish.name}}</b></p><br> 
-            Ingridients:{%for i in dish.dish%}<br>
+            Ingridients:{%for i in dish.dish_main_ings%}<br>
+            {{i}}
+            {%endfor%}<br><br>
+            {%for i in dish.dish_var_ings%}<br>
             {{i}}
             {%endfor%}<br><br>
 

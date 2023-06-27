@@ -85,28 +85,6 @@ def update_profile_view(request):
     
 
 
-def update_restaurant_view(request):
-    rest_customer = Restaurant.objects.get(user_id=request.user.id)
-
-    if request.method == 'POST':
-        rest_filled_form = RestAddForm(request.POST, instance=rest_customer)
-        
-        if rest_filled_form.is_valid():
-            updated_rest = rest_filled_form.save()
-            
-            context = {'updated_customer': updated_rest}
-            return render(request, 'algapp/home.html', context)
-        
-        else:
-            print(rest_filled_form.errors)
-            return HttpResponse(rest_filled_form.errors)
-
-    if request.method == 'GET':
-        rest_filled_form = RestAddForm(instance=rest_customer)
-        context = {'form': rest_filled_form}
-        return render(request, 'algapp/update_restaurant.html', context)
-
-
 def add_rest_view(request):
 
     if request.method == 'POST':
@@ -122,6 +100,7 @@ def add_rest_view(request):
              for _ in range(random.randint(12, 18)):
 
                 list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
+                print(list_of_dishes)
                 restaurant_id_to_add_1 = Restaurant.objects.latest('id')
                 restaurant_id_to_add = restaurant_id_to_add_1.id
                 dish_id_to_add = random.choice(list_of_dishes)
@@ -150,6 +129,26 @@ def add_rest_view(request):
 
 
 
+def update_restaurant_view(request):
+    rest_customer = Restaurant.objects.get(user_id=request.user.id)
+
+    if request.method == 'POST':
+        rest_filled_form = RestAddForm(request.POST, instance=rest_customer)
+        
+        if rest_filled_form.is_valid():
+            updated_rest = rest_filled_form.save()
+            
+            context = {'updated_customer': updated_rest}
+            return render(request, 'algapp/home.html', context)
+        
+        else:
+            print(rest_filled_form.errors)
+            return HttpResponse(rest_filled_form.errors)
+
+    if request.method == 'GET':
+        rest_filled_form = RestAddForm(instance=rest_customer)
+        context = {'form': rest_filled_form}
+        return render(request, 'algapp/update_restaurant.html', context)
 
 
 def is_allergic(request, customer_id: int, dish_id: int) -> bool:
@@ -159,16 +158,30 @@ def is_allergic(request, customer_id: int, dish_id: int) -> bool:
     allergens = person_algens.allergens.all()
     dish = Dishes.objects.get(id=dish_id)
     
-    ingredients = dish.dish
+    ingredients_main = dish.dish_main_ings
+    ingredients_var = dish.dish_var_ings
     print(customer_id)
     print(request.user.id)
     print(allergens) 
     print('here is a dish',dish)
     print(request.user.customer.first_name)
+    found_allergens_main = []
+    found_allergens_var = []
     for allergen in allergens:
-        if allergen.name in ingredients:
-            return f"FOUND ALLERGEN - {allergen}" 
-    return None #f"This dish is ok for you"
+        if allergen.name in ingredients_main:
+            found_allergens_main.append(allergen.name)
+        elif allergen.name in ingredients_var:
+            found_allergens_var.append(allergen.name)
+    
+    print('Allergens found in main ingredients:', found_allergens_main)
+    print('Allergens found in var ingredients:', found_allergens_var)
+    return found_allergens_main, found_allergens_var
+            # print('Allergens found in ingredients:', found_allergens)
+
+    # for allergen in allergens:
+    #     if allergen.name in ingredients:
+    #         return f"FOUND ALLERGEN - {allergen.name}" 
+    # return None #f"This dish is ok for you"
 
 
     
@@ -233,10 +246,14 @@ def one_rest(request, r_id):
     
     if request.method == 'POST' and 'process_button' in request.POST:
         # Process the form data here
-        dishes_allergic = [is_allergic(request, customer.id, dish.id) for dish in dishes]
-        dishes_allergend = list(zip(dishes, dishes_allergic))
+        # dishes_allergic = [is_allergic(request, customer.id, dish.id) for dish in dishes]
+        # dishes_allergend = list(zip(dishes, dishes_allergic))
+        dishes_allergens = []
+        for dish in dishes:
+            found_allergens_main, found_allergens_var = is_allergic(request, customer.id, dish.id)
+            dishes_allergens.append((dish, found_allergens_main, found_allergens_var))
         
-        context = {'dishes_allergens': dishes_allergend, 'r': r}
+        context = {'dishes_allergens': dishes_allergens, 'r': r}
         return render(request, 'algapp/choose_dish.html', context)
     
     context = {'r': r, 'dishes': dishes}

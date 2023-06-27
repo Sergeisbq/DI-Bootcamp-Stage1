@@ -20,12 +20,13 @@ class Customer(models.Model):
 class Dishes(models.Model):
     
     name = models.CharField(max_length=50, blank=False, db_index=True)
-    dish = ArrayField(models.CharField(max_length=250))
+    dish_main_ings = ArrayField(models.CharField(max_length=250))
+    dish_var_ings = ArrayField(models.CharField(max_length=250, default=[], null=True))
 
     def __str__(self):
-        return f"{self.name} {self.dish}"
+        return f"{self.name} {self.dish_main_ings}"
     def list_ing(self):
-        return ", ".join(self.dish)
+        return ", ".join(self.dish_main_ings, self.dish_var_ings)
     
 
 

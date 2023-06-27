@@ -38,13 +38,13 @@ list_of_allergens = ['celery', 'egg', 'fish', 'garlic', 'milk', 'mustard',
 
 
 ### getting customers allergens from Customer table
-algs = Customer.objects.all().filter(id='1').values('allergens')
-algs_2 = list(algs[0].values())
+# algs = Customer.objects.all().filter(id='1').values('allergens')
+# algs_2 = list(algs[0].values())
 # print(algs_2[0])
 
 ### getting dish ingridients from Dishes table
-dish = Dishes.objects.all().filter(id='4').values('dish')
-dish_2 = list(dish[0].values())
+# dish = Dishes.objects.all().filter(id='4').values('dish')
+# dish_2 = list(dish[0].values())
 # print(dish_2[0])
 
 
@@ -67,27 +67,30 @@ dish_2 = list(dish[0].values())
 
 ### Adding dishes to db
 
-# list_of_ingridients = ['celery', 'egg', 'fish', 'garlic', 'milk', 'mustard', 
-#                      'peanut', 'rice', 'sesame', 'soy', 'wallnut', 'honey', 
-#                      'almond', 'apple', 'orange', 'avocado', 'pepper', 'pear',
-#                      'shrimp', 'lamb', 'beef', 'coconut', 'mushrooms', 'bacon',
-#                      'chilie', 'mayonnaise', 'corn', 'onion', 'turkey', 'cheese',
-#                      'pork', 'salt', 'sugar', 'chicken', 'tomato', 'potato', 
-#                      'spinach', 'radish', 'leek', 'pumpkin', 'beans', 'zucchini',
-#                      'cucumber', 'kiwi', 'mango', 'blueberry', 'olives', 'lemon',
-# ]
+list_of_main_ingridients = ['celery', 'egg', 'fish', 'garlic', 'milk', 'mustard', 
+                            'peanut', 'rice', 'soy', 'almond', 'apple', 'orange', 
+                            'avocado', 'pear', 'shrimp', 'lamb', 'beef', 'coconut', 
+                            'mushrooms', 'bacon','mayonnaise', 'corn', 'onion', 'turkey', 
+                            'cheese', 'pork', 'salt', 'chicken', 'tomato', 'potato', 
+                            'spinach', 'radish', 'leek', 'pumpkin', 'beans', 'zucchini',
+                            'cucumber', 'kiwi', 'mango', 'blueberry', 'olives', 'lemon'
+]
 
-# if __name__ == '__main__':
+list_of_var_ingridients = ['sesame', 'wallnut', 'honey', 'pepper', 'chilie', 'sugar']
 
-#     print("Populating database, table 'Dishes'")
-#     for _ in range(30):
-#         name_1 = fake.language_name().split()
-#         dish_ings = random.sample(list_of_ingridients, 6)
-#         new_dish = Dishes(name = name_1[0],
-#                         dish = dish_ings,
-#                         )
-        # print(new_dish)
-        # new_dish.save()
+if __name__ == '__main__':
+
+    print("Populating database, table 'Dishes'")
+    for _ in range(30):
+        name_1 = fake.language_name().split()
+        dish_main_ings_add = random.sample(list_of_main_ingridients, 8)
+        dish_var_ings_add = random.sample(list_of_var_ingridients, 2)
+        new_dish = Dishes(name = name_1[0],
+                        dish_main_ings = dish_main_ings_add,
+                        dish_var_ings = dish_var_ings_add
+                        )
+        print(new_dish)
+        new_dish.save()
 
 
 ### Adding restaurants to db
@@ -111,9 +114,9 @@ dish_2 = list(dish[0].values())
 #         new_restaurant.save()
 
 
-list_of_rests = Restaurant.objects.all().values_list('id', flat=True)
+# list_of_rests = Restaurant.objects.all().values_list('id', flat=True)
 # print(type(list(list_of_rests)))
-list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
+# list_of_dishes = Dishes.objects.all().all().values_list('id', flat=True)
 # print(list_of_dishes)
 
 # if __name__ == '__main__':
@@ -165,9 +168,9 @@ def is_allergic(customer_id: int, dish_id: int) -> bool:
 
         
 
-is_allergic(12, 8)
-choose_dish = Menu.objects.all().filter(restaurant_id=8)
-print(choose_dish)
+# is_allergic(12, 8)
+# choose_dish = Menu.objects.all().filter(restaurant_id=8)
+# print(choose_dish)
 # for i in range(len(person_algens)):
 #     a = list(person_algens[i].values())[0]
 #     b = list(Allergens.objects.all().filter(id=a).values('id')[0].values())
