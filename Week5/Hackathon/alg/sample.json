@@ -1,19 +1,19 @@
 {
-    "id": "cmpl-7NlQJEsGQy8m58NoLUH1uLpSwG08D",
+    "id": "cmpl-7VGLJO8yFaYf2CGpz38RBMWRVGfGo",
     "object": "text_completion",
-    "created": 1685898195,
+    "created": 1687685345,
     "model": "text-davinci-003",
     "choices": [
         {
-            "text": "\n\n{\n  \"name\": \"Pelmeny\",\n  \"ingredients\": [\n    \"1 lb ground beef\",\n    \"1/2 cup onion, finely chopped\",\n    \"1/2 cup cooked rice\",\n    \"1 egg\",\n    \"1/2 teaspoon salt\",\n    \"1/4 teaspoon pepper\",\n    \"1/4 teaspoon garlic powder\"\n  ],\n  \"instructions\": [\n    \"In a large bowl, combine the ground beef, onion, cooked rice, egg, salt, pepper, and garlic powder.\",\n    \"Mix together until all ingredients are evenly distributed.\",\n    \"Form the mixture into small balls, about 1 inch in diameter.\",\n    \"Bring a large pot of salted water to a boil.\",\n    \"Drop the pelmeny into the boiling water and cook for 10 minutes.\",\n    \"Remove the pelmeny from the water and serve hot.\"\n  ]\n}",
+            "text": "\n\n{\n  \"name\": \"Fish & Chips\",\n  \"ingredients\": [\n    \"Potatoes\",\n    \"Vegetable Oil\",\n    \"Salt\",\n    \"Flour\",\n    \"Eggs\",\n    \"Breadcrumbs\"\n  ],\n  \"instructions\": [\n    \"Peel and cut the potatoes into chips. Place them in a bowl of cold water and set aside.\",\n    \"Heat the oil in a deep-fryer or large saucepan to 350\u00b0F.\",\n    \"Drain the potatoes and pat dry with paper towels. Fry the chips in batches for 3 to 5 minutes, or until golden brown.\",\n    \"Remove the chips from the oil and drain on paper towels. Sprinkle with salt.\",\n    \"In a shallow bowl, mix together the flour, eggs, and breadcrumbs.\",\n    \"Dip the fish fillets in the flour mixture, coating both sides. Shake off any excess.\",\n    \"Fry the fish in the hot oil for 3 to 5 minutes, or until golden brown and cooked through.\",\n    \"Drain the fish on paper towels. Serve with the chips.\"\n  ]\n}",
             "index": 0,
             "logprobs": null,
             "finish_reason": "stop"
         }
     ],
     "usage": {
-        "prompt_tokens": 17,
-        "completion_tokens": 205,
-        "total_tokens": 222
+        "prompt_tokens": 25,
+        "completion_tokens": 256,
+        "total_tokens": 281
     }
 }

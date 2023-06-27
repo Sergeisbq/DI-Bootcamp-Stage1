@@ -1,95 +1,70 @@
 import {useState, useEffect} from 'react';
 import {useParams, Link, useNavigate} from 'react-router-dom';
+import Photo from './Photo';
 
 const PhotoContainer = (props) => {
-    const [product, setProduct] = useState([]);
-    const[name, setName] = useState('');
-    const[price, setPrice] = useState('');
+    const [photo, setPhoto] = useState([]);
+    const [param, setParam] = useState('');
 
-    const param = useParams();
-    const navigate = useNavigate();
+    // const [data, setData] = useState([]);
+    // const param = useParams();
+    // const navigate = useNavigate();
 
 
-    useEffect(() => {
-        getProductInfo()
-    }, [])
+    // useEffect(() => {
+    //     getProductInfo()
+    // }, [])
 
-    const getProductInfo = async() => {
-        try {
-            const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/products/${param.id}`);
-            const data = await res.json();
-            setProduct(data);
-
-            setName(data[0].name);
-            setPrice(data[0].price);
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
-
-    const update = async(e) => {
+    const getPhotos = async(e) => {
         e.preventDefault()
-        try {
-            const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/products/${param.id}`, {
-                method: 'PUT',
-                headers:{
-                    'Content-type': 'application/json'
-                },
-                body:JSON.stringify({name, price})
-            });
-            const data = await res.json();
-            setProduct(data);
 
-            // setName(data[0].name);
-            // setPrice(data[0].price);
+        setParam(e.target.elements.handInp.value);
+        const inpVal = e.target.elements.handInp.value
+        try {
+            const res = await fetch(`https://api.pexels.com/v1/search/?query=${inpVal}&per_page=30`, {
+                headers: {
+                  Authorization: "uOMcIuQQUpA43uqWya8DxDxrkvd8XD1BPT85WVRtw6BNPcTzAejrcW0h"
+                }
+            })
+            
+            const data = await res.json();
+            console.log(data.photos);
+            setPhoto(data.photos);
+            
         }
         catch (e) {
             console.log(e);
         }
     }
 
-    const del = async() => {
-        try {
-            const res = await fetch(`${process.env.REACT_APP_BASE_URL}/api/products/${param.id}`, {
-                method: 'DELETE',
-                headers:{
-                    'Content-type': 'application/json'
-                },
-            });
-            const data = await res.json();
-            console.log(data);
-            navigate('/');
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
+
 
     return (
-        <div>
-            <h1>Product {param.id}</h1>
-            <h2>Update Product</h2>
-            <form onSubmit={update}>
-                    Name: <input type="text" value={name} onChange={(e) => setName(e.target.value)}/><br />
-                    Price: <input type="text" value={price} onChange={(e) => setPrice(e.target.value)}/><br />
-                    <input type="submit" value="Update Product" />
-            </form>
+        <div className='main-container'>
             <div>
-                <h2>Delete Product</h2>
-                <button onClick={del}>Delete Product</button>
+                <form onSubmit={getPhotos}>
+                        <input name="handInp" type="text" onChange={(e) => setParam(e.target.value)}></input>
+                        <button type="submit" >Search</button>
+                        <br />
+                        <button type="submit" >Mountain</button>
+                        <button type="submit" >Beaches</button>
+                        <button type="submit" >Birds</button>
+                        <button type="submit" >Food</button>
+                </form>
             </div>
-            {
-                product.map(item => {
+            <div className='photo-container'>
+                <Photo photos={photo}/>
+            </div>
+            {/* { 
+                photo.map(item => {
                     return (
                         <div key={item.id}>
-                            <h2>{item.name}</h2>
-                            <p>{item.price}$</p>
+                            <img src={item.src.medium} alt='img' width={'100px'} height={'100px'}></img>
+
                         </div>
                     )
                 })
-            }
-            <Link to='/'>Back to Shop</Link>
+            } */}
         </div>
     )
 }

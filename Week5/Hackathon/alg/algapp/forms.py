@@ -9,7 +9,8 @@ class CustomerForm(forms.ModelForm):
         model = Customer
         fields = ('first_name', 'last_name', 'email', 'user')
         widgets = {
-            'user': forms.HiddenInput()
+            'user': forms.HiddenInput(),
+            # 'allergens': forms.ModelMultipleChoiceField(queryset=Allergens.objects.all())
         }
         
     allergens = forms.ModelMultipleChoiceField(queryset=Allergens.objects.all()) 
@@ -20,6 +21,9 @@ class RestAddForm(forms.ModelForm):
     class Meta: 
         model = Restaurant
         fields = ('name', 'address')
+        widgets = {
+            'user': forms.HiddenInput(),
+        }
 
 
 

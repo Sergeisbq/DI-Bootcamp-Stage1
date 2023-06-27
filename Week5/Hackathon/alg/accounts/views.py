@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
-from algapp.models import Customer
+from algapp.models import Customer, Restaurant
 from .forms import ProfileForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -27,6 +27,19 @@ def customer_profile(request):
     return render(request, 'customer_profile.html', context)
 
 
+@login_required
+def restaurant_profile(request):
+    rest_user = request.user
+    print(rest_user.username)
+    rest_customer = Restaurant.objects.get(user=rest_user)
+    print(rest_customer)
+    context = {
+        'rest_user': rest_user,
+        'rest_customer': rest_customer,
+    }
+    return render(request, 'restaurant_profile.html', context)
+
+
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
@@ -38,7 +51,7 @@ def profile_redirect_view(request):
     if hasattr(user, 'profile'):
         return redirect('home_path')
     else:
-        return redirect('add_customer')
+        return redirect('home_path')
 
 
 def create_profile_view(request):

@@ -24,7 +24,9 @@
         <img class="imghp" src="/static/algapp/images/2.jpg">
     </div>
 <div>
+    {% if not request.user.customer %}
     <button class="add_rest_b" type="submit"><a href="{% url 'add_restaurant' %}">Add a restaurant</a></button>
+    {% endif %}
 </div>
 
 

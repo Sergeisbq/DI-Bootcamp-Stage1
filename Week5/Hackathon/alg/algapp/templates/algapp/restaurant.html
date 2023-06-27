@@ -11,8 +11,8 @@
     <div class="form-container"><br>
         <form method="post" action="{% url 'dish_path' r.id%}">
             {% csrf_token %}
-            {{ form }}
-            <button type="submit">Show adapted menu</button>
+            
+            <button type="submit" name="process_button">Show adapted menu</button>
         </form>
     </div>
 </div>

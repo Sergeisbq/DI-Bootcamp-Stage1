@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1> Profile: <small>  </small> </h1>
+<p>Username: {{rest_user.username}}</p>
+<p>Name: {{rest_customer.name}}</p>
+<p>Address: {{rest_customer.address}}</p>
+
+<a href="{% url 'update_restaurant' %}">Update Restaurant</a>
+
+{%endblock content%}
+

@@ -1,0 +1,24 @@
+{%extends 'algapp/base.html'%}
+
+{%block content%}
+
+
+<div class="form-container"><br>
+    <form method="get" action="{% url 'add_customer' %}">
+        {% csrf_token %}
+        
+        <button type="submit" name="process_button">Personal account</button>
+    </form>
+    <form method="get" action="{% url 'add_restaurant' %}">
+        {% csrf_token %}
+        
+        <button type="submit" name="process_button">Business account</button>
+    </form>
+</div>
+
+
+{%endblock content%}
+
+
+
+

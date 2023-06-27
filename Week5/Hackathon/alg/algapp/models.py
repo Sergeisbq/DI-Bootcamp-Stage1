@@ -33,6 +33,7 @@ class Restaurant(models.Model):
 
     name = models.CharField(max_length=50, blank=False, db_index=True, unique=True)
     address = models.CharField(max_length=100, blank=False, db_index=True)
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.name} {self.address}"

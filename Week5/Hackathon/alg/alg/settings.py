@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'algapp',
     'accounts',
+    'django_private_chat2.apps.DjangoPrivateChat2Config',
 ]
 
 MIDDLEWARE = [

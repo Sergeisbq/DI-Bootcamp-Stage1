@@ -17,11 +17,19 @@
     <div id="uppage" class="wrapper_2">
         <div class="box1"></div>
         <div class="box2"><a class="navabout" href="/">Home</a></div>
+        {% if request.user.customer %}
         <div class="box3"><a class="navabout" href="{% url 'openai-ask' %}">Ask us</div>
         <div class="box4"><a class="navabout" href="{% url 'customer_profile' %}">Profile</div>
         <div class="box5"><a class="navabout" href="/restaurants/">Restaurants</a></div>
+        {% endif %}
+        {% if request.user.is_authenticated and not request.user.restaurant and not request.user.customer%}
+        <div class="box4"><a class="navabout" href="{% url 'create_profile' %}">Create profile</a></div>
+        {% endif %}
+        {% if request.user.restaurant and request.user.is_authenticated %}
+        <div class="box4"><a class="navabout" href="{% url 'restaurant_profile' %}">Profile</a></div>
+        {% endif %}
         {% if not request.user.is_authenticated %}
-        <div class="box6"><a class="navabout" href="/add_customer/">For guests</a></div>
+        <!-- <div class="box6"><a class="navabout" href="/add_customer/">For guests</a></div> -->
         {% endif %}
         {% if request.user.is_authenticated %}
         <div class="box7"><a class="resume_l" href="{% url 'logout' %}">Log out</a></div>

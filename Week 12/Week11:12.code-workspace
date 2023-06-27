@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "../../Deploy"
+		},
+		{
+			"path": "../Week5/Hackathon"
+		},
+		{
+			"path": "../Week7/Day2/ExXP"
 		}
 	],
 	"settings": {}

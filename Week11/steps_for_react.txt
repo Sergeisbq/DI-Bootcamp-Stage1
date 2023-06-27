@@ -14,3 +14,6 @@
    - in App.js wrap your export in connect,
 
 10. npm install redux-thunk
+
+
+11. client-server npm i => npm run build => 
