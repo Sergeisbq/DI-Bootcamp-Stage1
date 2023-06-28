@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
-from .views import add_customer_view, rest, one_rest, add_rest_view, ask_chatGPT, update_profile_view, update_restaurant_view, add_dish_view, update_dish_view 
+from .views import add_customer_view, rest, one_rest, add_rest_view, ask_chatGPT, update_profile_view, update_restaurant_view, add_dish_view, update_dish_view, add_ingredient, delete_dish_view
 
 
 
@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.home, name="home_path"),
     path("add_customer/", add_customer_view, name='add_customer'),
     path("add_dish/", add_dish_view, name='add_dish'),
+    path('delete_dish/<int:dish_id>/', delete_dish_view, name='delete_dish'),
+    path("add_ingredient/", add_ingredient, name='add_ingredient'),
     path("update_dish/<int:d_id>", update_dish_view, name='update_dish'),
     path('update-customer/', update_profile_view, name='update_customer'), 
     path('update-restaurant/', update_restaurant_view, name='update_restaurant'), 

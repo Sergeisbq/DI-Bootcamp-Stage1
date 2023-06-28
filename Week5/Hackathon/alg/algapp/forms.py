@@ -13,7 +13,7 @@ class CustomerForm(forms.ModelForm):
             # 'allergens': forms.ModelMultipleChoiceField(queryset=Allergens.objects.all())
         }
         
-    allergens = forms.ModelMultipleChoiceField(queryset=Allergens.objects.all()) 
+    allergens = forms.ModelMultipleChoiceField(queryset=Ingredients.objects.all().order_by('name')) 
 
 
 class RestAddForm(forms.ModelForm):
@@ -51,6 +51,14 @@ class DishAddForm(forms.ModelForm):
 class RestForm(forms.Form):
 
     rests = forms.ModelChoiceField(queryset=Restaurant.objects.all())
+
+
+class IngAddForm(forms.ModelForm):
+
+    class Meta: 
+        model = Ingredients
+        fields = ('name',)
+
 
 
 

@@ -38,7 +38,7 @@ def restaurant_profile(request):
         dishes.extend(menu.dish_id.all())
 
     dishes = list(set(dishes))
-
+    dishes.reverse()
     print(dishes)
     context = {
         'dishes': dishes,

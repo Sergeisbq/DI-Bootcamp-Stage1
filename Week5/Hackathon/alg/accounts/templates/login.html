@@ -3,7 +3,8 @@
 {%block content%}
 <form method="post"> 
     {%csrf_token%}
-    {{form}}
+    {{form.as_p}}
+
     <button type="submit"> Login </button>
 </form>
 <a href="{% url 'home_path' %}"> </a>

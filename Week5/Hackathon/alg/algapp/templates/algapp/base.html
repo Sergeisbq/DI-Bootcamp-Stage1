@@ -38,7 +38,7 @@
         <div class="box7"><a class="resume_l" href="{% url 'login' %}">Log in</a></div>
         {% endif %}
         {% if not request.user.is_authenticated %}
-        <div class="box8"><a class="resume_l" href="{% url 'signup' %}"></a>Sign Up</div>
+        <div class="box8"><a class="resume_l" href="{% url 'signup' %}">Sign Up</a></div>
         {% endif %}
         <div class="box9"></div>
     </div>
