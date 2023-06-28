@@ -1,41 +1,44 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<h1> Profile: <small>  </small> </h1>
-<p>Username: {{rest_user.username}}</p>
-<p>Name: {{rest_customer.name}}</p>
-<p>Address: {{rest_customer.address}}</p>
-<a href="{% url 'update_restaurant' %}">Update Restaurant's information</a><br>
-<a href="{% url 'add_dish' %}">Add dish</a>
-<div class="list_of_rest">
-    <table class="/">
 
-        <tr>
-            <th>Dish name</th>
-            <th>Ingredients</th>
-            <th>Delete</th>
-            {% for dish in dishes %}
-                <tr>
-                    <td><a href="{% url 'update_dish' dish.id %}"><b>{{ dish.name }}</b></a></td>
-                    <td>
-                        {% for ingredient in dish.dish_main_ingredients.all %}
-                            {{ ingredient.name }},
-                        {% endfor %}
-                        {% for ingredient in dish.dish_var_ingredients.all %}
-                            {{ ingredient.name }},
-                        {% endfor %}
-                    </td>
-                    <td>
-                        <form action="{% url 'delete_dish' dish.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tr>
-    </table>
+
+<div class="restaurant-profile">
+    <h2>Restaurant Profile</h2>
+    <div class="restaurant-info">
+        <p>Username: {{rest_user.username}}</p>
+        <p>Name: {{rest_customer.name}}</p>
+        <p>Address: {{rest_customer.address}}</p>
+        <a href="{% url 'update_restaurant' %}">Update Restaurant's information</a><br>
+        <a href="{% url 'add_dish' %}">Add dish</a>
+    </div>
+    
+    <h3>Menu</h3>
+    <div class="menu">
+        {% for dish in dishes %}
+          <div class="dish-card">
+            <div class="dish-details">
+              <h3 class="dish-name"><a href="{% url 'update_dish' dish.id %}">{{ dish.name }}</a></h3>
+              <p class="dish-ingredients">
+                Ingredients:
+                {% for ingredient in dish.dish_main_ingredients.all %}
+                  {{ ingredient.name }},
+                {% endfor %}
+                {% for ingredient in dish.dish_var_ingredients.all %}
+                  {{ ingredient.name }},
+                {% endfor %}
+              </p>
+            </div>
+            <form action="{% url 'delete_dish' dish.id %}" method="post">
+              {% csrf_token %}
+              <button class="delete-button" type="submit">Delete</button>
+            </form>
+          </div>
+        {% endfor %}
+    </div>
 </div>
+
+
 
 
 

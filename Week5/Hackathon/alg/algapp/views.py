@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomerForm, SomeForm, DishForm, RestForm, RestAddForm, DishAddForm, IngAddForm
-from .models import Customer, Dishes, Restaurant, Menu, Allergens, Statistic, DishesIng
+from .forms import CustomerForm, RestForm, RestAddForm, DishAddForm, IngAddForm
+from .models import Customer, Restaurant, Menu, Statistic, DishesIng
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse, reverse_lazy
@@ -21,27 +21,22 @@ def home (request):
 
 
 def add_customer_view(request):
-
     if request.method == 'POST':
-
         customer_filled_form = CustomerForm(request.POST)
-
-        if customer_filled_form.is_valid(): 
-            new_customer = customer_filled_form.save() 
+        if customer_filled_form.is_valid():
+            new_customer = customer_filled_form.save()
             allergens = customer_filled_form.cleaned_data['allergens']
-            new_customer.allergens.add(*allergens) 
-            
+            new_customer.allergens.add(*allergens)
             context = {'new_customer': new_customer}
             return render(request, 'algapp/home.html', context)
-        
         else:
             return HttpResponse(customer_filled_form.errors)
 
     if request.method == 'GET':
-
-        customer_filled_form = CustomerForm(initial={"user": request.user, })
+        customer_filled_form = CustomerForm(initial={"user": request.user})
         context = {'form': customer_filled_form}
         return render(request, 'algapp/add_customer.html', context)
+
     
 
 def update_profile_view(request):

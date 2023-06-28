@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'algapp',
     'accounts',
     'django_private_chat2.apps.DjangoPrivateChat2Config',
+    'django.forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'alg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,4 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'profile-redirect'
 LOGOUT_REDIRECT_URL = 'login'
+
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 

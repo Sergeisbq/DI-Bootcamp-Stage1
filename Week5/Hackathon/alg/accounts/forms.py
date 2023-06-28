@@ -8,5 +8,4 @@ class ProfileForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'user': forms.HiddenInput(),
-            # 'user_id': forms.HiddenInput()
         }
