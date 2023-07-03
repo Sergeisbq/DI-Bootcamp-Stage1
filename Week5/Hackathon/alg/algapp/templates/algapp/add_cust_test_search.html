@@ -34,3 +34,67 @@
   </script>
   
 {% endblock %}
+
+
+
+
+
+
+<div class="bg-image">
+    <div class="menu-container">
+        <div id="boxes"> 
+            {% csrf_token %}
+            {% for dish, allergic_m, allergic_v, ingredients_main, ingredients_var in dishes_allergens %}
+                <div class="content1">
+                    <p class="dish-name"><b>{{ dish.name }}:</b></p>
+                </div>
+                <div class="content1">
+                    <p class="dish-name">
+                        {% for i in ingredients_main %}
+                            {% if i in allergic_m %}
+                                <span class="allergen-warning">{{ i }}</span>,
+                            {% else %}
+                                <span>{{ i }}</span>,
+                            {% endif %}
+                        {% endfor %}
+                        {% for i in ingredients_var %}
+                            {% if forloop.last %}
+                                {% if i in allergic_v %}
+                                    <span class="modifiable-allergen-warning">{{ i }}.</span>
+                                {% else %}
+                                    <span>{{ i }}.</span>
+                                {% endif %}
+                            {% else %}
+                                {% if i in allergic_v %}
+                                    <span class="modifiable-allergen-warning">{{ i }},</span>
+                                {% else %}
+                                    <span>{{ i }},</span>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="content1">
+                    {% if allergic_m %}
+                        <div class="object" onmouseover="showPopup()" onmouseout="hidePopup()">
+                            <img src="/static/algapp/images/warning_red.png" width="20px">
+                            
+                            <div id="popup"><b>Found allergens in base ingredients: {% for allergen in allergic_m %} {{ allergen }} {% endfor %}. 
+                                It couldn't be changed or replace, we recommend you avoid this dish</b>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if allergic_v %}
+                        <div class="object" onmouseover="showPopup()" onmouseout="hidePopup()">
+                            <img src="/static/algapp/images/warning_yellow.png" width="20px">
+                            
+                            <div id="popup"><b>Found allergens in base ingredients: {% for allergen in allergic_m %} {{ allergen }} {% endfor %}. 
+                                It couldn't be changed or replace, we recommend you avoid this dish</b>
+                            </div>
+                        </div>      
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

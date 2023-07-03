@@ -187,12 +187,10 @@ def one_rest(request, r_id):
         for dish in menu.dish_id.all():
             dishes.append(dish)
 
-    customer = request.user
-
     if request.method == 'POST' and 'process_button' in request.POST:
         dishes_allergens = []
         for dish in dishes:
-            found_allergens_main, found_allergens_var = is_allergic(request, customer.id, dish.id)
+            found_allergens_main, found_allergens_var = is_allergic(request, dish.id)
             ingredients_main = dish.dish_main_ingredients.all()
             ingredients_var = dish.dish_var_ingredients.all()
             dishes_allergens.append((dish, found_allergens_main, found_allergens_var, ingredients_main, ingredients_var))
@@ -202,6 +200,40 @@ def one_rest(request, r_id):
             'r': r,
         }
         return render(request, 'algapp/choose_dish.html', context)
+    
+    context = {'r': r, 'dishes': dishes}
+    return render(request, 'algapp/restaurant.html', context)
+
+
+def one_rest_no_red(request, r_id):
+    r = Restaurant.objects.get(pk=r_id)
+    menus = Menu.objects.filter(restaurant_id=r.id)
+    dishes = []
+
+    for menu in menus:
+
+        for dish in menu.dish_id.all():
+            found_allergens_main, found_allergens_var = is_allergic(request, dish.id)
+            if not found_allergens_main and not found_allergens_var:
+                dishes.append(dish)
+            elif found_allergens_var and not found_allergens_main:
+                dishes.append(dish)
+
+
+    if request.method == 'POST' and 'process_button' in request.POST:
+        dishes_allergens = []
+        for dish in dishes:
+            found_allergens_main, found_allergens_var = is_allergic(request, dish.id)
+            ingredients_main = dish.dish_main_ingredients.all()
+            ingredients_var = dish.dish_var_ingredients.all()
+            dishes_allergens.append((dish, found_allergens_var, ingredients_main, ingredients_var))
+        
+        context = {
+            'dishes_allergens': dishes_allergens, 
+            'r': r,
+        }
+        
+        return render(request, 'algapp/one_rest_no_red.html', context)
     
     context = {'r': r, 'dishes': dishes}
     return render(request, 'algapp/restaurant.html', context)
@@ -319,7 +351,6 @@ def add_dish_view(request):
 
 
 def update_dish_view(request, d_id):
-    print('ID HERE', d_id)
     dish = DishesIng.objects.get(id=d_id)
     dish_main_ingredients = dish.dish_main_ingredients.all()
     dish_var_ingredients = dish.dish_var_ingredients.all()
@@ -335,9 +366,8 @@ def update_dish_view(request, d_id):
             updated_dish.dish_main_ingredients.set(dish_main_ingredients) 
             dish_var_ingredients = dish_filled_form.cleaned_data['dish_var_ingredients']
             updated_dish.dish_var_ingredients.set(dish_var_ingredients) 
-            print('Here is update')
-            context = {'updated_dish': updated_dish}
-            return render(request, 'restaurant_profile.html', context)
+            
+            return redirect('restaurant_profile')
         
         else:
 

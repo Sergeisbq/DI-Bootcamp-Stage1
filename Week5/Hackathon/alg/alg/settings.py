@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,15 +81,27 @@ WSGI_APPLICATION = 'alg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+db_key = os.getenv('DB_PASS_ES')
+
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'Hackathon',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
+
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Hackathon',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'jxmwrkcp',
+        'USER': 'jxmwrkcp',
+        'PASSWORD': db_key,
+        'HOST': 'lucky.db.elephantsql.com',
         'PORT': '5432',
     }
+
 }
 
 

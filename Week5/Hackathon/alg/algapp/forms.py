@@ -14,7 +14,7 @@ class CustomerForm(forms.ModelForm):
 
     allergens = forms.ModelMultipleChoiceField(
         queryset=Ingredients.objects.all().order_by('name'),
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'allergen-checkbox'})
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'allergen-checkbox scroll-div'})
     )
 
     def __init__(self, *args, **kwargs):
@@ -67,6 +67,10 @@ class DishAddForm(forms.ModelForm):
         # }
     dish_main_ingredients = forms.ModelMultipleChoiceField(queryset=Ingredients.objects.all().order_by('name')) 
     dish_var_ingredients = forms.ModelMultipleChoiceField(queryset=Ingredients.objects.all().order_by('name'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['dish_var_ingredients'].required = False
 
 class RestForm(forms.Form):
 

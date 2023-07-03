@@ -19,25 +19,26 @@
 
 <div class="bg-image">
     <div class="menu-container">
-        <div id="boxes"> 
-
-            {%for dish in dishes%}
-            <div class="content">
-            <p><b>{{dish.name}}</b></p><br> 
-            Ingridients:{%for i in dish.dish_main_ingredients.all%}<br>
-            {{i}}
-            {%endfor%}
-            {%for i in dish.dish_var_ingredients.all%}<br>
-            {{i}}
-            {%endfor%}<br><br>
-
+        <div id="boxes">
+            {% for dish in dishes %}
+            <div class="content1">
+                <p class="dish-name"><b>{{ dish.name }}</b>
+                - {% for i in dish.dish_main_ingredients.all %}
+                    {{ i }},
+                {% endfor %}
+                {% for i in dish.dish_var_ingredients.all %}
+                    {% if forloop.last %}
+                    {{ i }}.
+                    {% else %}
+                    {{ i }},
+                    {% endif %}
+                {% endfor %}</p>
             </div>
             {% endfor %}
         </div>
     </div>
     <div>
-        
-        
+
     </div>
 </div>
     

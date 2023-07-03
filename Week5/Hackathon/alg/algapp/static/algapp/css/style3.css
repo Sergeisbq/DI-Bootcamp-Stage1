@@ -312,27 +312,12 @@ body {
 
 }
 
-
-/* .bg-image {
-    background-image: url('https://example.com/background-image.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.5;
-} */
-  
-  /* Menu container */
 .menu-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 65%;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
@@ -342,6 +327,7 @@ body {
   /* Boxes */
 #boxes, .content_rsp {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -591,33 +577,173 @@ table {
     background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     
-    border: 3px solid green;
+    border: 3px solid rgb(17, 0, 128);
     /* Add additional styles as needed */
   }
   
+  
+  
+  
+
+  
+
+
+.content1 {
+    display: inline-block;
+    /* Add CSS styles for the dish content */
+}
+
+
+
+
+.object {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* Added position property */
+  }
+  
+  .popup {
+    display: none;
+    position: absolute;
+    
+    width: 1000%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.red-popup {
+    background-color: #ecabbb;
+}
+
+.yellow-popup {
+    background-color: rgb(234, 179, 77);
+}
+
+
+
+.object:hover .popup {
+    display: block;
+}
+
+
+
+  
+
+  
+  
+
+  .dish-info {
+    display: flex;
+    align-items: center;
+  }
+  
   .dish-name {
-    margin-top: 0;
+    white-space: nowrap;
+    margin-right: 10px;
   }
   
   .dish-ingredients {
-    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
-  .delete-button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
+
   
-  .delete-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .scrollbar-y{
-    overflow-y: scroll !important;
-    max-height:20px !important;
- }
-  
+.object img {
+margin-left: 10px;
+}
+
+.choose_acc {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+}
+
+.form-container2 {
+
+    width: 200px;
+    margin-bottom: 20px;
+    border: 3px solid orange;
+}
+
+.under_the_btn {
+    
+    color: rgb(214, 20, 20) !important;
+}
+
+
+.wrapper_3 {
+    
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: 1;
+    gap: 10px 20px;
+    /* justify-items: end; */
+    /* align-items: end; */
+    width: 100%;
+    height: 100px;
+    
+    text-align: center;
+}
+
+.dish-name-box {
+    
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 1;
+    grid-column-end: 4;
+    padding-top: 13%;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+.dish-ing-box {
+    
+    grid-row-start: 1;
+    grid-column-start: 5;
+    grid-row-end: 1;
+    grid-column-end: 12;
+    /* padding-top: 10%; */
+    margin-top: 5%;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+.dish-btn-box {
+    
+    grid-row-start: 1;
+    grid-column-start: 13;
+    grid-row-end: 1;
+    grid-column-end: 15;
+    /* padding-top: 10%; */
+    margin-top: 25px;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+div#id_allergens, div.scroll-div {
+    overflow-y: scroll;
+    height: 150px;
+    width: 100%;
+
+}
+
+.allergen-warning {
+    color: red;
+}
+
+.modifiable-allergen-warning {
+    color: orange;
+}
+
