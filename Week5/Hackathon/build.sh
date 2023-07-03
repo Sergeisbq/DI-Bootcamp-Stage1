@@ -4,5 +4,5 @@ set -o errexit
 
 pip install -r requirements.txt
 
-python3 alg/manage.py collectstatic --no-input
-python3 alg/manage.py migrate
+python alg/manage.py collectstatic --no-input
+python alg/manage.py migrate
