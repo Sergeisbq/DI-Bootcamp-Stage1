@@ -1,19 +1,19 @@
 {
-    "id": "cmpl-7VGLJO8yFaYf2CGpz38RBMWRVGfGo",
+    "id": "cmpl-7YE5OpEZTC11IrPoEHmlAwc1VKW5g",
     "object": "text_completion",
-    "created": 1687685345,
+    "created": 1688391654,
     "model": "text-davinci-003",
     "choices": [
         {
-            "text": "\n\n{\n  \"name\": \"Fish & Chips\",\n  \"ingredients\": [\n    \"Potatoes\",\n    \"Vegetable Oil\",\n    \"Salt\",\n    \"Flour\",\n    \"Eggs\",\n    \"Breadcrumbs\"\n  ],\n  \"instructions\": [\n    \"Peel and cut the potatoes into chips. Place them in a bowl of cold water and set aside.\",\n    \"Heat the oil in a deep-fryer or large saucepan to 350\u00b0F.\",\n    \"Drain the potatoes and pat dry with paper towels. Fry the chips in batches for 3 to 5 minutes, or until golden brown.\",\n    \"Remove the chips from the oil and drain on paper towels. Sprinkle with salt.\",\n    \"In a shallow bowl, mix together the flour, eggs, and breadcrumbs.\",\n    \"Dip the fish fillets in the flour mixture, coating both sides. Shake off any excess.\",\n    \"Fry the fish in the hot oil for 3 to 5 minutes, or until golden brown and cooked through.\",\n    \"Drain the fish on paper towels. Serve with the chips.\"\n  ]\n}",
+            "text": "\n\n{\n  \"Ingredients\": [\n    \"Fish Fillets\",\n    \"Flour\",\n    \"Salt\",\n    \"Egg\",\n    \"Breadcrumbs\",\n    \"Oil\",\n    \"Potatoes\"\n  ],\n  \"Instructions\": [\n    \"1. Preheat the oven to 400 degrees F (200 degrees C).\",\n    \"2. Rinse the fish fillets and pat dry with paper towels.\",\n    \"3. In a shallow bowl, mix together the flour, salt, and pepper.\",\n    \"4. In a separate shallow bowl, beat the egg. In a third shallow bowl, mix together the breadcrumbs.\",\n    \"5. Dip the fish fillets in the flour mixture, then the egg, and then the breadcrumbs.\",\n    \"6. Place the coated fish fillets on a greased baking sheet.\",\n    \"7. Bake in the preheated oven for 15 minutes, or until the fish flakes easily with a fork.\",\n    \"8. Meanwhile, heat oil in a deep-fryer or large saucepan to 375 degrees F (190 degrees C).\",\n    \"9. Peel and cut the potatoes into thick strips.\",\n    \"10. Fry the potatoes in the hot oil until golden brown, about 5 minutes. Drain on paper towels.\",\n    \"11. Serve the fish and chips hot.\"\n  ]\n}",
             "index": 0,
             "logprobs": null,
             "finish_reason": "stop"
         }
     ],
     "usage": {
-        "prompt_tokens": 25,
-        "completion_tokens": 256,
-        "total_tokens": 281
+        "prompt_tokens": 31,
+        "completion_tokens": 303,
+        "total_tokens": 334
     }
 }

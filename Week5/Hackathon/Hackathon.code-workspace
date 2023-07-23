@@ -8,6 +8,15 @@
 		},
 		{
 			"path": "../../../../Downloads/myproject"
+		},
+		{
+			"path": "../../../Deploy_FP"
+		},
+		{
+			"path": "../../../Portfolio_project"
+		},
+		{
+			"path": "../.."
 		}
 	],
 	"settings": {}
