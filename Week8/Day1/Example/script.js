@@ -163,3 +163,67 @@
 //     clearInterval(id_c);
 // }
 // setTimeout(y, 1000*6);
+
+
+// function checkAnagram(s, t) {
+//     let s_s = [];
+//     let t_t = [];
+    
+//     for (let i = 0; i < s.length; i++) {
+//       s_s.push(s[i]);
+//     }
+  
+//     for (let i = 0; i < t.length; i++) {
+//       t_t.push(t[i]);
+//     }
+  
+//     let s_s_s = s_s.sort().join('').split('');
+//     let t_t_t = t_t.sort().join('').split('');
+    
+//     console.log(s_s_s, t_t_t);
+  
+//     return s_s_s === t_t_t;
+//   }
+  
+  
+
+
+// function groupAnagrams(strs) {
+//     const anagramGroups = {};
+
+//     for (const str of strs) {
+//         // Sort the characters in the string to get the key for grouping anagrams
+//         const sortedStr = str.split('').sort().join('');
+
+//         // Add the current string to the anagram group
+//         if (!anagramGroups[sortedStr]) {
+//             anagramGroups[sortedStr] = [str];
+//         } else {
+//             anagramGroups[sortedStr].push(str);
+//         }
+//     }
+
+//     // Convert the values of the HashMap into an array and return the result
+//     return Object.values(anagramGroups);
+// }
+
+// // Test cases
+// console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+// console.log(groupAnagrams([""]));
+// console.log(groupAnagrams(["a"]));
+
+
+
+function checkVowels(str) {
+    let str2 = '';
+    for (let i=0; i<str.length; i++) {
+        if (str[i].match(/[aeiou]/i)) {
+
+        } else {
+            str2 += str[i]
+        }
+    } 
+    return str2
+}
+
+console.log(checkVowels('This website is for losers LOL!'))
