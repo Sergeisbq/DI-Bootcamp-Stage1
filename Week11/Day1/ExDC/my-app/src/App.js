@@ -1,12 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import DemoCarousel from './Carousel.js';
+import "./App.css";
+import ParentComponent from "./ParentComponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <DemoCarousel />
+        <ParentComponent />
       </header>
     </div>
   );
